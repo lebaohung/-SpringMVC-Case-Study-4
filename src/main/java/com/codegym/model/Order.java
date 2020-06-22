@@ -7,21 +7,24 @@ import javax.persistence.*;
 public class Order {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int orderId;
     private String receiverName;
     private String receiverProvinceId;
     private String receiverAddress;
     private String receiverPhone;
-    private Integer status;
+    private int status;
     private String createdDate;
 
-    public Integer getId() {
-        return id;
+    public Order() {
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public Integer getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Integer id) {
+        this.orderId = id;
     }
 
     public String getReceiverName() {
@@ -71,12 +74,5 @@ public class Order {
     public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
     }
-
-    public Order() {
-    }
-
-
-
-
 
 }

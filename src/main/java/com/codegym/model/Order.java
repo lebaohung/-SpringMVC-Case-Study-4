@@ -3,7 +3,7 @@ package com.codegym.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "orders")
+@Table(name = "Orders")
 public class Order {
 
     @Id
@@ -14,9 +14,18 @@ public class Order {
     private String receiverAddress;
     private String receiverPhone;
     private int status;
+    private float weight;
     private String createdDate;
 
     public Order() {
+    }
+
+    public float getWeight() {
+        return weight;
+    }
+
+    public void setWeight(float weight) {
+        this.weight = weight;
     }
 
     public Long getOrderId() {

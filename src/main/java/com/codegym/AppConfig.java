@@ -92,7 +92,7 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
         return em;
     }
 
-    private Properties additionalProperties() {
+    Properties additionalProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.hbm2ddl.auto", "update");
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
@@ -120,7 +120,7 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     @Bean
     public MessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasename("message");
+        messageSource.setBasename("messages");
         return messageSource;
     }
 

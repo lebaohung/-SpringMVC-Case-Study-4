@@ -51,7 +51,7 @@ import java.util.Properties;
 @ComponentScan("com.codegym")
 @EnableJpaRepositories("com.codegym.repository")
 @EnableSpringDataWebSupport
-public class ApplicationConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
+public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
 
@@ -184,5 +184,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+//        registry.addResourceHandler("/resources/font/**").addResourceLocations("/resources/font/");
+//        registry.addResourceHandler("/resources/font/flaticon**").addResourceLocations("/resources/font/flaticon/");
     }
 }

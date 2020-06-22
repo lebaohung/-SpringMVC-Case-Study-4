@@ -447,11 +447,12 @@ TESTIMONIAL SECTION
   overflow: hidden;
 }
 
-.testimonial-section::before {
-  content: "\f10d";
-  font-family: FontAwesome;
+.testimonial-section::before  {
+  /*content: "\f10d";*/
+  /*font-family: FontAwesome;*/
+
   font-size: 400px;
-  color: #EAECEE;
+  color: white;
   position: absolute;
   left: 0px;
   top: 95px;
@@ -667,7 +668,7 @@ span.count-description:before {
   left: 0;
   top: 0;
   content: "\e01d";
-  font-family: Flaticon;
+  font-family: FontAwesome;
   font-size: 100px;
   line-height: 70px;
   float: left;
@@ -675,16 +676,16 @@ span.count-description:before {
   margin-right: 10px;
 }
 
-span.count-description.flaticon-boat:before {
-  content: "\e006";
+span.count-description.fas fa-ship:before {
+  content: "\f21a";
 }
 
-span.count-description.flaticon-international:before {
-  content: "\e01d";
+span.count-description.fas fa-map-marked:before {
+  content: "\f5a0";
 }
 
-span.count-description.flaticon-compass:before {
-  content: "\e013";
+span.count-description.far fa-compass:before {
+  content: "\f14e";
 }
 
 /* ------------------------------------------------------------------

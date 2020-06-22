@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en"
+        xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Giaohangtietkiem</title>
+
+
+
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic'
+          rel='stylesheet' type='text/css'>
+    <!-- Bootstrap Core CSS -->
+    <link  href="/resources/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Flaticon CSS -->
+    <link  href="/resources/fonts/flaticon/flaticon.css" rel="stylesheet">
+    <!-- font-awesome CSS -->
+    <link  href="/resources/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Offcanvas CSS -->
+    <link  href="/resources/css/hippo-off-canvas.css" rel="stylesheet">
+    <!-- animate CSS -->
+    <link  href="/resources/css/animate.css" rel="stylesheet">
+    <!-- language CSS -->
+    <link  href="/resources/css/language-select.css" rel="stylesheet">
+    <!-- owl.carousel CSS -->
+    <link  href="/resources/owl.carousel/assets/owl.carousel.css" rel="stylesheet">
+    <!-- magnific-popup -->
+    <link href="/resources/css/magnific-popup.css" rel="stylesheet">
+    <!-- Main menu -->
+    <link  href="/resources/css/menu.css" rel="stylesheet">
+    <!-- Template Common Styles -->
+    <link  href="/resources/css/template.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link  href="/resources/css/style.css" rel="stylesheet">
+    <!-- Responsive CSS -->
+    <link href="/resources/css/responsive.css" rel="stylesheet">
+<!--    <script th:src="@{../js/vendor/modernizr-2.8.1.min.js}" src="../js/vendor/modernizr-2.8.1.min.js"></script>-->
+<!--    <script th:src="@{../js/vendor/html5shim.js}" src="../js/vendor/html5shim.js"></script>-->
+<!--    <script th:src="@{../js/vendor/respond.min.js}" src="../js/vendor/respond.min.js"></script>-->
+
+</head>
+
+
+<body id="page-top">
+<div id="st-container" class="st-container">
+    <div class="st-pusher">
+        <div class="st-content">
+            <header class="header">
+                <nav class="top-bar">
+                    <div class="overlay-bg">
+                        <div class="container">
+                            <div class="row">
+
+                                <div class="col-sm-6 col-xs-12">
+                                    <div class="call-to-action">
+                                        <ul class="list-inline">
+                                            <li><a href="#"><i class="fa fa-phone"></i> 1-800-987-654</a></li>
+                                            <li><a href="#"><i class="fa fa-envelope"></i>
+                                                giaohangtietkiem@gmail.com</a></li>
+                                        </ul>
+                                    </div><!-- /.call-to-action -->
+                                </div><!-- /.col-sm-6 -->
+
+                                <div class="col-sm-6 hidden-xs">
+                                    <div class="topbar-right">
+                                        <div class="lang-support pull-right">
+                                            <select class="cs-select" >
+                                                <option value="united-kingdom" data-class="flag-uk">English</option>
+                                                <option value="vietnam" data-class="flag-vietnam" selected>Vietnamese
+                                                </option>
+                                            </select>
+                                        </div>
+
+                                        <ul class="social-links list-inline pull-right">
+                                            <li><a href="https://www.facebook.com/Giaohangtietkiem.vn/"><i
+                                                    class="fa fa-facebook"></i></a></li>
+                                            <li><a href="https://twitter.com/hashtag/giaohangtietkiem"><i
+                                                    class="fa fa-twitter"></i></a></li>
+                                        </ul>
+                                    </div><!-- /.social-links -->
+                                </div><!-- /.col-sm-6 -->
+
+                            </div><!-- /.row -->
+                        </div><!-- /.container -->
+                    </div><!-- /.overlay-bg -->
+                </nav><!-- /.top-bar -->
+
+                <!--				  		<div id="search">-->
+                <!--						    <button type="button" class="close">×</button>-->
+                <!--						    <form>-->
+                <!--						        <input type="search" value="" placeholder="type keyword(s) here" />-->
+                <!--						        <button type="submit" class="btn btn-primary">Search</button>-->
+                <!--						    </form>-->
+                <!--						</div>-->
+
+                <nav class="navbar navbar-default" role="navigation">
+
+                    <div class="container mainnav">
+                        <div class="navbar-header">
+                            <h1 class="logo" ><a class="navbar-brand" href="index.html">
+                                <img src="/resources/img/logo.png" height="40" width="200"></a></h1>
+
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse navbar-collapse">
+
+                            <span class="search-button pull-right"><a href="#search"><i
+                                    class="fa fa-search"></i></a></span>
+
+                            <ul class="nav navbar-nav navbar-right">
+
+
+                                <!-- Pages -->
+                                <li class="dropdown"><a href="#">Pages <span class="fa fa-angle-down"></span></a>
+                                    <!-- submenu-wrapper -->
+                                    <div class="submenu-wrapper">
+                                        <div class="submenu-inner">
+                                            <ul class="dropdown-menu">
+                                                <li><a href="homepage/about.html">About</a></li>
+                                                <li><a href="homepage/service.html">Service</a></li>
+                                                <li><a href="homepage/our-people.html">Our people</a></li>
+                                                <li><a href="homepage/career.html">Career</a></li>
+                                                <li><a href="homepage/faq.html">FAQ Page</a></li>
+                                                <li><a href="homepage/typography.html">Typography</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- /submenu-wrapper -->
+                                </li>
+                                <!-- /Pages -->
+
+                                <!-- Services -->
+                                <li class="dropdown"><a href="#">Services <span class="fa fa-angle-down"></span></a>
+                                    <!-- submenu-wrapper -->
+                                    <div class="submenu-wrapper">
+                                        <div class="submenu-inner">
+                                            <ul class="dropdown-menu">
+                                                <li><a href="homepage/air.html">Air transportation</a></li>
+                                                <li><a href="homepage/marine.html">Marine transportation</a></li>
+                                                <li><a href="homepage/moving.html">Moving & storage</a></li>
+                                                <li><a href="homepage/shipping.html">Shipping & operations</a></li>
+                                                <li><a href="homepage/transportation.html">Transportation logistics</a>
+                                                </li>
+                                                <li><a href="homepage/trucking.html">Trucking</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- /submenu-wrapper -->
+                                </li>
+
+                                    <!-- megamenu-wrapper -->
+
+                                </li> <!-- /MEGA MENU -->
+                                <!-- /Pages -->
+                                <!-- Blog -->
+                                <li class="dropdown"><a href="#">Blog <span class="fa fa-angle-down"></span></a>
+                                    <!-- submenu-wrapper -->
+                                    <div class="submenu-wrapper">
+                                        <div class="submenu-inner">
+                                            <ul class="dropdown-menu">
+                                                <li><a href="homepage/blog.html">Standard blog</a></li>
+                                                <li><a href="homepage/blog-single.html">Single blog</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- /submenu-wrapper -->
+                                </li>
+                                <li><a href="homepage/contact.html">Contact</a></li>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container -->
+
+
+                </nav>
+            </header>
+
+            <div id="main-carousel" class="carousel slide hero-slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#main-carousel" data-slide-to="1"></li>
+                    <li data-target="#main-carousel" data-slide-to="2"></li>
+                    <li data-target="#main-carousel" data-slide-to="3"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="/resources/img/slider/slide-1.jpg" alt="Hero Slide">
+                    </div>
+                    <!--.item-->
+                    <div class="item">
+                        <img src="/resources/img/slider/slide-2.jpg" alt="Hero Slide">
+                    </div>
+                    <!--.item-->
+                    <div class="item">
+                        <img src="/resources/img/slider/slide-3.jpg" alt="Hero Slide">
+                    </div>
+                    <!--.item-->
+                    <div class="item">
+                        <img src="/resources/img/slider/slide-4.jpg" alt="Hero Slide">
+                    </div>
+                    <!--.item-->
+                </div>
+                <!--.carousel-inner-->
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#main-carousel" role="button" data-slide="prev">
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#main-carousel" role="button" data-slide="next">
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <!-- #main-carousel-->
+
+
+            <!-- services start -->
+            <section class="service-home section-padding">
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h2 class="section-title">Our 24 Hour’s Services</h2>
+                            <span class="section-sub">Nullam ac urna ey felis dapibus<br> condimeytum sit amet</span>
+                        </div>
+                    </div> <!-- /.row -->
+
+                    <div class="row content-row">
+                        <div class="col-sm-4">
+                            <div class="service">
+                                <div class="service-thumb-home">
+                                    <a href="#"><img src="/resources/img/trans.jpg" alt=""></a>
+                                </div>
+
+                                <h3>Transportation &amp; Logistics</h3>
+                                <p>Holisticly synergize maintainable intellectual<br> capital via viral interfaces.
+                                    Energistically<br> embrace funyctionalized </p>
+<!--                                <a class="readmore" href="#">Read More &nbsp;<i class="fa fa-angle-right"></i> </a>-->
+                            </div>
+                        </div><!-- /.col-sm-4 -->
+
+                        <div class="col-sm-4">
+                            <div class="service">
+                                <div class="service-thumb-home">
+                                    <a href="#"><img src="/resources/img/moving.jpg" alt=""></a>
+                                </div>
+                                <h3>Moving &amp; Storage</h3>
+                                <p>Holisticly synergize maintainable intellectual<br> capital via viral interfaces.
+                                    Energistically<br> embrace functionalized </p>
+<!--                                <a class="readmore" href="#">Read More &nbsp;<i class="fa fa-angle-right"></i> </a>-->
+                            </div>
+
+                        </div><!-- /.col-sm-4 -->
+
+                        <div class="col-sm-4">
+                            <div class="service">
+                                <div class="service-thumb-home">
+                                    <a href="#"><img src="/resources/img/shipping.jpg" alt=""></a>
+                                </div>
+                                <h3>Shipping Operations</h3>
+                                <p>Holisticly synergize maintainable intellectual<br> capital via viral interfaces.
+                                    Energistically<br> embrace functionalized </p>
+<!--                                <a class="readmore" href="#">Read More &nbsp;<i class="fa fa-angle-right"></i> </a>-->
+                            </div>
+                        </div><!-- /.col-sm-4 -->
+                    </div> <!-- /.row -->
+                </div><!-- /.container -->
+            </section>
+            <!-- services end -->
+
+            <!-- featuer-section start -->
+            <section class="feature-section section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-7 col-xs-12" style="padding: 120px">
+
+                            <h2 style="color: rgba(0, 0, 0, 0.52);margin-bottom: 10px">We have a large network </h2>
+                            <p>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan
+                                ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris
+                                vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora
+                                torquent per conubia nostra, per inceptos himenaeos.</p>
+
+                            <h2 style="color: rgba(0, 0, 0, 0.52);margin: 20px 10px 0 0">We do care about your cargo!</h2>
+                            <p >Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue.
+                                Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc.
+                                Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam
+                                massa nisl quis neque. Suspendisse in orci enim.</p>
+
+                            <!--									<a href="#" class="btn btn-primary">View Details</a>-->
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- featuer-section end -->
+
+            <!-- why-us-setion start -->
+            <section class="why-us-setion section-padding">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-xs-12">
+                            <h2 class="section-title">Why Chose Us</h2>
+                            <span class="section-sub">Monotonectally innovate cross-media<br> resources without seamless</span>
+                        </div>
+                    </div> <!-- /.row -->
+
+                    <div class="row content-row">
+                        <div class="col-md-12">
+                            <div class="css-tab" role="tabpanel">
+
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#secure" aria-controls="secure"
+                                                                              role="tab" data-toggle="tab"><i
+                                            class="flaticon-logistics15"></i> Secure</a></li>
+                                    <li role="presentation"><a href="#trackable" aria-controls="trackable" role="tab"
+                                                               data-toggle="tab"><i class="flaticon-logistics18"></i>
+                                        Trackable</a></li>
+                                    <li role="presentation"><a href="#fast" aria-controls="fast" role="tab"
+                                                               data-toggle="tab"><i class="flaticon-logistics16"></i>
+                                        Fast</a></li>
+                                    <li role="presentation"><a href="#reliable" aria-controls="reliable" role="tab"
+                                                               data-toggle="tab"><i class="flaticon-broken43"></i>
+                                        Reliable</a></li>
+                                </ul>
+
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active fade in" id="secure">
+                                        <div class="css-tab-content">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <img src="/resources/img/secure.png" alt="">
+                                                </div><!-- /.col-md-6 -->
+
+                                                <div class="col-md-6 content-text">
+                                                    <h3>Continually disintermediate</h3>
+
+                                                    <p>Credibly build virtual materials for fully researched paradigms.
+                                                        Authoritatively plagiarize long-term high-impact infomediaries
+                                                        with goal-oriented core competencies. Conveniently visualize
+                                                        process-centric applications through leading-edge testing
+                                                        procedures. Quickly build backend customer service for real-time
+                                                        metrics.</p>
+
+                                                    <p>Efficiently transform an expanded array of methodologies rather
+                                                        than customized infomediaries.</p>
+                                                </div><!-- /.col-md-6 -->
+                                            </div><!-- /.row -->
+                                        </div><!-- /.css-tab-content -->
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="trackable">
+                                        <div class="css-tab-content">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <img src="/resources/img/track.png" alt="">
+                                                </div><!-- /.col-md-6 -->
+
+                                                <div class="col-md-6 content-text">
+                                                    <h3>Continually disintermediate</h3>
+
+                                                    <p>Credibly build virtual materials for fully researched paradigms.
+                                                        Authoritatively plagiarize long-term high-impact infomediaries
+                                                        with goal-oriented core competencies. Conveniently visualize
+                                                        process-centric applications through leading-edge testing
+                                                        procedures. Quickly build backend customer service for real-time
+                                                        metrics.</p>
+
+                                                    <p>Efficiently transform an expanded array of methodologies rather
+                                                        than customized infomediaries.</p>
+                                                </div><!-- /.col-md-6 -->
+                                            </div><!-- /.row -->
+                                        </div><!-- /.css-tab-content -->
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="fast">
+                                        <div class="css-tab-content">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <img src="/resources/img/fast.png" alt="">
+                                                </div><!-- /.col-md-6 -->
+
+                                                <div class="col-md-6 content-text">
+                                                    <h3>Continually disintermediate</h3>
+
+                                                    <p>Credibly build virtual materials for fully researched paradigms.
+                                                        Authoritatively plagiarize long-term high-impact infomediaries
+                                                        with goal-oriented core competencies. Conveniently visualize
+                                                        process-centric applications through leading-edge testing
+                                                        procedures. Quickly build backend customer service for real-time
+                                                        metrics.</p>
+
+                                                    <p>Efficiently transform an expanded array of methodologies rather
+                                                        than customized infomediaries.</p>
+                                                </div><!-- /.col-md-6 -->
+                                            </div><!-- /.row -->
+                                        </div><!-- /.css-tab-content -->
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="reliable">
+                                        <div class="css-tab-content">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <img src="/resources/img/reliable.png" alt="">
+                                                </div><!-- /.col-md-6 -->
+
+                                                <div class="col-md-6 content-text">
+                                                    <h3>Continually disintermediate</h3>
+
+                                                    <p>Credibly build virtual materials for fully researched paradigms.
+                                                        Authoritatively plagiarize long-term high-impact infomediaries
+                                                        with goal-oriented core competencies. Conveniently visualize
+                                                        process-centric applications through leading-edge testing
+                                                        procedures. Quickly build backend customer service for real-time
+                                                        metrics.</p>
+
+                                                    <p>Efficiently transform an expanded array of methodologies rather
+                                                        than customized infomediaries.</p>
+                                                </div><!-- /.col-md-6 -->
+                                            </div><!-- /.row -->
+                                        </div><!-- /.css-tab-content -->
+                                    </div>
+                                </div>
+                            </div><!-- /.css-tab -->
+                        </div><!-- /.col-md-12 -->
+                    </div><!-- /.row -->
+
+                </div><!-- /.container -->
+            </section>
+            <!-- why-us-setion end -->
+
+            <!-- testimonial-section start -->
+            <section class="testimonial-section section-padding">
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h2 class="section-title">We are Trusted By</h2>
+                            <span class="section-sub">Monotonectally innovate cross-media<br> resources without seamless</span>
+                        </div>
+                    </div> <!-- /.row -->
+
+                    <div class="row row-content">
+                        <div class="col-md-12">
+                            <div id="testimonial-carousel" class="carousel slide" data-ride="carousel">
+                                <!-- Indicators -->
+                                <ol class="carousel-indicators">
+                                    <li data-target="#testimonial-carousel" data-slide-to="0" class="active"></li>
+                                    <li data-target="#testimonial-carousel" data-slide-to="1"></li>
+                                    <li data-target="#testimonial-carousel" data-slide-to="2"></li>
+                                </ol>
+
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="item active">
+                                        <div class="testimonial-content">
+                                            <p>Progressively architect prospective imperatives through competitive
+                                                communities. Professionally productize user<br> friendly networks with
+                                                out-of-the-box mindshare. Energistically incubate functionalized best
+                                                practices after 24/365<br> information. Dramatically restore end-to-end
+                                                strategic theme areas.</p>
+                                            <span class="client-title">- Deanna Lewis -</span>
+                                        </div><!-- /.testimonial-content -->
+                                    </div>
+                                    <div class="item">
+                                        <div class="testimonial-content">
+                                            <p>Progressively architect prospective imperatives through competitive
+                                                communities. Professionally productize user<br> friendly networks with
+                                                out-of-the-box mindshare. Energistically incubate functionalized best
+                                                practices after 24/365<br> information. Dramatically restore end-to-end
+                                                strategic theme areas.</p>
+                                            <span class="client-title">- Deanna Lewis -</span>
+                                        </div><!-- /.testimonial-content -->
+                                    </div>
+                                    <div class="item">
+                                        <div class="testimonial-content">
+                                            <p>Progressively architect prospective imperatives through competitive
+                                                communities. Professionally productize user<br> friendly networks with
+                                                out-of-the-box mindshare. Energistically incubate functionalized best
+                                                practices after 24/365<br> information. Dramatically restore end-to-end
+                                                strategic theme areas.</p>
+                                            <span class="client-title">- Deanna Lewis -</span>
+                                        </div><!-- /.testimonial-content -->
+                                    </div>
+                                </div>
+                            </div><!-- /.carousel -->
+                        </div><!-- /.col-md-12 -->
+                    </div><!-- /.row -->
+
+                    <hr>
+
+                    <div class="partner-section">
+                        <div class="row row-content">
+                            <div class="col-md-12">
+                                <div class="owl-carousel partner-carousel">
+                                    <div class="item">
+                                        <a href="#"><img src="/resources/img/partner/p1.jpg" alt=""></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#"><img src="/resources/img/partner/p2.jpg" alt=""></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#"><img src="/resources/img/partner/p3.jpg" alt=""></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#"><img src="/resources/img/partner/p4.jpg" alt=""></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#"><img src="/resources/img/partner/p5.jpg" alt=""></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#"><img src="/resources/img/partner/p1.jpg" alt=""></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#"><img src="/resources/img/partner/p2.jpg" alt=""></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#"><img src="/resources/img/partner/p3.jpg" alt=""></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#"><img src="/resources/img/partner/p4.jpg" alt=""></a>
+                                    </div>
+                                </div>
+
+
+                                <div class="partner-carousel-navigation">
+                                    <a class="prev"><i class="fa fa-angle-left"></i></a>
+                                    <a class="next"><i class="fa fa-angle-right"></i></a>
+                                </div><!-- /.partner-carousel-navigation -->
+
+
+                            </div><!-- /.col-md-12 -->
+                        </div><!-- /.row -->
+                    </div><!-- /.partner-section -->
+                </div><!-- /.container -->
+            </section>
+            <!-- testimonial-section end -->
+
+            <!-- counter start -->
+            <section class="counter-section" data-stellar-background-ratio="0.5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="counter-block">
+                                <span class="count-description flaticon-boat"><strong class="timer">799</strong>order delivered</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="counter-block">
+                                <span class="count-description flaticon-international"><strong class="timer">19</strong>order delivered</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="counter-block">
+                                <span class="count-description flaticon-compass"><strong class="timer">521</strong>order delivered</span>
+                            </div>
+                        </div>
+                    </div> <!-- /.row -->
+                </div><!-- /.container -->
+            </section><!-- /.counter-section -->
+            <!-- counter end -->
+
+            <!-- footer-widget-section start -->
+            <section class="footer-widget-section section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-md-offset-1 col-sm-4">
+                            <div class="footer-widget">
+                                <h3>Place &amp; Contact</h3>
+
+                                <address>
+                                    CÔNG TY CỔ PHẦN GIAO HÀNG TIẾT KIỆM<br>
+                                    Số 8 Phạm Hùng, phường Mễ Trì, quận Nam Từ Liêm, thành phố Hà Nội
+                                    <!-- Google Map Modal Trigger -->
+                                    <button type="button" class="modal-map" data-toggle="modal"
+                                            data-target="#cssMapModal">Location Map
+                                    </button>
+
+                                    <span class="tel">(+84)169-6969696</span>
+                                </address>
+
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="cssMapModal" tabindex="-1" role="dialog"
+                                     aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close"><span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">Our Location</h4>
+                                            </div>
+                                            <div class="modal-body">
+
+                                                <div id="googleMap"></div>
+
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div><!-- End Modal -->
+                            </div><!-- /.footer-widget -->
+                        </div><!-- /.col-md-4 -->
+
+                        <div class="col-md-3 col-sm-4">
+                            <div class="footer-widget">
+                                <h3>About Transport</h3>
+
+                                <ul>
+                                    <li><a href="homepage/about.html"><p>About</p></a></li>
+                                    <li><a href="homepage/service.html"><p>Service</p></a></li>
+                                    <li><a href="homepage/our-people.html"><p>Our people</p></a></li>
+                                    <li><a href="homepage/career.html"><p>Career</p></a></li>
+                                    <li><a href="homepage/faq.html"><p>FAQ Page</p></a></li>
+                                </ul>
+                            </div><!-- /.footer-widget -->
+                        </div><!-- /.col-md-4 -->
+
+                        <div class="col-md-4 col-sm-4">
+                            <div class="footer-widget">
+                                <h3><a href="https://trello.com/b/A5IvoWrl/case-study-module-4"
+                                       style="color: black">PinkTeam</a></h3>
+                                <p>Hung Le</p>
+                                <p>Son Nguyen</p>
+                                <p>Thuan Nguyen</p>
+
+                            </div><!-- /.footer-widget -->
+                        </div><!-- /.col-md-4 -->
+                    </div><!-- /.row -->
+                </div><!-- /.container -->
+            </section><!-- /.cta-section -->
+            <footer class="copyright-section" style="margin-top: 0;padding-top: 0;padding-bottom: 0 ;background-color: #2b542c">
+                <div class="container text-center">
+                    <div class="footer-menu">
+                        <div class="copyright-info" style="text-align: left">
+                            Giấy CNĐKKD: 0106181807 - Ngày cấp 21/05/2013, đăng ký thay đổi lần 06 ngày 01/09/2017.<br>
+                            Cơ quan cấp: Phòng Đăng ký kinh doanh - Sở kế hoạch và đầu tư TP Hà Nội<br>
+                            <p>Copyright © 2020 PinkTeam. All Rights Reserved.</p>
+                        </div>
+                    </div>
+                </div><!-- /.container -->
+            </footer>
+            <!-- copyright-section end -->
+        </div> <!-- .st-content -->
+    </div> <!-- .st-pusher -->
+</div><!-- /st-container -->
+
+
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status">
+        <div class="status-mes"></div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="../../resources/js/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="../../resources/js/bootstrap.min.js"></script>
+<!-- owl.carousel -->
+<script src="../../resources/owl.carousel/owl.carousel.min.js"></script>
+<!-- Magnific-popup -->
+<script src="../../resources/js/jquery.magnific-popup.min.js"></script>
+<!-- Offcanvas Menu -->
+<script src="../../resources/js/hippo-offcanvas.js"></script>
+<!-- inview -->
+<script src="../../resources/js/jquery.inview.min.js"></script>
+<!-- stellar -->
+<script src="../../resources/js/jquery.stellar.js"></script>
+<!-- countTo -->
+<script src="../../resources/js/jquery.countTo.js"></script>
+<!-- classie -->
+<script src="../../resources/js/classie.js"></script>
+<!-- selectFx -->
+<script src="../../resources/js/selectFx.js"></script>
+<!-- sticky kit -->
+<script src="../../resources/js/jquery.sticky-kit.min.js"></script>
+<!-- GOGLE MAP -->
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<!--TWITTER FETCHER-->
+<script src="../../resources/js/twitterFetcher_min.js"></script>
+<!-- Custom Script -->
+<script src="../../resources/js/scripts.js"></script>
+
+<script src="../../resources/js/vendor/html5shim.js"></script>
+<script src="../../resources/js/vendor/modernizr-2.8.1.min.js"></script>
+<script src="../../resources/js/vendor/respond.min.js"></script>
+</body>
+</html>

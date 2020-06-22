@@ -1,6 +1,7 @@
 package com.codegym.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table
@@ -16,6 +17,20 @@ public class User {
     private int provinceId;
     private String detailAddress;
 
+    @OneToMany(targetEntity = Order.class)
+    private List<Order> orderList;
+
+    @OneToMany(targetEntity = User.class)
+    private List<User> userList;
+
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
+
     public User() {
     }
 
@@ -23,8 +38,8 @@ public class User {
         return userId;
     }
 
-    public void setUserid(Long userid) {
-        userId = userid;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getPhone() {
@@ -35,7 +50,7 @@ public class User {
         Phone = phone;
     }
 
-    public boolean getUserStatus() {
+    public boolean isUserStatus() {
         return userStatus;
     }
 
@@ -81,5 +96,13 @@ public class User {
 
     public void setDetailAddress(String detailAddress) {
         this.detailAddress = detailAddress;
+    }
+
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
     }
 }

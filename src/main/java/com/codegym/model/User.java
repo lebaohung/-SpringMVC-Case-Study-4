@@ -3,17 +3,17 @@ package com.codegym.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
     private String Phone;
-    private Integer userStatus;
+    private boolean userStatus;
     private String name;
     private String email;
     private String password;
-    private Integer provinceId;
+    private int provinceId;
     private String detailAddress;
 
     public User() {
@@ -35,11 +35,11 @@ public class User {
         Phone = phone;
     }
 
-    public Integer getUserStatus() {
+    public boolean getUserStatus() {
         return userStatus;
     }
 
-    public void setUserStatus(Integer userStatus) {
+    public void setUserStatus(boolean userStatus) {
         this.userStatus = userStatus;
     }
 
@@ -67,11 +67,11 @@ public class User {
         this.password = password;
     }
 
-    public Integer getProvinceId() {
+    public int getProvinceId() {
         return provinceId;
     }
 
-    public void setProvinceId(Integer provinceId) {
+    public void setProvinceId(int provinceId) {
         this.provinceId = provinceId;
     }
 

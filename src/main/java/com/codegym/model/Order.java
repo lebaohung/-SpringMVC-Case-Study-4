@@ -3,12 +3,12 @@ package com.codegym.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 public class Order {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int orderId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long orderId;
     private String receiverName;
     private String receiverProvinceId;
     private String receiverAddress;
@@ -19,12 +19,12 @@ public class Order {
     public Order() {
     }
 
-    public Integer getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(Integer id) {
-        this.orderId = id;
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 
     public String getReceiverName() {
@@ -59,11 +59,11 @@ public class Order {
         this.receiverPhone = receiverPhone;
     }
 
-    public Integer getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
@@ -74,5 +74,4 @@ public class Order {
     public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
     }
-
 }

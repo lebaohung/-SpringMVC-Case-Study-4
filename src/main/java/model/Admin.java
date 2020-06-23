@@ -8,33 +8,32 @@ public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String account;
-    private String email;
-    private String password;
     private String name;
-    private String dateStart;
-    private String dateEnd;
-    private String role;
+    private String age;
+    private String gender;
     private String avatar;
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
+    private String job;
+    private String address;
     private int status;
-    public Admin(){}
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public Admin(Long id, String name, String age, String gender, String avatar, String job, String address, int status) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.avatar = avatar;
+        this.job = job;
+        this.address = address;
+        this.status = status;
+    }
 
     public Long getId() {
         return id;
@@ -42,14 +41,6 @@ public class Admin {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getAccount() {
-        return account;
-    }
-
-    public void setAccount(String account) {
-        this.account = account;
     }
 
     public String getName() {
@@ -60,56 +51,46 @@ public class Admin {
         this.name = name;
     }
 
-    public String getDateStart() {
-        return dateStart;
+    public String getAge() {
+        return age;
     }
 
-    public void setDateStart(String dateStart) {
-        this.dateStart = dateStart;
+    public void setAge(String age) {
+        this.age = age;
     }
 
-    public String getDateEnd() {
-        return dateEnd;
+    public String getGender() {
+        return gender;
     }
 
-    public void setDateEnd(String dateEnd) {
-        this.dateEnd = dateEnd;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public int getStatus() {
-        return status;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public Admin(Long id, String account, String email, String password, String name, String dateStart, String dateEnd, String role, String avatar, int status) {
-        this.id = id;
-        this.account = account;
-        this.email = email;
-        this.password = password;
-        this.name = name;
-        this.dateStart = dateStart;
-        this.dateEnd = dateEnd;
-        this.role = role;
+    public void setAvatar(String avatar) {
         this.avatar = avatar;
-        this.status = status;
     }
 
-    public String getEmail() {
-        return email;
+    public String getJob() {
+        return job;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setJob(String job) {
+        this.job = job;
     }
 
-    public String getPassword() {
-        return password;
+    public String getAddress() {
+        return address;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setAddress(String address) {
+        this.address = address;
     }
+
+    public Admin(){}
+
 }

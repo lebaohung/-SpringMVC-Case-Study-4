@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" type="image/x-icon" href="/resources/img/ferrari.jpg">
+    <link rel="shortcut icon" type="image/x-icon" href="/resources/xosomienbac.png">
     <!-- Google Fonts
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
@@ -67,8 +67,7 @@
 <div class="left-sidebar-pro">
     <nav id="sidebar" class="">
         <div class="sidebar-header">
-            <a th:href="@{/admin/home}"><img class="main-logo" src="/resources/img/ferrari.jpg" width="150"
-                                             height="100"/>
+            <a th:href="@{/admin/home}"><img class="main-logo" src="/resources/xosomienbac.resized.png" alt=""/>
             </a>
             <!--            <strong><a th:href="@{/admin/home}"><img src="/resources/img/ferrari.jpg"  />-->
             <!--            </a></strong>-->
@@ -728,75 +727,85 @@
     </div>
 
     <!--    List-->
-    <div class="product-status mg-b-15">
+    <div class="single-pro-review-area mt-t-30 mg-b-15">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="product-status-wrap">
-                        <h4 th:text="#{admin.list}"></h4>
-                        <div class="add-product">
-                            <a th:href="@{/admin/create}" th:text="#{admin.create}"></a>
+                    <div class="product-payment-inner-st">
+                        <ul id="myTabedu1" class="tab-review-design">
+                            <li class="active">
+                                <a href="#Basic Information" th:text="#{admin.information}"></a>
+                            </li>
+                        </ul>
+                        <div id="myTabContent" class="tab-content custom-product-edit">
+                            <div class="product-tab-list tab-pane fade active in" id="Basic Information">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="review-content-section">
+                                            <div id="dropzone1" class="pro-ad addcoursepro">
+                                                <form action="/admin/create"
+                                                      class="dropzone dropzone-custom needsclick addlibrary" id="upload"
+                                                      th:object="${admins}" method="post" >
+<!--                                                      enctype="multipart/form-data">-->
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <input name="Name" type="text" class="form-control"
+                                                                       placeholder="Name" th:field="*{name}">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <select name="gender" type="text" class="form-control"
+                                                                        placeholder="gender" th:field="*{gender}">
+                                                                    <option th:value="Male"
+                                                                            th:text="#{admin.male}"></option>
+                                                                    <option th:value="Female"
+                                                                            th:text="#{admin.female}"></option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group alert-up-pd">
+                                                                <div class="dz-message needsclick download-custom">
+                                                                    <i class="fa fa-download edudropnone"
+                                                                       aria-hidden="true"></i>
+                                                                    <h2 class="edudropnone"
+                                                                        th:text="#{admin.Dropimagehereorclicktoupload}"></h2>
+                                                                    <input name="imageico" class="hd-pro-img"
+                                                                           type="file" th:field="*{avatar}" multiple/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <input name="address" type="text"
+                                                                       class="form-control" placeholder="Address"
+                                                                       th:field="*{address}">
+                                                            </div>
+                                                            <div class="form-group res-mg-t-15">
+                                                                <input name="Job" type="text" class="form-control"
+                                                                       placeholder="Job" th:field="*{job}">
+                                                            </div>
+                                                            <div class="form-group res-mg-t-15">
+                                                                <input name="age" type="text" class="form-control"
+                                                                       placeholder="age" th:field="*{age}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="payment-adress">
+                                                                <button type="submit"
+                                                                        class="btn btn-primary waves-effect waves-light"
+                                                                        th:text="#{admin.submit}">
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
-
-                        <div class="asset-inner">
-                            <table>
-                                <tr>
-                                    <th th:text="#{admin.id}"></th>
-                                    <th th:text="#{admin.avatar}"></th>
-                                    <th th:text="#{admin.account}"></th>
-                                    <th th:text="#{admin.status}"></th>
-                                    <th th:text="#{admin.role}"></th>
-                                    <th th:text="#{admin.personalName}"></th>
-                                    <th th:text="#{admin.dateStart}"></th>
-                                    <th th:text="#{admin.dateEnd}"></th>
-                                    <th th:text="#{admin.profile.setting}"></th>
-                                </tr>
-                                <tr th:each="row,rowStat : ${admins}">
-                                    <td th:text="#{admin.id}"></td>
-                                    <td>< th:src="@{/img/{image}(image=${row.getAvatar()})}"" alt="" /></td>
-                                    <td><label th:text="${row.getAccount()}"></label></td>
-                                    <td>
-                                        <label class="pd-setting" th:text="${row.getStatus()}"></label>
-                                    </td>
-                                    <td th:text="${row.getRole()}"></td>
-                                    <td th:text="${row.getName()}"></td>
-                                    <td th:text="${row.getDateStart}"></td>
-                                    <td th:text="${row.getDateEnd}"></td>
-                                    <td>
-                                        <a th:href="@{/admin/edit/__${admins.getId()}__ }" data-toggle="tooltip"
-                                           title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o"
-                                                                                 aria-hidden="true"></i></a>
-                                        <a th:href="@{/admin/delete/__${admins.getId()}__ }" data-toggle="tooltip"
-                                           title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o"
-                                                                                  aria-hidden="true"></i></a>
-                                    </td>
-                                </tr>
-
-                            </table>
-                        </div>
-
-                        <div class="custom-pagination">
-                            <ul class="pagination">
-                                <li class="page-item">
-                                    <a class="page-link" th:href="@{'/admin/home'(page=${admins.number - 1})}"
-                                       th:if="${admins.hasPrevious()}" th:text="#{admin.page.previous}"></a></li>
-                                <li class="page-item"><a class="page-link"
-                                                         th:href="@{'/admin/home'(page=${admins.number})}">1</a>
-                                </li>
-                                <li class="page-item"><a class="page-link"
-                                                         th:href="@{'/admin/home'(page=${admins.number}+1)}">2</a>
-                                </li>
-                                <li class="page-item"><a class="page-link"
-                                                         th:href="@{'/admin/home'(page=${admins.number}+2)}">3</a>
-                                </li>
-                                <li class="page-item"><a class="page-link"
-                                                         th:href="@{'/admin/home'(page=${admins.number + 1})}"
-                                                         th:if="${admins.hasNext()}" th:text="#{admin.page.next}"></a>
-                                </li>
-                            </ul>
-                        </div>
-
 
                     </div>
                 </div>

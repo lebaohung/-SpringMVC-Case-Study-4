@@ -40,7 +40,9 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
+import service.IAdminAccountService;
 import service.IAdminService;
+import service.impl.AdminAccountServiceImpl;
 import service.impl.AdminServiceImpl;
 
 import javax.persistence.EntityManager;
@@ -65,6 +67,10 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     @Bean
     public IAdminService iAdminService() {
         return new AdminServiceImpl();
+    }
+    @Bean
+    public IAdminAccountService iAdminAccountService(){
+        return new AdminAccountServiceImpl();
     }
 
 

@@ -40,6 +40,8 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
+import service.IAdminService;
+import service.impl.AdminServiceImpl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -55,11 +57,16 @@ import java.util.Properties;
 @ComponentScan("controller")
 @EnableJpaRepositories("repository") //formatter
 @EnableSpringDataWebSupport //Phantrang
-//@EnableAspectJAutoProxy  //AOP
+@EnableAspectJAutoProxy  //AOP
 @EnableTransactionManagement
 @PropertySource("classpath:uploadfile.properties") //uploadfile
 //
 public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
+    @Bean
+    public IAdminService iAdminService() {
+        return new AdminServiceImpl();
+    }
+
 
     private ApplicationContext applicationContext;
 
@@ -134,14 +141,14 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     Properties additionalProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.hbm2ddl.auto", "update");
-//        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
         return properties;
     }
 
     @Bean
     public MessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasenames("message","ValidationMessage");
+        messageSource.setBasenames("message", "ValidationMessage");
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
     }
@@ -165,9 +172,9 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
         String fileUpload = env.getProperty("file_upload").toString();
         // Image resource.
         registry.addResourceHandler
-                ("/","/#/","/img/**","/resources/**","resources/img/**","/i/","/img/","/static/**")
+                ("/", "/#/", "/img/**", "/resources/**", "resources/img/**", "/i/", "/img/", "/static/**")
                 .addResourceLocations
-                        ("file:" + fileUpload,"/static/","/resources","resources/","/resources/");
+                        ("file:" + fileUpload, "/static/", "/resources", "resources/", "/resources/");
 
     }
 
@@ -186,14 +193,5 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
         interceptor.setParamName("lang");
         registry.addInterceptor(interceptor);
     }
-
-    //utf8
-    @Bean
-    public HttpMessageConverter<String> responseBodyConverter() {
-        StringHttpMessageConverter converter = new StringHttpMessageConverter();
-        converter.setSupportedMediaTypes(Arrays.asList(new MediaType("text", "plain", Charset.forName("UTF-8"))));
-        return converter;
-    }
-
 
 }

@@ -34,33 +34,33 @@
             </ul>
         </header>
 
-        <div class="container pl-5 pr-5 ">
-            <table class=" table table-success table-striped " th:object="${user}">
+        <div class="container pl-5 pr-5 col-md-9 ">
+            <table class=" table table-success table-striped ">
 
                 <tbody>
                 <tr>
-                    <th scope="row">Tên chủ shop</th>
-                    <td><input type="text" th:field="*{name}" class="form-control-sm"></td>
+                    <th scope="row" class="pt-3">Tên chủ shop</th>
+                    <td ><input type="text" th:value="${user.name}" class="form-control"></td>
 
                 </tr>
                 <tr>
-                    <th scope="row">Tỉnh thành</th>
-                    <td th:text="${user.getProvinceId()}"></td>
+                    <th scope="row" class="pt-3">Tỉnh thành</th>
+                    <td><input type="text" th:value="${province.getName()}" class="form-control"></td>
 
                 </tr>
                 <tr>
-                    <th scope="row">Địa chỉ chi tiết</th>
-                    <td th:text="${user.getDetailAddress()}"></td>
+                    <th scope="row" class="pt-3">Địa chỉ chi tiết</th>
+                    <td><input type="text" th:value="${user.getDetailAddress()}" class="form-control"></td>
 
                 </tr>
                 <tr>
-                    <th scope="row">Số điện thoại</th>
-                    <td th:text="${user.getPhone()}"></td>
+                    <th scope="row" class="pt-3">Số điện thoại</th>
+                    <td><input type="text" th:value="${user.getPhone()}" class="form-control"></td>
 
                 </tr>
                 <tr>
-                    <th scope="row">Email</th>
-                    <td th:text="${user.getEmail()}"></td>
+                    <th scope="row" class="pt-3">Email</th>
+                    <td><input type="text" th:value="${user.getEmail()}" class="form-control"></td>
 
                 </tr>
 

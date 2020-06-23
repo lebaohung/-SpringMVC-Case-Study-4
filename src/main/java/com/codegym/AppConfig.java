@@ -2,6 +2,8 @@ package com.codegym;
 
 import com.codegym.service.order.IOrderService;
 import com.codegym.service.order.OrderService;
+import com.codegym.service.province.IProvinceService;
+import com.codegym.service.province.ProvinceService;
 import com.codegym.service.user.IUserService;
 import com.codegym.service.user.UserService;
 import org.springframework.beans.BeansException;
@@ -136,6 +138,11 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     @Bean
     public IUserService userService() {
         return new UserService();
+    }
+
+    @Bean
+    public IProvinceService provinceService() {
+        return new ProvinceService();
     }
 
 }

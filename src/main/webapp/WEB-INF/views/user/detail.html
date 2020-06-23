@@ -21,13 +21,13 @@
                             <a class="nav-link bg-light text-dark active" id="pills-home-tab" href="/create-order" role="tab" aria-controls="pills-home" aria-selected="true">Tạo đơn hàng mới</a>
                         </li>
                         <li class="col-md-3 nav-item pr-5" role="presentation">
-                            <a class="nav-link bg-light text-dark" id="pills-profile-tab" href="/orders" role="tab" aria-controls="pills-profile" aria-selected="false">Quan ly don hang</a>
+                            <a class="nav-link bg-light text-dark" id="pills-profile-tab" href="/orders" role="tab" aria-controls="pills-profile" aria-selected="false">Quản lý đơn hàng</a>
                         </li>
                         <li class="col-md-3 nav-item pr-5" role="presentation">
-                            <a class="nav-link bg-light text-dark" id="pills-contact-tab"  th:href="@{/}" role="tab" aria-controls="pills-contact" aria-selected="false">Thong tin shop</a>
+                            <a class="nav-link bg-light text-dark" id="pills-contact-tab"  th:href="@{/info/__${user.getUserId()}__}" role="tab" aria-controls="pills-contact" aria-selected="false">Thông tin shop</a>
                         </li>
                         <li class="col-md-3 nav-item pr-5 " role="presentation">
-                            <a class="nav-link bg-danger text-light" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Thoat</a>
+                            <a class="nav-link bg-danger text-light" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Thoát</a>
                         </li>
                     </div>
                 </div>
@@ -35,42 +35,38 @@
         </header>
 
         <div class="container pl-5 pr-5 ">
-            <table class=" table table-success table-striped ">
+            <table class=" table table-success table-striped " th:object="${user}">
 
                 <tbody>
                 <tr>
-                    <th scope="row">Ten chu shop</th>
-                    <td>Hung</td>
+                    <th scope="row">Tên chủ shop</th>
+                    <td><input type="text" th:field="*{name}" class="form-control-sm"></td>
 
                 </tr>
                 <tr>
-                    <th scope="row">Tinh thanh</th>
-                    <td>Ha Noi</td>
+                    <th scope="row">Tỉnh thành</th>
+                    <td th:text="${user.getProvinceId()}"></td>
 
                 </tr>
                 <tr>
-                    <th scope="row">Dia chi chi tiet</th>
-                    <td>762 Bach Dang</td>
+                    <th scope="row">Địa chỉ chi tiết</th>
+                    <td th:text="${user.getDetailAddress()}"></td>
 
                 </tr>
                 <tr>
-                    <th scope="row">So dien thoai</th>
-                    <td>762 Bach Dang</td>
+                    <th scope="row">Số điện thoại</th>
+                    <td th:text="${user.getPhone()}"></td>
 
                 </tr>
                 <tr>
                     <th scope="row">Email</th>
-                    <td>lebaohung@hung.com</td>
+                    <td th:text="${user.getEmail()}"></td>
 
                 </tr>
 
                 </tbody>
             </table>
         </div>
-
-
-
-
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

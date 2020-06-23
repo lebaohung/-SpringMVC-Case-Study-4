@@ -10,4 +10,8 @@ public class abc {
     ModelAndView index(){
         return new ModelAndView("admin/crudAdmin/list");
     }
+    @GetMapping("/a")
+    ModelAndView a(){
+        return new ModelAndView("admin/404");
+    }
 }

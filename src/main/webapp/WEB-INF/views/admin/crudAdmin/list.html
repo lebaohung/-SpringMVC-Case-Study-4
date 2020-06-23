@@ -69,8 +69,8 @@
         <div class="sidebar-header">
             <a th:href="@{/}"><img class="main-logo" src="/resources/img/ferrari.jpg" width="150" height="100"/>
             </a>
-<!--            <strong><a th:href="@{/}"><img src="/resources/img/ferrari.jpg"  />-->
-<!--            </a></strong>-->
+            <!--            <strong><a th:href="@{/}"><img src="/resources/img/ferrari.jpg"  />-->
+            <!--            </a></strong>-->
         </div>
         <div class="left-custom-menu-adp-wrap comment-scrollbar">
             <nav class="sidebar-nav left-sidebar-menu-pro">
@@ -101,25 +101,25 @@
                             <li><a title="Add Professor" th:href="@{/admin/user/create}">
                                 <span class="mini-sub-pro" th:text="#{admin.sidebar.userAdd}"></span></a></li>
                             <li><a title="Edit Professor" th:href="@{/admin/user/edit}">
-                                <span class="mini-sub-pro" th:text ="#{admin.sidebar.userEdit}"></span></a></li>
+                                <span class="mini-sub-pro" th:text="#{admin.sidebar.userEdit}"></span></a></li>
                             <li><a title="Professor Profile" th:href="@{/admin/user/view}">
-                                <span class="mini-sub-pro" th:text ="#{admin.sidebar.userView}"></span></a></li>
+                                <span class="mini-sub-pro" th:text="#{admin.sidebar.userView}"></span></a></li>
                         </ul>
                     </li>
 
                     <li>
                         <a class="has-arrow" th:href="@{/admin/bill/}" aria-expanded="false">
                             <span class="educate-icon educate-course icon-wrap">
-                            </span> <span class="mini-click-non" th:text ="#{admin.sidebar.bill}"></span></a>
+                            </span> <span class="mini-click-non" th:text="#{admin.sidebar.bill}"></span></a>
                         <ul class="submenu-angle" aria-expanded="false">
                             <li><a title="All Courses" th:href="@{/admin/bill/list}">
-                                <span class="mini-sub-pro" th:text ="#{admin.sidebar.billAll}"></span></a></li>
+                                <span class="mini-sub-pro" th:text="#{admin.sidebar.billAll}"></span></a></li>
                             <li><a title="Add Courses" th:href="@{/admin/bill/create}">
-                                <span class="mini-sub-pro" th:text ="#{admin.sidebar.billAdd}"></span></a></li>
+                                <span class="mini-sub-pro" th:text="#{admin.sidebar.billAdd}"></span></a></li>
                             <li><a title="Edit Courses" th:href="@{/admin/bill/edit}">
-                                <span class="mini-sub-pro" th:text ="#{admin.sidebar.billEdit}"></span></a></li>
+                                <span class="mini-sub-pro" th:text="#{admin.sidebar.billEdit}"></span></a></li>
                             <li><a title="Courses Profile" th:href="@{/admin/bill/view}">
-                                <span class="mini-sub-pro" th:text ="#{admin.sidebar.billView}"></span></a></li>
+                                <span class="mini-sub-pro" th:text="#{admin.sidebar.billView}"></span></a></li>
                         </ul>
                     </li>
                 </ul>
@@ -132,7 +132,8 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="logo-pro">
-                    <a th:href="@{/}"><img class="main-logo" src="/resources/night.gif" width="100%" /></a>
+                    <a th:href="@{/}"><img class="main-logo" src="/resources/night.gif" alt="" width="100%"
+                                           height="30%"/></a>
                 </div>
             </div>
         </div>
@@ -146,7 +147,8 @@
                             <div class="row">
                                 <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                     <div class="menu-switcher-pro">
-                                        <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
+                                        <button type="button" id="sidebarCollapse"
+                                                class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
                                             <i class="educate-icon educate-nav"></i>
                                         </button>
                                     </div>
@@ -154,13 +156,17 @@
                                 <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
                                     <div class="header-top-menu tabl-d-n">
                                         <ul class="nav navbar-nav mai-top-nav">
-                                            <li class="nav-item"><a th:href="@{/home}" class="nav-link" th:text="#{admin.top.header.home}"></a>
+                                            <li class="nav-item"><a th:href="@{/home}" class="nav-link"
+                                                                    th:text="#{admin.top.header.home}"></a>
                                             </li>
-                                            <li class="nav-item"><a th:href="@{/home/about}" class="nav-link" th:text="#{admin.top.header.about}"></a>
+                                            <li class="nav-item"><a th:href="@{/home/about}" class="nav-link"
+                                                                    th:text="#{admin.top.header.about}"></a>
                                             </li>
-                                            <li class="nav-item"><a th:href="@{/home/service}" class="nav-link" th:text="#{admin.top.header.service}"></a>
+                                            <li class="nav-item"><a th:href="@{/home/service}" class="nav-link"
+                                                                    th:text="#{admin.top.header.service}"></a>
                                             </li>
-                                            <li class="nav-item"><a th:href="@{/home/support}" class="nav-link" th:text="#{admin.top.header.support}"></a>
+                                            <li class="nav-item"><a th:href="@{/home/support}" class="nav-link"
+                                                                    th:text="#{admin.top.header.support}"></a>
                                             </li>
                                         </ul>
                                     </div>
@@ -169,10 +175,13 @@
                                     <div class="header-right-info">
                                         <ul class="nav navbar-nav mai-top-nav header-right-menu">
                                             <li class="nav-item dropdown">
-                                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-                                                    <i class="educate-icon educate-message edu-chat-pro" aria-hidden="true"></i>
+                                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false"
+                                                   class="nav-link dropdown-toggle">
+                                                    <i class="educate-icon educate-message edu-chat-pro"
+                                                       aria-hidden="true"></i>
                                                     <span class="indicator-ms"></span></a>
-                                                <div role="menu" class="author-message-top dropdown-menu animated zoomIn">
+                                                <div role="menu"
+                                                     class="author-message-top dropdown-menu animated zoomIn">
                                                     <div class="message-single-top">
                                                         <h1 th:text="#{admin.message.title}"></h1>
                                                     </div>
@@ -183,7 +192,8 @@
                                                                     <img src="/resources/codegymLogo.png" alt="">
                                                                 </div>
                                                                 <div class="message-content">
-                                                                    <span class="message-date" th:text="#{admin.message.date16Sept}"></span>
+                                                                    <span class="message-date"
+                                                                          th:text="#{admin.message.date16Sept}"></span>
                                                                     <h2 th:text="#{admin.message.senderCeoCodegym}"></h2>
                                                                     <p th:text="#{admin.message.senderCeoCodegym.content}"></p>
                                                                 </div>
@@ -196,7 +206,8 @@
                                                                     <img src="/resources/wasington.png" alt="">
                                                                 </div>
                                                                 <div class="message-content">
-                                                                    <span class="message-date" th:text="#{admin.message.date16Sept}"></span>
+                                                                    <span class="message-date"
+                                                                          th:text="#{admin.message.date16Sept}"></span>
                                                                     <h2 th:text="#{admin.message.senderWPR}"></h2>
                                                                     <p th:text="#{admin.message.senderWPR.content}"></p>
                                                                 </div>
@@ -209,7 +220,8 @@
                                                                     <img src="/resources/xosomienbac.png" alt="">
                                                                 </div>
                                                                 <div class="message-content">
-                                                                    <span class="message-date" th:text="#{admin.message.date16Sept}"></span>
+                                                                    <span class="message-date"
+                                                                          th:text="#{admin.message.date16Sept}"></span>
                                                                     <h2 th:text="#{admin.message.senderXSMB}"></h2>
                                                                     <p th:text="#{admin.message.senderXSMB.content}"></p>
                                                                 </div>
@@ -222,7 +234,8 @@
                                                                     <img src="/resources/xosomienbac.png" alt="">
                                                                 </div>
                                                                 <div class="message-content">
-                                                                    <span class="message-date" th:text="#{admin.message.date16Sept}"></span>
+                                                                    <span class="message-date"
+                                                                          th:text="#{admin.message.date16Sept}"></span>
                                                                     <h2 th:text="#{admin.message.senderXSMB}"></h2>
                                                                     <p th:text="#{admin.message.senderXSMB.content}"></p>
                                                                 </div>
@@ -236,8 +249,13 @@
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="educate-icon educate-bell" aria-hidden="true"></i><span class="indicator-nt"></span></a>
-                                                <div role="menu" class="notification-author dropdown-menu animated zoomIn">
+                                            <li class="nav-item"><a href="#" data-toggle="dropdown" role="button"
+                                                                    aria-expanded="false"
+                                                                    class="nav-link dropdown-toggle"><i
+                                                    class="educate-icon educate-bell" aria-hidden="true"></i><span
+                                                    class="indicator-nt"></span></a>
+                                                <div role="menu"
+                                                     class="notification-author dropdown-menu animated zoomIn">
                                                     <div class="notification-single-top">
                                                         <h1 th:text="#{admin.message.notification}"></h1>
                                                     </div>
@@ -245,11 +263,13 @@
                                                         <li>
                                                             <a th:href="@{/admin/message/codegym/1}">
                                                                 <div class="notification-icon">
-                                                                    <i class="educate-icon educate-checked edu-checked-pro admin-check-pro" aria-hidden="true"></i>
+                                                                    <i class="educate-icon educate-checked edu-checked-pro admin-check-pro"
+                                                                       aria-hidden="true"></i>
                                                                 </div>
                                                                 <div class="notification-content">
-                                                                    <span class="notification-date" th:text="#{admin.message.date16Sept}"></span>
-                                                                    <h2  th:text="#{admin.message.senderCeoCodegym}"></h2>
+                                                                    <span class="notification-date"
+                                                                          th:text="#{admin.message.date16Sept}"></span>
+                                                                    <h2 th:text="#{admin.message.senderCeoCodegym}"></h2>
                                                                     <p th:text="#{admin.message.senderCeoCodegym.content}"></p>
                                                                 </div>
                                                             </a>
@@ -257,10 +277,12 @@
                                                         <li>
                                                             <a href="#">
                                                                 <div class="notification-icon">
-                                                                    <i class="fa fa-cloud edu-cloud-computing-down" aria-hidden="true"></i>
+                                                                    <i class="fa fa-cloud edu-cloud-computing-down"
+                                                                       aria-hidden="true"></i>
                                                                 </div>
                                                                 <div class="notification-content">
-                                                                    <span class="notification-date" th:text="#{admin.message.date16Sept}"></span>
+                                                                    <span class="notification-date"
+                                                                          th:text="#{admin.message.date16Sept}"></span>
                                                                     <h2 th:text="#{admin.message.senderWPR}"></h2>
                                                                     <p th:text="#{admin.message.senderWPR.content}"></p>
                                                                 </div>
@@ -269,10 +291,12 @@
                                                         <li>
                                                             <a href="#">
                                                                 <div class="notification-icon">
-                                                                    <i class="fa fa-eraser edu-shield" aria-hidden="true"></i>
+                                                                    <i class="fa fa-eraser edu-shield"
+                                                                       aria-hidden="true"></i>
                                                                 </div>
                                                                 <div class="notification-content">
-                                                                    <span class="notification-date" th:text="#{admin.message.date16Sept}"></span>
+                                                                    <span class="notification-date"
+                                                                          th:text="#{admin.message.date16Sept}"></span>
                                                                     <h2 th:text="#{admin.message.senderXSMB}"></h2>
                                                                     <p th:text="#{admin.message.senderXSMB.content}"></p>
                                                                 </div>
@@ -281,10 +305,12 @@
                                                         <li>
                                                             <a href="#">
                                                                 <div class="notification-icon">
-                                                                    <i class="fa fa-line-chart edu-analytics-arrow" aria-hidden="true"></i>
+                                                                    <i class="fa fa-line-chart edu-analytics-arrow"
+                                                                       aria-hidden="true"></i>
                                                                 </div>
                                                                 <div class="notification-content">
-                                                                    <span class="notification-date" th:text="#{admin.message.date16Sept}"></span>
+                                                                    <span class="notification-date"
+                                                                          th:text="#{admin.message.date16Sept}"></span>
                                                                     <h2 th:text="#{admin.message.senderXSMB}"></h2>
                                                                     <p th:text="#{admin.message.senderXSMB.content}"></p>
                                                                 </div>
@@ -292,40 +318,54 @@
                                                         </li>
                                                     </ul>
                                                     <div class="notification-view">
-                                                        <a th:href="@{/admin/message/list}" th:text="#{admin.message.notification}"></a>
+                                                        <a th:href="@{/admin/message/list}"
+                                                           th:text="#{admin.message.notification}"></a>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-                                                    <img src="/resources/goku.ico" alt="" />
+                                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false"
+                                                   class="nav-link dropdown-toggle">
+                                                    <img src="/resources/goku.ico" alt=""/>
                                                     <span class="admin-name" th:text="#{admin.adminName}"></span>
                                                     <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                                 </a>
-                                                <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                    <li><a th:href="@{/admin/account}" th:text="#{admin.profile.myaccount}">
-                                                        <span class="edu-icon edu-home-admin author-log-ic" ></span>
+                                                <ul role="menu"
+                                                    class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                                                    <li><a th:href="@{/admin/account}"
+                                                           th:text="#{admin.profile.myaccount}">
+                                                        <span class="edu-icon edu-home-admin author-log-ic"></span>
                                                     </a>
                                                     </li>
-                                                    <li><a th:href="@{/admin/profile}" th:text="#{admin.profile.myprofile}"><span class="edu-icon edu-user-rounded author-log-ic"></span></a>
+                                                    <li><a th:href="@{/admin/profile}"
+                                                           th:text="#{admin.profile.myprofile}"><span
+                                                            class="edu-icon edu-user-rounded author-log-ic"></span></a>
                                                     </li>
-                                                    <li><a th:href="@{/admin/setting}" th:text="#{admin.profile.setting}" ><span class="edu-icon edu-settings author-log-ic"></span></a>
+                                                    <li><a th:href="@{/admin/setting}"
+                                                           th:text="#{admin.profile.setting}"><span
+                                                            class="edu-icon edu-settings author-log-ic"></span></a>
                                                     </li>
-                                                    <li><a th:href="@{/logout}" th:text="#{admin.logout}"><span class="edu-icon edu-locked author-log-ic"></span></a>
+                                                    <li><a th:href="@{/logout}" th:text="#{admin.logout}"><span
+                                                            class="edu-icon edu-locked author-log-ic"></span></a>
                                                     </li>
                                                 </ul>
                                             </li>
                                             <li class="nav-item nav-setting-open">
-                                                <a th:href="@{/admin/websetting}" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                                                <a href="#" data-toggle="dropdown" role="button"
+                                                   aria-expanded="false" class="nav-link dropdown-toggle">
                                                     <i class="educate-icon educate-menu"></i></a>
 
-                                                <div role="menu" class="admintab-wrap menu-setting-wrap menu-setting-wrap-bg dropdown-menu animated zoomIn">
+                                                <div role="menu"
+                                                     class="admintab-wrap menu-setting-wrap menu-setting-wrap-bg dropdown-menu animated zoomIn">
                                                     <ul class="nav nav-tabs custon-set-tab">
-                                                        <li class="active"><a data-toggle="tab" href="#Notes"  th:text="#{admin.note}"></a>
+                                                        <li class="active"><a data-toggle="tab" href="#Notes"
+                                                                              th:text="#{admin.note}"></a>
                                                         </li>
-                                                        <li><a data-toggle="tab" href="#Blogs"  th:text="#{admin.blog}"></a>
+                                                        <li><a data-toggle="tab" href="#Blogs"
+                                                               th:text="#{admin.blog}"></a>
                                                         </li>
-                                                        <li><a data-toggle="tab" href="#Settings">Settings</a>
+                                                        <li><a data-toggle="tab" href="#Settings"
+                                                               th:text="#{admin.profile.setting}"></a>
                                                         </li>
                                                     </ul>
 
@@ -333,141 +373,59 @@
                                                         <div id="Notes" class="tab-pane fade in active">
                                                             <div class="notes-area-wrap">
                                                                 <div class="note-heading-indicate">
-                                                                    <h2><i class="fa fa-comments-o"></i> Latest Notes</h2>
-                                                                    <p>You have 10 new message.</p>
+                                                                    <h2 th:text="#{admin.latestNotes}"><i
+                                                                            class="fa fa-comments-o"></i></h2>
+                                                                    <p th:text="#{admin.note.numberNoteone}"></p>
+                                                                    <p th:text="#{admin.note.numberNotetwo}"></p>
+                                                                    <!--                                                                    <label th:text="${note.getNumber()}"></label>-->
+
                                                                 </div>
                                                                 <div class="notes-list-area notes-menu-scrollbar">
                                                                     <ul class="notes-menu-list">
                                                                         <li>
-                                                                            <a href="#">
+                                                                            <a th:href="@{/admin/note/}">
                                                                                 <div class="notes-list-flow">
                                                                                     <div class="notes-img">
-                                                                                        <img src="/resources/img/contact/4.jpg" alt="" />
+                                                                                        <img src="/resources/100vnd.jpeg"
+                                                                                             alt=""/>
                                                                                     </div>
                                                                                     <div class="notes-content">
-                                                                                        <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                                                                                        <span>Yesterday 2:45 pm</span>
+                                                                                        <p th:text="#{admin.note.content}"></p>
+                                                                                        <span th:text="#{admin.note.time}"></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </a>
                                                                         </li>
                                                                         <li>
-                                                                            <a href="#">
+                                                                            <a th:href="@{/admin/note/}">
                                                                                 <div class="notes-list-flow">
                                                                                     <div class="notes-img">
-                                                                                        <img src="/resources/img/contact/1.jpg" alt="" />
+                                                                                        <img src="/resources/200vnd.jpeg"
+                                                                                             alt=""/>
                                                                                     </div>
                                                                                     <div class="notes-content">
-                                                                                        <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                                                                                        <span>Yesterday 2:45 pm</span>
+                                                                                        <p th:text="#{admin.note.content}"></p>
+                                                                                        <span th:text="#{admin.note.time}"></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </a>
                                                                         </li>
                                                                         <li>
-                                                                            <a href="#">
+                                                                            <a th:href="@{/admin/note/}">
                                                                                 <div class="notes-list-flow">
                                                                                     <div class="notes-img">
-                                                                                        <img src="/resources/img/contact/2.jpg" alt="" />
+                                                                                        <img src="/resources/500vnd.jpeg"
+                                                                                             alt=""/>
                                                                                     </div>
                                                                                     <div class="notes-content">
-                                                                                        <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                                                                                        <span>Yesterday 2:45 pm</span>
+                                                                                        <p th:text="#{admin.note.content}"></p>
+                                                                                        <span th:text="#{admin.note.time}"></span>
                                                                                     </div>
                                                                                 </div>
                                                                             </a>
                                                                         </li>
-                                                                        <li>
-                                                                            <a href="#">
-                                                                                <div class="notes-list-flow">
-                                                                                    <div class="notes-img">
-                                                                                        <img src="/resources/img/contact/3.jpg" alt="" />
-                                                                                    </div>
-                                                                                    <div class="notes-content">
-                                                                                        <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                                                                                        <span>Yesterday 2:45 pm</span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <a href="#">
-                                                                                <div class="notes-list-flow">
-                                                                                    <div class="notes-img">
-                                                                                        <img src="/resources/img/contact/4.jpg" alt="" />
-                                                                                    </div>
-                                                                                    <div class="notes-content">
-                                                                                        <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                                                                                        <span>Yesterday 2:45 pm</span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <a href="#">
-                                                                                <div class="notes-list-flow">
-                                                                                    <div class="notes-img">
-                                                                                        <img src="/resources/img/contact/1.jpg" alt="" />
-                                                                                    </div>
-                                                                                    <div class="notes-content">
-                                                                                        <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                                                                                        <span>Yesterday 2:45 pm</span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <a href="#">
-                                                                                <div class="notes-list-flow">
-                                                                                    <div class="notes-img">
-                                                                                        <img src="/resources/img/contact/2.jpg" alt="" />
-                                                                                    </div>
-                                                                                    <div class="notes-content">
-                                                                                        <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                                                                                        <span>Yesterday 2:45 pm</span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <a href="#">
-                                                                                <div class="notes-list-flow">
-                                                                                    <div class="notes-img">
-                                                                                        <img src="/resources/img/contact/1.jpg" alt="" />
-                                                                                    </div>
-                                                                                    <div class="notes-content">
-                                                                                        <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                                                                                        <span>Yesterday 2:45 pm</span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <a href="#">
-                                                                                <div class="notes-list-flow">
-                                                                                    <div class="notes-img">
-                                                                                        <img src="/resources/img/contact/2.jpg" alt="" />
-                                                                                    </div>
-                                                                                    <div class="notes-content">
-                                                                                        <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                                                                                        <span>Yesterday 2:45 pm</span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <a href="#">
-                                                                                <div class="notes-list-flow">
-                                                                                    <div class="notes-img">
-                                                                                        <img src="/resources/img/contact/3.jpg" alt="" />
-                                                                                    </div>
-                                                                                    <div class="notes-content">
-                                                                                        <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                                                                                        <span>Yesterday 2:45 pm</span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </a>
-                                                                        </li>
+
+
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -475,25 +433,29 @@
                                                         <div id="Blogs" class="tab-pane fade">
                                                             <div class="projects-settings-wrap">
                                                                 <div class="note-heading-indicate">
-                                                                    <h2 th:text="#{admin.latestBlog}" ><i class="fa fa-cube"></i> </h2>
+                                                                    <h2 th:text="#{admin.latestBlog}"><i
+                                                                            class="fa fa-cube"></i></h2>
                                                                     <p th:text="#{admin.youhave}">
-<!--                                                                        <label th:text="${blog.getNumber()}"></label>-->
                                                                     <p th:text="#{admin.notReadBlog}"></p>
+                                                                    <!--                                                                        <label th:text="${blog.getNumber()}"></label>-->
+
                                                                 </div>
                                                                 <div class="project-st-list-area project-st-menu-scrollbar">
                                                                     <ul class="projects-st-menu-list">
                                                                         <li>
-                                                                            <a th:ref="@{/admin/blog/list}">
+                                                                            <a th:href="@{/admin/blog/list}">
                                                                                 <div class="project-list-flow">
                                                                                     <div class="projects-st-heading">
                                                                                         <h2 th:text="#{admin.blog.name.WebDevelopment}"></h2>
                                                                                         <p th:text="#{admin.blog.time.one}"></p>
-                                                                                        <span class="project-st-time" th:text="#{admin.blog.time.one}"></span>
+                                                                                        <span class="project-st-time"
+                                                                                              th:text="#{admin.blog.time.one}"></span>
                                                                                     </div>
                                                                                     <div class="projects-st-content">
-                                                                                        <p th:text="#{admin.blog.completion}" ></p>
+                                                                                        <p th:text="#{admin.blog.completion}"></p>
                                                                                         <div class="progress progress-mini">
-                                                                                            <div style="width: 28%;" class="progress-bar progress-bar-danger hd-tp-1"></div>
+                                                                                            <div style="width: 28%;"
+                                                                                                 class="progress-bar progress-bar-danger hd-tp-1"></div>
                                                                                         </div>
                                                                                         <p th:text="#{admin.blog.time.two}"></p>
                                                                                     </div>
@@ -509,17 +471,22 @@
                                                             <div class="setting-panel-area">
                                                                 <div class="note-heading-indicate">
                                                                     <h2><i class="fa fa-gears"></i> Settings Panel</h2>
-                                                                    <p> You have 20 Settings. 5 not completed.</p>
+                                                                    <p th:text="#{admin.profile.setting.youhave}"></p>
+                                                                    <p th:text="#{admin.profile.setting}"></p>
                                                                 </div>
                                                                 <ul class="setting-panel-list">
                                                                     <li>
                                                                         <div class="checkbox-setting-pro">
                                                                             <div class="checkbox-title-pro">
-                                                                                <h2>Show notifications</h2>
+                                                                                <h2 th:text="#{admin.profile.setting.Shownotifications}"></h2>
                                                                                 <div class="ts-custom-check">
                                                                                     <div class="onoffswitch">
-                                                                                        <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example">
-                                                                                        <label class="onoffswitch-label" for="example">
+                                                                                        <input type="checkbox"
+                                                                                               name="collapsemenu"
+                                                                                               class="onoffswitch-checkbox"
+                                                                                               id="example">
+                                                                                        <label class="onoffswitch-label"
+                                                                                               for="example">
                                                                                             <span class="onoffswitch-inner"></span>
                                                                                             <span class="onoffswitch-switch"></span>
                                                                                         </label>
@@ -531,11 +498,15 @@
                                                                     <li>
                                                                         <div class="checkbox-setting-pro">
                                                                             <div class="checkbox-title-pro">
-                                                                                <h2>Disable Chat</h2>
+                                                                                <h2 th:text="#{admin.profile.setting.DisableChat}"></h2>
                                                                                 <div class="ts-custom-check">
                                                                                     <div class="onoffswitch">
-                                                                                        <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example3">
-                                                                                        <label class="onoffswitch-label" for="example3">
+                                                                                        <input type="checkbox"
+                                                                                               name="collapsemenu"
+                                                                                               class="onoffswitch-checkbox"
+                                                                                               id="example3">
+                                                                                        <label class="onoffswitch-label"
+                                                                                               for="example3">
                                                                                             <span class="onoffswitch-inner"></span>
                                                                                             <span class="onoffswitch-switch"></span>
                                                                                         </label>
@@ -547,11 +518,15 @@
                                                                     <li>
                                                                         <div class="checkbox-setting-pro">
                                                                             <div class="checkbox-title-pro">
-                                                                                <h2>Enable history</h2>
+                                                                                <h2 th:text="#{admin.profile.setting.Enablehistory}"></h2>
                                                                                 <div class="ts-custom-check">
                                                                                     <div class="onoffswitch">
-                                                                                        <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example4">
-                                                                                        <label class="onoffswitch-label" for="example4">
+                                                                                        <input type="checkbox"
+                                                                                               name="collapsemenu"
+                                                                                               class="onoffswitch-checkbox"
+                                                                                               id="example4">
+                                                                                        <label class="onoffswitch-label"
+                                                                                               for="example4">
                                                                                             <span class="onoffswitch-inner"></span>
                                                                                             <span class="onoffswitch-switch"></span>
                                                                                         </label>
@@ -563,11 +538,15 @@
                                                                     <li>
                                                                         <div class="checkbox-setting-pro">
                                                                             <div class="checkbox-title-pro">
-                                                                                <h2>Show charts</h2>
+                                                                                <h2 th:text="#{admin.profile.setting.Showcharts}"></h2>
                                                                                 <div class="ts-custom-check">
                                                                                     <div class="onoffswitch">
-                                                                                        <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example7">
-                                                                                        <label class="onoffswitch-label" for="example7">
+                                                                                        <input type="checkbox"
+                                                                                               name="collapsemenu"
+                                                                                               class="onoffswitch-checkbox"
+                                                                                               id="example7">
+                                                                                        <label class="onoffswitch-label"
+                                                                                               for="example7">
                                                                                             <span class="onoffswitch-inner"></span>
                                                                                             <span class="onoffswitch-switch"></span>
                                                                                         </label>
@@ -579,11 +558,16 @@
                                                                     <li>
                                                                         <div class="checkbox-setting-pro">
                                                                             <div class="checkbox-title-pro">
-                                                                                <h2>Update everyday</h2>
+                                                                                <h2 th:text="#{admin.profile.setting.Updateeveryday}"></h2>
                                                                                 <div class="ts-custom-check">
                                                                                     <div class="onoffswitch">
-                                                                                        <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example2">
-                                                                                        <label class="onoffswitch-label" for="example2">
+                                                                                        <input type="checkbox"
+                                                                                               name="collapsemenu"
+                                                                                               checked=""
+                                                                                               class="onoffswitch-checkbox"
+                                                                                               id="example2">
+                                                                                        <label class="onoffswitch-label"
+                                                                                               for="example2">
                                                                                             <span class="onoffswitch-inner"></span>
                                                                                             <span class="onoffswitch-switch"></span>
                                                                                         </label>
@@ -595,11 +579,16 @@
                                                                     <li>
                                                                         <div class="checkbox-setting-pro">
                                                                             <div class="checkbox-title-pro">
-                                                                                <h2>Global search</h2>
+                                                                                <h2 th:text="#{admin.profile.setting.Globalsearch}"></h2>
                                                                                 <div class="ts-custom-check">
                                                                                     <div class="onoffswitch">
-                                                                                        <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example6">
-                                                                                        <label class="onoffswitch-label" for="example6">
+                                                                                        <input type="checkbox"
+                                                                                               name="collapsemenu"
+                                                                                               checked=""
+                                                                                               class="onoffswitch-checkbox"
+                                                                                               id="example6">
+                                                                                        <label class="onoffswitch-label"
+                                                                                               for="example6">
                                                                                             <span class="onoffswitch-inner"></span>
                                                                                             <span class="onoffswitch-switch"></span>
                                                                                         </label>
@@ -611,11 +600,16 @@
                                                                     <li>
                                                                         <div class="checkbox-setting-pro">
                                                                             <div class="checkbox-title-pro">
-                                                                                <h2>Offline users</h2>
+                                                                                <h2 th:text="#{admin.profile.setting.Offlineusers}"></h2>
                                                                                 <div class="ts-custom-check">
                                                                                     <div class="onoffswitch">
-                                                                                        <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example5">
-                                                                                        <label class="onoffswitch-label" for="example5">
+                                                                                        <input type="checkbox"
+                                                                                               name="collapsemenu"
+                                                                                               checked=""
+                                                                                               class="onoffswitch-checkbox"
+                                                                                               id="example5">
+                                                                                        <label class="onoffswitch-label"
+                                                                                               for="example5">
                                                                                             <span class="onoffswitch-inner"></span>
                                                                                             <span class="onoffswitch-switch"></span>
                                                                                         </label>
@@ -648,176 +642,51 @@
                         <div class="mobile-menu">
                             <nav id="dropdown">
                                 <ul class="mobile-menu-nav">
-                                    <li><a data-toggle="collapse" data-target="#Charts" href="#">Home <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                    <li><a data-toggle="collapse" data-target="#Charts" href="#">Home <span
+                                            class="admin-project-icon edu-icon edu-down-arrow"></span></a>
                                         <ul class="collapse dropdown-header-top">
-                                            <li><a href="index.html">Dashboard v.1</a></li>
-                                            <li><a href="index-1.html">Dashboard v.2</a></li>
-                                            <li><a href="index-3.html">Dashboard v.3</a></li>
-                                            <li><a href="analytics.html">Analytics</a></li>
-                                            <li><a href="widgets.html">Widgets</a></li>
+                                            <li><a th:href="@{/admin/profile}" th:text="#{admin.profile}"></a></li>
+                                            <li><a th:href="@{/admin/setting}" th:text="#{admin.setting}"></a></li>
+                                            <li><a th:href="@{/admin/register}" th:text="#{admin.register}"></a></li>
+                                            <li><a th:href="@{/logout}" th:text="#{admin.logout}"></a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="events.html">Event</a></li>
-                                    <li><a data-toggle="collapse" data-target="#demoevent" href="#">Professors <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="demoevent" class="collapse dropdown-header-top">
-                                            <li><a href="all-professors.html">All Professors</a>
+                                    <li><a data-toggle="collapse" data-target="#customer" href="#"
+                                           th:text="#{admin.sidebar.user}"> <span
+                                            class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                        <ul id="customer" class="collapse dropdown-header-top">
+                                            <li><a th:href="@{/admin/customer/list}"
+                                                   th:text="#{admin.sidebar.userAll}"></a>
                                             </li>
-                                            <li><a href="add-professor.html">Add Professor</a>
+                                            <li><a th:href="@{/admin/customer/create}"
+                                                   th:text="#{admin.sidebar.userAdd}"></a>
                                             </li>
-                                            <li><a href="edit-professor.html">Edit Professor</a>
+                                            <li><a th:href="@{/admin/customer/edit}"
+                                                   th:text="#{admin.sidebar.userEdit}"></a>
                                             </li>
-                                            <li><a href="professor-profile.html">Professor Profile</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a data-toggle="collapse" data-target="#demopro" href="#">Students <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="demopro" class="collapse dropdown-header-top">
-                                            <li><a href="all-students.html">All Students</a>
-                                            </li>
-                                            <li><a href="add-student.html">Add Student</a>
-                                            </li>
-                                            <li><a href="edit-student.html">Edit Student</a>
-                                            </li>
-                                            <li><a href="student-profile.html">Student Profile</a>
+                                            <li><a th:href="@{/admin/customer/view}"
+                                                   th:text="#{admin.sidebar.userProfile}"></a>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a data-toggle="collapse" data-target="#democrou" href="#">Courses <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="democrou" class="collapse dropdown-header-top">
-                                            <li><a href="all-courses.html">All Courses</a>
+                                    <li><a data-toggle="collapse" data-target="#bill" href="#"
+                                           th:text="#{admin.sidebar.bill}"> <span
+                                            class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                        <ul id="bill" class="collapse dropdown-header-top">
+                                            <li><a th:href="@{/admin/bill/list}" th:text="#{admin.sidebar.billAll}"></a>
                                             </li>
-                                            <li><a href="add-course.html">Add Course</a>
+                                            <li><a th:href="@{/admin/bill/create}"
+                                                   th:text="#{admin.sidebar.billAdd}"></a>
                                             </li>
-                                            <li><a href="edit-course.html">Edit Course</a>
+                                            <li><a th:href="@{/admin/bill/edit}"
+                                                   th:text="#{admin.sidebar.billEdit}"></a>
                                             </li>
-                                            <li><a href="course-profile.html">Courses Info</a>
-                                            </li>
-                                            <li><a href="course-payment.html">Courses Payment</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a data-toggle="collapse" data-target="#demolibra" href="#">Library <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="demolibra" class="collapse dropdown-header-top">
-                                            <li><a href="library-assets.html">Library Assets</a>
-                                            </li>
-                                            <li><a href="add-library-assets.html">Add Library Asset</a>
-                                            </li>
-                                            <li><a href="edit-library-assets.html">Edit Library Asset</a>
+                                            <li><a th:href="@{/admin/bill/view}"
+                                                   th:text="#{admin.sidebar.billView}"></a>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a data-toggle="collapse" data-target="#demodepart" href="#">Departments <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="demodepart" class="collapse dropdown-header-top">
-                                            <li><a href="departments.html">Departments List</a>
-                                            </li>
-                                            <li><a href="add-department.html">Add Departments</a>
-                                            </li>
-                                            <li><a href="edit-department.html">Edit Departments</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a data-toggle="collapse" data-target="#demo" href="#">Mailbox <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="demo" class="collapse dropdown-header-top">
-                                            <li><a href="mailbox.html">Inbox</a>
-                                            </li>
-                                            <li><a href="mailbox-view.html">View Mail</a>
-                                            </li>
-                                            <li><a href="mailbox-compose.html">Compose Mail</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a data-toggle="collapse" data-target="#Miscellaneousmob" href="#">Interface <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="Miscellaneousmob" class="collapse dropdown-header-top">
-                                            <li><a href="google-map.html">Google Map</a>
-                                            </li>
-                                            <li><a href="data-maps.html">Data Maps</a>
-                                            </li>
-                                            <li><a href="pdf-viewer.html">Pdf Viewer</a>
-                                            </li>
-                                            <li><a href="x-editable.html">X-Editable</a>
-                                            </li>
-                                            <li><a href="code-editor.html">Code Editor</a>
-                                            </li>
-                                            <li><a href="tree-view.html">Tree View</a>
-                                            </li>
-                                            <li><a href="preloader.html">Preloader</a>
-                                            </li>
-                                            <li><a href="images-cropper.html">Images Cropper</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a data-toggle="collapse" data-target="#Chartsmob" href="#">Charts <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="Chartsmob" class="collapse dropdown-header-top">
-                                            <li><a href="bar-charts.html">Bar Charts</a>
-                                            </li>
-                                            <li><a href="line-charts.html">Line Charts</a>
-                                            </li>
-                                            <li><a href="area-charts.html">Area Charts</a>
-                                            </li>
-                                            <li><a href="rounded-chart.html">Rounded Charts</a>
-                                            </li>
-                                            <li><a href="c3.html">C3 Charts</a>
-                                            </li>
-                                            <li><a href="sparkline.html">Sparkline Charts</a>
-                                            </li>
-                                            <li><a href="peity.html">Peity Charts</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a data-toggle="collapse" data-target="#Tablesmob" href="#">Tables <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="Tablesmob" class="collapse dropdown-header-top">
-                                            <li><a href="static-table.html">Static Table</a>
-                                            </li>
-                                            <li><a href="data-table.html">Data Table</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a data-toggle="collapse" data-target="#formsmob" href="#">Forms <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="formsmob" class="collapse dropdown-header-top">
-                                            <li><a href="basic-form-element.html">Basic Form Elements</a>
-                                            </li>
-                                            <li><a href="advance-form-element.html">Advanced Form Elements</a>
-                                            </li>
-                                            <li><a href="password-meter.html">Password Meter</a>
-                                            </li>
-                                            <li><a href="multi-upload.html">Multi Upload</a>
-                                            </li>
-                                            <li><a href="tinymc.html">Text Editor</a>
-                                            </li>
-                                            <li><a href="dual-list-box.html">Dual List Box</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a data-toggle="collapse" data-target="#Appviewsmob" href="#">App views <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="Appviewsmob" class="collapse dropdown-header-top">
-                                            <li><a href="basic-form-element.html">Basic Form Elements</a>
-                                            </li>
-                                            <li><a href="advance-form-element.html">Advanced Form Elements</a>
-                                            </li>
-                                            <li><a href="password-meter.html">Password Meter</a>
-                                            </li>
-                                            <li><a href="multi-upload.html">Multi Upload</a>
-                                            </li>
-                                            <li><a href="tinymc.html">Text Editor</a>
-                                            </li>
-                                            <li><a href="dual-list-box.html">Dual List Box</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a data-toggle="collapse" data-target="#Pagemob" href="#">Pages <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="Pagemob" class="collapse dropdown-header-top">
-                                            <li><a href="login.html">Login</a>
-                                            </li>
-                                            <li><a href="register.html">Register</a>
-                                            </li>
-                                            <li><a href="lock.html">Lock</a>
-                                            </li>
-                                            <li><a href="password-recovery.html">Password Recovery</a>
-                                            </li>
-                                            <li><a href="404.html">404 Page</a></li>
-                                            <li><a href="500.html">500 Page</a></li>
-                                        </ul>
-                                    </li>
+
                                 </ul>
                             </nav>
                         </div>
@@ -842,9 +711,10 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <ul class="breadcome-menu">
-                                        <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                        <li><a th:href="@{/admin/home}" th:text="#{admin.home}"></a> <span
+                                                class="bread-slash">/</span>
                                         </li>
-                                        <li><span class="bread-blod">Library Assets</span>
+                                        <li><span class="bread-blod" th:text="#{admin.adminName}"></span>
                                         </li>
                                     </ul>
                                 </div>
@@ -855,135 +725,78 @@
             </div>
         </div>
     </div>
+
+    <!--    List-->
     <div class="product-status mg-b-15">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="product-status-wrap">
-                        <h4>Library List</h4>
+                        <h4 th:text="#{admin.list}"></h4>
                         <div class="add-product">
-                            <a href="#">Add Library</a>
+                            <a th:href="@{/admin/create}" th:text="#{admin.create}"></a>
                         </div>
-                        <div class="asset-inner">
-                            <table>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Image</th>
-                                    <th>Name of Asset</th>
-                                    <th>Status</th>
-                                    <th>Subject</th>
-                                    <th>Department</th>
-                                    <th>Type</th>
-                                    <th>Price</th>
-                                    <th>Setting</th>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td><img src="/resources/img/product/book-1.jpg" alt="" /></td>
-                                    <td>Web Development Book</td>
-                                    <td>
-                                        <button class="pd-setting">Active</button>
-                                    </td>
-                                    <td>Html, Css</td>
-                                    <td>CSE</td>
-                                    <td>Book</td>
-                                    <td>$1500</td>
-                                    <td>
-                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td><img src="/resources/img/product/book-2.jpg" alt="" /></td>
-                                    <td>Quality Bol pen</td>
-                                    <td>
-                                        <button class="ps-setting">Paused</button>
-                                    </td>
-                                    <td>PHP</td>
-                                    <td>CSE</td>
-                                    <td>CD</td>
-                                    <td>$1700</td>
-                                    <td>
-                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td><img src="/resources/img/product/book-3.jpg" alt="" /></td>
-                                    <td>Box of pendrive</td>
-                                    <td>
-                                        <button class="ds-setting">Disabled</button>
-                                    </td>
-                                    <td>Java</td>
-                                    <td>CSE</td>
-                                    <td>Book</td>
-                                    <td>$1500</td>
-                                    <td>
-                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td><img src="/resources/img/product/book-4.jpg" alt="" /></td>
-                                    <td>Quality Bol pen</td>
-                                    <td>
-                                        <button class="pd-setting">Active</button>
-                                    </td>
-                                    <td>PHP</td>
-                                    <td>CSE</td>
-                                    <td>CD</td>
-                                    <td>$1200</td>
-                                    <td>
-                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td><img src="/resources/img/product/book-1.jpg" alt="" /></td>
-                                    <td>Web Development Book</td>
-                                    <td>
-                                        <button class="pd-setting">Active</button>
-                                    </td>
-                                    <td>Wordpress</td>
-                                    <td>CSE</td>
-                                    <td>Book</td>
-                                    <td>$1800</td>
-                                    <td>
-                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td><img src="/resources/img/product/book-2.jpg" alt="" /></td>
-                                    <td>Quality Bol pen</td>
-                                    <td>
-                                        <button class="ps-setting">Paused</button>
-                                    </td>
-                                    <td>Java</td>
-                                    <td>CSE</td>
-                                    <td>CD</td>
-                                    <td>$1000</td>
-                                    <td>
-                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="custom-pagination">
-                            <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul>
-                        </div>
+
+
+                        <!--                        <div class="asset-inner">-->
+                        <!--                            <table>-->
+                        <!--                                <tr>-->
+                        <!--                                    <th th:text="#{admin.id}"></th>-->
+                        <!--                                    <th th:text="#{admin.avatar}"></th>-->
+                        <!--                                    <th th:text="#{admin.account}"></th>-->
+                        <!--                                    <th th:text="#{admin.status}"></th>-->
+                        <!--                                    <th th:text="#{admin.role}"></th>-->
+                        <!--                                    <th th:text="#{admin.personalName}"></th>-->
+                        <!--                                    <th th:text="#{admin.dateStart}"></th>-->
+                        <!--                                    <th th:text="#{admin.dateEnd}"></th>-->
+                        <!--                                    <th th:text="#{admin.profile.setting}"></th>-->
+                        <!--                                </tr>-->
+                        <!--                                <tr th:each="row,rowStat : ${admins}">-->
+                        <!--                                    <td th:text="#{admin.id}"></td>-->
+                        <!--                                    <td>< th:src="@{/img/{image}(image=${row.getAvatar()})}"" alt="" /></td>-->
+                        <!--                                    <td><label th:text="${row.getAccount()}"></label></td>-->
+                        <!--                                    <td>-->
+                        <!--                                        <label class="pd-setting" th:text="${row.getStatus()}"></label>-->
+                        <!--                                    </td>-->
+                        <!--                                    <td th:text="${row.getRole()}"></td>-->
+                        <!--                                    <td th:text="${row.getName()}"></td>-->
+                        <!--                                    <td th:text="${row.getDateStart}"></td>-->
+                        <!--                                    <td th:text="${row.getDateEnd}"></td>-->
+                        <!--                                    <td>-->
+                        <!--                                        <a th:href="@{/admin/edit/__${admin.getId()}__ }" data-toggle="tooltip"-->
+                        <!--                                           title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o"-->
+                        <!--                                                                                 aria-hidden="true"></i></a>-->
+                        <!--                                        <a th:href="@{/admin/delete/__${admin.getId()}__ }" data-toggle="tooltip"-->
+                        <!--                                           title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o"-->
+                        <!--                                                                                  aria-hidden="true"></i></a>-->
+                        <!--                                    </td>-->
+                        <!--                                </tr>-->
+
+                        <!--                            </table>-->
+                        <!--                        </div>-->
+
+                        <!--                        <div class="custom-pagination">-->
+                        <!--                            <ul class="pagination">-->
+                        <!--                                <li class="page-item">-->
+                        <!--                                    <a class="page-link" th:href="@{'/admin/list'(page=${admins.number - 1})}"-->
+                        <!--                                       th:if="${admins.hasPrevious()}" th:text="#{admin.page.previous}"></a></li>-->
+                        <!--                                <li class="page-item"><a class="page-link"-->
+                        <!--                                                         th:href="@{'/admin/list'(page=${admins.number + 1})}">1</a>-->
+                        <!--                                </li>-->
+                        <!--                                <li class="page-item"><a class="page-link"-->
+                        <!--                                                         th:href="@{'/admin/list'(page=${admins.number + 2})}">2</a>-->
+                        <!--                                </li>-->
+                        <!--                                <li class="page-item"><a class="page-link"-->
+                        <!--                                                         th:href="@{'/admin/list'(page=${admins.number + 3})}">3</a>-->
+                        <!--                                </li>-->
+                        <!--                                <li class="page-item"><a class="page-link"-->
+                        <!--                                                         th:href="@{'/admin/list'(page=${admins.number + 1})}"-->
+                        <!--                                                         th:if="${admins.hasNext()}" th:text="#{admin.page.next}"></a>-->
+                        <!--                                </li>-->
+                        <!--                            </ul>-->
+                        <!--                        </div>-->
+
+
                     </div>
                 </div>
             </div>
@@ -994,7 +807,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer-copy-right">
-                        <p>Copyright © 2018. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">Colorlib</a></p>
+                        <p><a th:href="@{/admin/template}" th:text="#{admin.groupPink}"></a></p>
                     </div>
                 </div>
             </div>

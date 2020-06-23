@@ -1,5 +1,9 @@
 package com.codegym;
 
+import com.codegym.service.order.IOrderService;
+import com.codegym.service.order.OrderService;
+import com.codegym.service.user.IUserService;
+import com.codegym.service.user.UserService;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -122,6 +126,16 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
         messageSource.setBasename("messages");
         return messageSource;
+    }
+
+    @Bean
+    public IOrderService orderService() {
+        return new OrderService();
+    }
+
+    @Bean
+    public IUserService userService() {
+        return new UserService();
     }
 
 }

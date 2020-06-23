@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -8,7 +9,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-        <title>Thong tin shop</title>
+        <title>Thông tin shop</title>
     </head>
 
     <body>
@@ -17,13 +18,13 @@
                 <div class="container ">
                     <div class="row">
                         <li class=" col-md-3 nav-item pr-5 " role="presentation">
-                            <a class="nav-link bg-light text-dark active" id="pills-home-tab" href="/create-order" role="tab" aria-controls="pills-home" aria-selected="true">Tao don hang moi</a>
+                            <a class="nav-link bg-light text-dark active" id="pills-home-tab" href="/create-order" role="tab" aria-controls="pills-home" aria-selected="true">Tạo đơn hàng mới</a>
                         </li>
                         <li class="col-md-3 nav-item pr-5" role="presentation">
                             <a class="nav-link bg-light text-dark" id="pills-profile-tab" href="/orders" role="tab" aria-controls="pills-profile" aria-selected="false">Quan ly don hang</a>
                         </li>
                         <li class="col-md-3 nav-item pr-5" role="presentation">
-                            <a class="nav-link bg-light text-dark" id="pills-contact-tab"  href="/" role="tab" aria-controls="pills-contact" aria-selected="false">Thong tin shop</a>
+                            <a class="nav-link bg-light text-dark" id="pills-contact-tab"  th:href="@{/}" role="tab" aria-controls="pills-contact" aria-selected="false">Thong tin shop</a>
                         </li>
                         <li class="col-md-3 nav-item pr-5 " role="presentation">
                             <a class="nav-link bg-danger text-light" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Thoat</a>

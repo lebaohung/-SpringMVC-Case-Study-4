@@ -4,5 +4,5 @@ package com.codegym.cms.service;
 import com.codegym.cms.model.Customer;
 
 public interface AppUserService {
-    Customer getUserByUsername(String username);
+    Customer getUserByEmail(String username);
 }

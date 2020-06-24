@@ -4,5 +4,5 @@ import com.codegym.cms.model.Customer;
 import org.springframework.data.repository.CrudRepository;
 
 public interface AppUserRepository extends CrudRepository<Customer, Long> {
-    Customer findByUsername(String username);
+    Customer findByEmail(String email);
 }

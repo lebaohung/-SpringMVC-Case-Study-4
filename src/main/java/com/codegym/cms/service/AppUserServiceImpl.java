@@ -18,19 +18,19 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
     private AppUserRepository appUserRepository;
 
     @Override
-    public Customer getUserByUsername(String username) {
-        return appUserRepository.findByUsername(username);
+    public Customer getUserByEmail(String email) {
+        return appUserRepository.findByEmail(email);
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Customer user = this.getUserByUsername(username);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Customer user = this.getUserByEmail(email);
 
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(user.getRole());
 
         UserDetails userDetails = new User(
-                user.getUsername(),
+                user.getEmail(),
                 user.getPassword(),
                 authorities
         );

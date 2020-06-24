@@ -2,14 +2,12 @@ package com.codegym.cms.controller;//package com.codegym.controller;
 
 import com.codegym.cms.model.Customer;
 import com.codegym.cms.model.Province;
+import com.codegym.cms.service.CustomerService;
 import com.codegym.cms.service.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -17,6 +15,9 @@ public class HomepageController {
 
     @Autowired
     private ProvinceService provinceService;
+
+    @Autowired
+    private CustomerService customerService;
 
     @ModelAttribute("provinces")
     public Iterable<Province> provinces() {
@@ -34,16 +35,15 @@ public class HomepageController {
     }
 
     @PostMapping("/loginForm")
-    public ModelAndView redirectLogin() {
+    public ModelAndView redirectLogin(@RequestAttribute("customer")Customer customer) {
+
+
+        customerService.save(customer);
+
         ModelAndView modelAndView = new ModelAndView("/login/loginForm");
-        modelAndView.addObject("message", "Welcome!Thanks for creat a new account");
+        modelAndView.addObject("message", true);
         return modelAndView;
     }
-
-    //    @GetMapping("/sigup")
-//    public String signUp(){
-//        return "/login/signUp";
-//    }
 
     @GetMapping("/sigup")
     public ModelAndView signUp() {

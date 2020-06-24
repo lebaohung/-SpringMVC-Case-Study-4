@@ -3,10 +3,12 @@ package com.codegym.cms;
 //import com.codegym.cms.aspect.MyLogger;
 //import com.codegym.cms.formatter.CustomerTypeFormatter;
 import com.codegym.cms.service.AppUserService;
+import com.codegym.cms.service.CustomerService;
 import com.codegym.cms.service.ProvinceService;
 import com.codegym.cms.service.impl.AppUserServiceImpl;
 //import com.codegym.cms.service.CustomerService;
 //import com.codegym.cms.service.CustomerServiceImpl;
+import com.codegym.cms.service.impl.CustomerServiceImpl;
 import com.codegym.cms.service.impl.ProvinceServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -198,6 +200,11 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     @Bean
     public ProvinceService provinceService() {
         return new ProvinceServiceImpl();
+    }
+
+    @Bean
+    public CustomerService customerService() {
+        return new CustomerServiceImpl();
     }
 
 }

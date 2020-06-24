@@ -15,8 +15,8 @@
     <div class="container-login100" style="background: #1b3815">
         <div class="wrap-login100">
             <form class="login100-form validate-form p-l-55 p-r-55 p-t-178" name="f" action="/do_login" method="post">
-<!--                <input name="_csrf" type="hidden">-->
-					<span class="login100-form-title">
+                <!--                <input name="_csrf" type="hidden">-->
+                <span class="login100-form-title">
 						Sign In
 					</span>
 
@@ -25,7 +25,7 @@
                     <span class="focus-input100"></span>
                 </div>
 
-                <div class="wrap-input100 validate-input" data-validate = "Please enter password">
+                <div class="wrap-input100 validate-input" data-validate="Please enter password">
                     <input class="input100" type="password" name="password" placeholder="Password">
                     <span class="focus-input100"></span>
                 </div>
@@ -33,19 +33,23 @@
                 <div class="text-right p-t-13 p-b-23">
 
                     <p th:if="${loginError}" class="error" style="color: red">Wrong email or password</p>
-<!--						<span class="txt1">-->
-<!--							Forgot-->
-<!--						</span>-->
+                    <!--						<span class="txt1">-->
+                    <!--							Forgot-->
+                    <!--						</span>-->
 
-<!--                    <a href="#" class="txt2">-->
-<!--                        Username / Password?-->
-<!--                    </a>-->
+                    <!--                    <a href="#" class="txt2">-->
+                    <!--                        Username / Password?-->
+                    <!--                    </a>-->
                 </div>
 
                 <div class="container-login100-form-btn">
                     <button class="login100-form-btn">
                         Sign in
                     </button>
+                </div>
+
+                <div>
+                    <p th:if="${message}" class="error" style="color: red">Thanks to create an account.Please sign in!</p>
                 </div>
 
                 <div class="flex-col-c p-t-170 p-b-40">

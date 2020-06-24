@@ -18,7 +18,7 @@
                 <div class="container ">
                     <div class="row">
                         <li class=" col-md-3 nav-item pr-5 " role="presentation">
-                            <a class="nav-link bg-light text-dark active" id="pills-home-tab" href="/create-order" role="tab" aria-controls="pills-home" aria-selected="true">Tạo đơn hàng mới</a>
+                            <a class="nav-link bg-light text-dark active" id="pills-home-tab" th:href="@{/create-order/__${user.getUserId()}__}" role="tab" aria-controls="pills-home" aria-selected="true">Tạo đơn hàng mới</a>
                         </li>
                         <li class="col-md-3 nav-item pr-5" role="presentation">
                             <a class="nav-link bg-light text-dark" id="pills-profile-tab" href="/orders" role="tab" aria-controls="pills-profile" aria-selected="false">Quản lý đơn hàng</a>

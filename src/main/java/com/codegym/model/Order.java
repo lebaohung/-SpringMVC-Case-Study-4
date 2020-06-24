@@ -1,6 +1,7 @@
 package com.codegym.model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "Orders")
@@ -10,14 +11,32 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderId;
     private String receiverName;
-    private String receiverProvinceId;
+    private int receiverProvinceId;
     private String receiverAddress;
     private String receiverPhone;
     private int status;
     private float weight;
-    private String createdDate;
+    private Date createdDate;
+    private Long userId;
+    private String note;
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
 
     public Order() {
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public float getWeight() {
@@ -44,13 +63,14 @@ public class Order {
         this.receiverName = receiverName;
     }
 
-    public String getReceiverProvinceId() {
+    public int getReceiverProvinceId() {
         return receiverProvinceId;
     }
 
-    public void setReceiverProvinceId(String receiverProvinceId) {
+    public void setReceiverProvinceId(int receiverProvinceId) {
         this.receiverProvinceId = receiverProvinceId;
     }
+
 
     public String getReceiverAddress() {
         return receiverAddress;
@@ -76,11 +96,11 @@ public class Order {
         this.status = status;
     }
 
-    public String getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(String createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 }

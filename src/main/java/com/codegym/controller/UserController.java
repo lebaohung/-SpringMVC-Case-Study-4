@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.awt.print.Pageable;
+import java.util.Date;
 
 @Controller
 public class UserController {
@@ -39,7 +40,6 @@ public class UserController {
     public ModelAndView showUserInfo(@PathVariable Long id) {
         User user = userService.findbyId(id);
         Province province = provinceService.findById(user.getProvinceId());
-        System.out.println(user.getName());
 
         if (user.getName() != null) {
             ModelAndView modelAndView = new ModelAndView("user/detail");
@@ -65,13 +65,30 @@ public class UserController {
     }
 
     @GetMapping("/orders/{id}")
-    public String listOrders(@PathVariable String id) {
+    public String listOrders(@PathVariable Long id) {
         return "user/order/list";
     }
 
     @GetMapping("/create-order/{id}")
-    public String createOrder(@PathVariable String id) {
-        return "user/order/create";
+    public ModelAndView createOrder(@PathVariable Long id) {
+        ModelAndView modelAndView = new ModelAndView("/user/order/create");
+        Order order = new Order();
+        modelAndView.addObject(order);
+        return modelAndView;
     }
 
+    @PostMapping("/create-order/{id}")
+    public ModelAndView saveOrder(@PathVariable Long id, @ModelAttribute Order order) {
+        ModelAndView modelAndView = new ModelAndView("/user/order/create");
+        order.setUserId(id);
+        order.setStatus(1);
+
+        long millis = System.currentTimeMillis();
+        Date createdDate = new Date(millis);
+        order.setCreatedDate(createdDate);
+        orderService.save(order);
+        modelAndView.addObject(order);
+        modelAndView.addObject("message", "Create new order successfully");
+        return modelAndView;
+    }
 }

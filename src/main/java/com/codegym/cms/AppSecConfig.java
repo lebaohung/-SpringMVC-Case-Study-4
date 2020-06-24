@@ -47,6 +47,7 @@ public class AppSecConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/loginForm").usernameParameter("email").passwordParameter("password")
+                .failureUrl("/login-error")
                 .loginProcessingUrl("/do_login")
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))

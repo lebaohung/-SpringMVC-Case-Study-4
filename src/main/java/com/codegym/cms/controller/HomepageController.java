@@ -1,7 +1,9 @@
 package com.codegym.cms.controller;//package com.codegym.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -27,6 +29,11 @@ public class HomepageController {
         return new ModelAndView("/404");
     }
 
+    @RequestMapping("/login-error")
+    public String loginError(Model model) {
+        model.addAttribute("loginError", true);
+        return "login/loginForm";
+    }
 }
 
 

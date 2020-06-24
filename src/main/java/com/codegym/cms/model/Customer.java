@@ -16,7 +16,7 @@ public class Customer {
     private String password;
     private int provinceId;
     private String detailAddress;
-    private String username;
+//    private String username;
 //    @OneToMany(targetEntity = com.codegym.model.Order.class)
 //    private List<com.codegym.model.Order> orderList;
 
@@ -25,14 +25,14 @@ public class Customer {
 
     public Customer() {
     }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
+//
+//    public String getUsername() {
+//        return username;
+//    }
+//
+//    public void setUsername(String username) {
+//        this.username = username;
+//    }
 
     public Long getUserId() {
         return userId;

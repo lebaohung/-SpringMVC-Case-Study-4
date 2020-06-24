@@ -3,10 +3,11 @@ package com.codegym.cms;
 //import com.codegym.cms.aspect.MyLogger;
 //import com.codegym.cms.formatter.CustomerTypeFormatter;
 import com.codegym.cms.service.AppUserService;
-import com.codegym.cms.service.AppUserServiceImpl;
+import com.codegym.cms.service.ProvinceService;
+import com.codegym.cms.service.impl.AppUserServiceImpl;
 //import com.codegym.cms.service.CustomerService;
 //import com.codegym.cms.service.CustomerServiceImpl;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.codegym.cms.service.impl.ProvinceServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -17,10 +18,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.data.web.config.EnableSpringDataWebSupport;
-import org.springframework.format.FormatterRegistry;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -41,10 +38,8 @@ import org.thymeleaf.templatemode.TemplateMode;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
-import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
-import java.util.ResourceBundle;
 
 @Configuration
 @EnableWebMvc
@@ -199,4 +194,10 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
 //        converters.add(messageConverter());
 //        addDefaultHttpMessageConverters(converters);
 //    }
+
+    @Bean
+    public ProvinceService provinceService() {
+        return new ProvinceServiceImpl();
+    }
+
 }

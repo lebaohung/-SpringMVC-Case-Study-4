@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <!-- Required meta tags-->
@@ -34,55 +34,55 @@
         <div class="card card-4">
             <div class="card-body">
                 <h2 class="title">Registration Form</h2>
-                <form method="POST">
+                <form method="get" action="/loginForm" th:object="${customer}">
                     <div class="row row-space">
                         <div class="col-2">
                             <div class="input-group">
                                 <label class="label">full name</label>
-                                <input class="input--style-4" type="text" name="name">
+                                <input class="input--style-4" type="text" th:field="*{name}">
                             </div>
                         </div>
                         <div class="col-2">
                             <div class="input-group">
                                 <label class="label">phone number</label>
-                                <input class="input--style-4" type="text" name="phone">
+                                <input class="input--style-4" type="text" th:field="*{phone}">
                             </div>
                         </div>
                     </div>
                     <div class="row row-space">
                         <div class="col-2">
-<!--                            <div class="input-group">-->
-<!--                                <label class="label">Province/City</label>-->
-                                <!--                                    <div class="input-group-icon">-->
-                                <!--                                        <input class="input&#45;&#45;style-4 js-datepicker" type="text" name="">-->
-                                <!--                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>-->
-                                <div class="input-group">
-                                    <label class="label">Province/City</label>
-                                    <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="subject">
-                                            <option disabled="disabled" selected="selected">Choose option</option>
-                                            <option>Subject 1</option>
-                                            <option>Subject 2</option>
-                                            <option>Subject 3</option>
-                                        </select>
-                                        <div class="select-dropdown"></div>
-                                    </div>
-                                </div>
+                            <!--                            <div class="input-group">-->
+                            <!--                                <label class="label">Province/City</label>-->
+                            <!--                                    <div class="input-group-icon">-->
+                            <!--                                        <input class="input&#45;&#45;style-4 js-datepicker" type="text" name="">-->
+                            <!--                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>-->
 
-                        </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">detail address</label>
-                                    <input class="input--style-4" type="text" name="phone">
+                            <div class="input-group">
+                                <label class="label">Province/City</label>
+                                <div class="rs-select2 js-select-simple select--no-search">
+                                    <select th:field="*{provinceId}">
+                                        <option disabled="disabled" selected="selected">Choose option</option>
+                                        <option th:each="p:${provinces}" th:text="${p.name}"
+                                                th:value="${p.provinceId}"></option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
                                 </div>
                             </div>
+
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">detail address</label>
+                                <input class="input--style-4" type="text" th:field="*{detailAddress}">
+                            </div>
+                        </div>
 
                     </div>
 
 
                     <div class="input-group">
                         <label class="label">Email</label>
-                        <input class="input--style-4" type="email" name="email">
+                        <input class="input--style-4" type="email" th:field="*{email}">
                     </div>
 
                     <div class="row row-space">
@@ -90,21 +90,21 @@
                         <div class="col-2">
                             <div class="input-group">
                                 <label class="label">password</label>
-                                <input class="input--style-4" type="password" name="password">
+                                <input class="input--style-4" type="password" th:field="*{password}">
                             </div>
                         </div>
-                        <div class="col-2">
-                            <div class="input-group">
-                                <label class="label">confirm</label>
-                                <input class="input--style-4" type="password" name="confirm">
+                        <div class=" col-2">
+                                <div class="input-group">
+                                    <label class="label">confirm</label>
+                                    <input class="input--style-4" type="password" name="confirm">
+                                </div>
                             </div>
+
                         </div>
 
-                    </div>
-
-                    <div class="p-t-15">
-                        <button class="btn btn--radius-2 btn--green" type="submit">Submit</button>
-                    </div>
+                        <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--green" type="submit">Submit</button>
+                        </div>
                 </form>
             </div>
         </div>

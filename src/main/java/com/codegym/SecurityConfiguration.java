@@ -1,6 +1,7 @@
 package com.codegym;
 
 import com.codegym.service.AppUserService;
+import com.codegym.service.impl.AppUserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -15,12 +16,11 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private AppUserService appUserService;
+    private AppUserService appUserService =new AppUserServiceImpl();
 
-    @Autowired
-    public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("user").password("123456").roles("USER");
+    @Override
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication().withUser("user").password("123455").roles("USER");
 //        auth.inMemoryAuthentication().withUser("admin").password("12345").roles("ADMIN");
 //        auth.inMemoryAuthentication().withUser("dba").password("root123").roles("ADMIN", "DBA");
 
@@ -47,7 +47,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
                 .and()
                 .formLogin()
-                .loginPage("/loginForm")
+                .loginPage("/loginForm").usernameParameter("email").passwordParameter("password")
                 .loginProcessingUrl("/do_login")
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))

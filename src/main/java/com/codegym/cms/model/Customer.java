@@ -1,7 +1,6 @@
 package com.codegym.cms.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table
@@ -9,7 +8,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
-    private String Phone;
+    private String phone;
     private boolean userStatus;
     private String name;
     private String email;
@@ -43,11 +42,11 @@ public class Customer {
     }
 
     public String getPhone() {
-        return Phone;
+        return phone;
     }
 
     public void setPhone(String phone) {
-        Phone = phone;
+        this.phone = phone;
     }
 
     public boolean isUserStatus() {

@@ -73,6 +73,7 @@ public class UserController {
     public ModelAndView createOrder(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView("/user/order/create");
         Order order = new Order();
+        order.setUserId(id);
         modelAndView.addObject(order);
         return modelAndView;
     }
@@ -87,7 +88,6 @@ public class UserController {
         Date createdDate = new Date(millis);
         order.setCreatedDate(createdDate);
         orderService.save(order);
-        modelAndView.addObject(order);
         modelAndView.addObject("message", "Create new order successfully");
         return modelAndView;
     }

@@ -35,7 +35,7 @@
 
         <div class="container pl-5 pr-5 col-md-9 ">
             <div class="card">
-                <form th:action="@{/create-order/__${order.getUserId()}__}" method="post" th:object="${order}" >
+                <form th:action="@{/create-order/__${order.userId}__}" method="post" th:object="${order}" >
                     <table class=" table table-success table-striped table-borderless ">
 
                         <tbody>
@@ -46,7 +46,7 @@
                         </tr>
                         <tr>
                             <th scope="row" class="pt-3">Tên người nhận </th>
-                            <td ><input type="text"  class="form-control" th:field="*{receiverName}"
+                            <td ><input type="text"  class="form-control" name="receiverName"
                                         minlength="1"
                                         maxlength="40" pattern="[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻ
                                                   ẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜở
@@ -69,7 +69,7 @@
                         </tr>
                         <tr>
                             <th scope="row" class="pt-3">Địa chỉ chi tiết</th>
-                            <td><input type="text"  class="form-control" th:field="*{receiverAddress}"
+                            <td><input type="text"  class="form-control" th:name="receiverAddress"
                                        minlength="2"
                                        maxlength="40" pattern="[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻ
                                                   ẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜở
@@ -79,7 +79,7 @@
                         </tr>
                         <tr>
                             <th scope="row" class="pt-3">Số điện thoại</th>
-                            <td><input type="text"  class="form-control" th:field="*{receiverPhone}"
+                            <td><input type="text"  class="form-control" th:name="receiverPhone"
                                        pattern="[0-9]{9,12}"
                                        required></td>
 
@@ -87,18 +87,18 @@
                         <tr>
                             <th scope="row" class="pt-3">Khối lượng bưu phẩm</th>
                             <td><input type="number"  placeholder="Tính theo g (1kg = 1000g, tối thiểu 100g)" class="form-control"
-                                       pattern="^\d+(\.\d+)?$" min="100" th:field="*{weight}"
+                                       pattern="^\d+(\.\d+)?$" min="100" th:name="weight"
                                        required></td>
 
                         </tr>
                         <tr>
                             <th scope="row" class="pt-3">Ghi chú bưu phẩm</th>
-                            <td><input type="text"  placeholder="Tùy chọn" class="form-control" th:field="*{note}"
+                            <td><input type="text"  placeholder="Tùy chọn" class="form-control" th:name="note"
                                        minlength="2"
                                        maxlength="40" pattern="[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻ
                                                   ẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜở
                                                   ỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ0-9\s]+"
-                                       required></td>
+                                       ></td>
 
                         </tr>
                         <tr>

@@ -63,6 +63,13 @@ public class HomepageController {
         model.addAttribute("loginError", true);
         return "login/loginForm";
     }
+
+    @GetMapping("/province")
+    public ModelAndView showProvinces() {
+        ModelAndView modelAndView = new ModelAndView("/test");
+        modelAndView.addObject("provinces", provinces());
+        return modelAndView;
+    }
 }
 
 

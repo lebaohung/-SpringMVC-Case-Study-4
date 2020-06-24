@@ -9,6 +9,8 @@ import com.codegym.service.province.IProvinceService;
 import com.codegym.service.user.IUserService;
 import com.codegym.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,7 +18,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.awt.print.Pageable;
 import java.util.Date;
 
 @Controller
@@ -65,8 +66,11 @@ public class UserController {
     }
 
     @GetMapping("/orders/{id}")
-    public String listOrders(@PathVariable Long id) {
-        return "user/order/list";
+    public  ModelAndView listOrders(@PathVariable Long id, Pageable pageable) {
+        ModelAndView modelAndView = new ModelAndView("/user/order/list");
+        Page<Order> orders = orderService.findAllByUserId(id, pageable);
+        modelAndView.addObject("orders", orders);
+        return modelAndView;
     }
 
     @GetMapping("/create-order/{id}")

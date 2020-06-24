@@ -17,6 +17,10 @@ public class OrderService implements IOrderService {
         return orderRepository.findAll(pageable);
     }
 
+    public Page<Order> findAllByUserId(Long userId, Pageable pageable) {
+        return orderRepository.findAllByUserId(userId, pageable);
+    }
+
     @Override
     public Order findbyId(Long id) {
         return orderRepository.findOne(id);

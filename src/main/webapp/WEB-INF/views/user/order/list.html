@@ -8,7 +8,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-        <title>Quan ly don hang</title>
+        <title>Quản lý đơn hàng</title>
     </head>
 
     <body>
@@ -35,10 +35,55 @@
 
 
         <div class="container list-group pr-5 pl-5 pb-5">
-                <div href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
+            <div href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Ma don hang: 597411669</h5>
+                    <small>Today</small>
+                </div>
+                <p class="mb-1">
+                <table class="table table-borderless">
+
+                    <tbody>
+                    <tr>
+                        <th scope="row">Ten nguoi nhan</th>
+                        <td>Son</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">Tinh</th>
+                        <td>Ha Noi</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">Dia chi</th>
+                        <td>So 722 Pho Hue, Q.Hai Ba Trung</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">So dien thoai</th>
+                        <td>0982210001</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">Thong tin buu pham</th>
+                        <td>Do choi tre em</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">Ghi chu</th>
+                        <td>Ship gio hanh chinh</td>
+
+                    </tr>
+                    </tbody>
+                </table>
+                </p>
+                <small>Trang thai: Cho lay hang</small>
+            </div>
+<!--            <div th:each="order : ${orders}">-->
+            <div href="#" th:each="order : ${orders}" class="list-group-item list-group-item-action flex-column align-items-start ">
                     <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Ma don hang: 597411669</h5>
-                        <small>Today</small>
+                        <h5 class="mb-1" th:text="'Mã đơn hàng: ' + ${order.orderId}"></h5>
+                        <small th:text="${order.createdDate}"></small>
                     </div>
                     <p class="mb-1">
                         <table class="table table-borderless">
@@ -46,304 +91,42 @@
                             <tbody>
                             <tr>
                                 <th scope="row">Ten nguoi nhan</th>
-                                <td>Son</td>
+                                <td th:text="${order.receiverName}"></td>
 
                             </tr>
                             <tr>
                                 <th scope="row">Tinh</th>
-                                <td>Ha Noi</td>
+                                <td th:text="${order.receiverProvinceId}"></td>
 
                             </tr>
                             <tr>
                                 <th scope="row">Dia chi</th>
-                                <td>So 722 Pho Hue, Q.Hai Ba Trung</td>
+                                <td th:text="${order.receiverAddress}">/td>
 
                             </tr>
                             <tr>
                                 <th scope="row">So dien thoai</th>
-                                <td>0982210001</td>
+                                <td th:text="${order.receiverPhone}"></td>
 
                             </tr>
                             <tr>
-                                <th scope="row">Thong tin buu pham</th>
-                                <td>Do choi tre em</td>
+                                <th scope="row">Khối lượng buu pham</th>
+                                <td th:text="${order.weight} + 'g'"></td>
 
                             </tr>
                             <tr>
                                 <th scope="row">Ghi chu</th>
-                                <td>Ship gio hanh chinh</td>
+                                <td th:text="${order.note}"></td>
 
                             </tr>
                             </tbody>
                         </table>
                     </p>
-                    <small>Trang thai: Cho lay hang</small>
+                    <small th:text="'Trạng thái: ' + ${order.status}"></small>
                 </div>
 
-                <div href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Ma don hang: 559337462</h5>
-                        <small class="text-muted">Today</small>
-                    </div>
-                    <p class="mb-1"><table class="table table-borderless">
-
-                            <tbody>
-                            <tr>
-                                <th scope="row">Ten nguoi nhan</th>
-                                <td>Son</td>
-
-                            </tr>
-                            <tr>
-                                <th scope="row">Tinh</th>
-                                <td>Ha Noi</td>
-
-                            </tr>
-                            <tr>
-                                <th scope="row">Dia chi</th>
-                                <td>So 722 Pho Hue, Q.Hai Ba Trung</td>
-
-                            </tr>
-                            <tr>
-                                <th scope="row">So dien thoai</th>
-                                <td>0982210001</td>
-
-                            </tr>
-                            <tr>
-                                <th scope="row">Thong tin buu pham</th>
-                                <td>Do choi tre em</td>
-
-                            </tr>
-                            <tr>
-                                <th scope="row">Ghi chu</th>
-                                <td>Ship gio hanh chinh</td>
-
-                            </tr>
-                            </tbody>
-                        </table>
-                    </p>
-                    <small class="text-muted">Trang thai: Dang van chuyen</small>
-                </div>
-
-                <div href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Ma don hang: 234696641</h5>
-                        <small class="text-muted">Yesterday</small>
-                    </div>
-                    <p class="mb-1"><table class="table table-borderless">
-
-                    <tbody>
-                    <tr>
-                        <th scope="row">Ten nguoi nhan</th>
-                        <td>Son</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Tinh</th>
-                        <td>Ha Noi</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Dia chi</th>
-                        <td>So 722 Pho Hue, Q.Hai Ba Trung</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">So dien thoai</th>
-                        <td>0982210001</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Thong tin buu pham</th>
-                        <td>Do choi tre em</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Ghi chu</th>
-                        <td>Ship gio hanh chinh</td>
-
-                    </tr>
-                    </tbody>
-                </table>
-                    </p>
-                    <small class="text-muted">Trang thai: Da giao hang</small>
-                </div>
-
-                <div href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Ma don hang: 847696641</h5>
-                        <small class="text-muted">20/3/2020</small>
-                    </div>
-                    <p class="mb-1"><table class="table table-borderless">
-
-                    <tbody>
-                    <tr>
-                        <th scope="row">Ten nguoi nhan</th>
-                        <td>Son</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Tinh</th>
-                        <td>Ha Noi</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Dia chi</th>
-                        <td>So 722 Pho Hue, Q.Hai Ba Trung</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">So dien thoai</th>
-                        <td>0982210001</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Thong tin buu pham</th>
-                        <td>Do choi tre em</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Ghi chu</th>
-                        <td>Ship gio hanh chinh</td>
-
-                    </tr>
-                    </tbody>
-                </table>
-                    </p>
-                    <small class="text-muted">Trang thai: Da giao hang</small>
-                </div>
-
-                <div href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Ma don hang: 767696641</h5>
-                        <small class="text-muted">15/3/2020</small>
-                    </div>
-                    <p class="mb-1"><table class="table table-borderless">
-
-                    <tbody>
-                    <tr>
-                        <th scope="row">Ten nguoi nhan</th>
-                        <td>Son</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Tinh</th>
-                        <td>Ha Noi</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Dia chi</th>
-                        <td>So 722 Pho Hue, Q.Hai Ba Trung</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">So dien thoai</th>
-                        <td>0982210001</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Thong tin buu pham</th>
-                        <td>Do choi tre em</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Ghi chu</th>
-                        <td>Ship gio hanh chinh</td>
-
-                    </tr>
-                    </tbody>
-                </table>
-                    </p>
-                    <small class="text-muted">Trang thai: Da giao hang</small>
-                </div>
-
-                <div href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Ma don hang: 847696761</h5>
-                        <small class="text-muted">30/2/2020</small>
-                    </div>
-                    <p class="mb-1"><table class="table table-borderless">
-
-                    <tbody>
-                    <tr>
-                        <th scope="row">Ten nguoi nhan</th>
-                        <td>Son</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Tinh</th>
-                        <td>Ha Noi</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Dia chi</th>
-                        <td>So 722 Pho Hue, Q.Hai Ba Trung</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">So dien thoai</th>
-                        <td>0982210001</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Thong tin buu pham</th>
-                        <td>Do choi tre em</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Ghi chu</th>
-                        <td>Ship gio hanh chinh</td>
-
-                    </tr>
-                    </tbody>
-                </table>
-                    </p>
-                    <small class="text-muted">Trang thai: Da giao hang</small>
-                </div>
-
-                <div href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Ma don hang: 847236641</h5>
-                        <small class="text-muted">12/1/2020</small>
-                    </div>
-                    <p class="mb-1"><table class="table table-borderless">
-
-                    <tbody>
-                    <tr>
-                        <th scope="row">Ten nguoi nhan</th>
-                        <td>Son</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Tinh</th>
-                        <td>Ha Noi</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Dia chi</th>
-                        <td>So 722 Pho Hue, Q.Hai Ba Trung</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">So dien thoai</th>
-                        <td>0982210001</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Thong tin buu pham</th>
-                        <td>Do choi tre em</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Ghi chu</th>
-                        <td>Ship gio hanh chinh</td>
-
-                    </tr>
-                    </tbody>
-                </table>
-                    </p>
-                    <small class="text-muted">Trang thai: Da giao hang</small>
-                </div>
             </div>
+<!--        </div>-->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

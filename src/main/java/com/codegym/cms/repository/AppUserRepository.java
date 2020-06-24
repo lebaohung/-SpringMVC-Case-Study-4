@@ -1,8 +1,8 @@
 package com.codegym.cms.repository;
 
-import com.codegym.cms.model.AppUser;
+import com.codegym.cms.model.Customer;
 import org.springframework.data.repository.CrudRepository;
 
-public interface AppUserRepository extends CrudRepository<AppUser, Long> {
-    AppUser findByUsername(String username);
+public interface AppUserRepository extends CrudRepository<Customer, Long> {
+    Customer findByUsername(String username);
 }

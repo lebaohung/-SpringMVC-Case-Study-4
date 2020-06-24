@@ -1,6 +1,6 @@
 package com.codegym.cms.service;
 
-import com.codegym.cms.model.AppUser;
+import com.codegym.cms.model.Customer;
 import com.codegym.cms.repository.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -18,13 +18,13 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
     private AppUserRepository appUserRepository;
 
     @Override
-    public AppUser getUserByUsername(String username) {
+    public Customer getUserByUsername(String username) {
         return appUserRepository.findByUsername(username);
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        AppUser user = this.getUserByUsername(username);
+        Customer user = this.getUserByUsername(username);
 
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(user.getRole());

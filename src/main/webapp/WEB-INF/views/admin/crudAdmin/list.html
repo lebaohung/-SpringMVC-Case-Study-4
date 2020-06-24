@@ -754,22 +754,22 @@
                                 <tr th:each="admin : ${admins}">
                                     <td th:text="${admin.getId()}"></td>
                                     <td>< th:src="@{/img/{image}(image=${admin.getAvatar()})}"" alt="" /></td>
-                                    <td th:text="${admin.getAccount()}"></td>
+                                    <td th:text="${admin.adminAccount.getEmail()}"></td>
                                     <td>
-                                        <label th:if="${admin.getStatus()}==1">
+                                        <label th:if="${admin.adminAccount.getStatus()}==1">
                                             <label class="pd-setting" th:text="#{admin.active}"></label>
                                         </label>
-                                        <label th:if="${admin.getStatus()}==0">
+                                        <label th:if="${admin.adminAccount.getStatus()}==0">
                                             <label class="ds-setting" th:text="#{admin.disable}"></label>
                                         </label>
-                                        <label th:if="${admin.getStatus()}==2">
+                                        <label th:if="${admin.adminAccount.getStatus()}==2">
                                             <label class="ps-setting" th:text="#{admin.temperary}"></label>
                                         </label>
                                     </td>
-                                    <td th:text="${admin.getRole()}"></td>
+                                    <td th:text="${admin.adminAccount.getRole()}"></td>
                                     <td th:text="${admin.getName()}"></td>
-                                    <td th:text="${admin.getDateStart()}"></td>
-                                    <td th:text="${admin.getDateEnd()}"></td>
+                                    <td th:text="${admin.adminAccount.getDateStart()}"></td>
+                                    <td th:text="${admin.adminAccount.getDateEnd()}"></td>
                                     <td>
                                         <a th:href="@{/admin/edit/__${admin.getId()}__}"> <i
                                                 class="fa fa-pencil-square-o" aria-hidden="true"

@@ -1,11 +1,11 @@
-package service.impl;
+package service.admin.impl;
 
-import model.AdminAccount;
+import model.admin.AdminAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import repository.IAdminAccountRepository;
-import service.IAdminAccountService;
+import repository.admin.IAdminAccountRepository;
+import service.admin.IAdminAccountService;
 
 public class AdminAccountServiceImpl implements IAdminAccountService {
     @Autowired

@@ -1,7 +1,7 @@
-package controller;
+package controller.admin;
 
-import model.Admin;
-import model.AdminAccount;
+import model.admin.Admin;
+import model.admin.AdminAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,14 +10,10 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import service.IAdminAccountService;
-import service.IAdminService;
+import service.admin.IAdminAccountService;
+import service.admin.IAdminService;
 
 import javax.servlet.http.HttpServletRequest;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Optional;
 
 @Controller
@@ -40,6 +36,7 @@ public class AdminController {
             admins = iAdminService.findAdminByNameContaining(search.get(), pageable);
         } else {
             admins = iAdminService.findAll(pageable);
+        
         }
         modelAndView.addObject("admins", admins);
         modelAndView.addObject("searchValue", searchValue);
@@ -50,7 +47,6 @@ public class AdminController {
     public ModelAndView createForm() {
         ModelAndView modelAndView = new ModelAndView("admin/crudAdmin/create");
         modelAndView.addObject("admins", new Admin());
-        modelAndView.addObject("adminAccounts",new AdminAccount());
         return modelAndView;
     }
 
@@ -59,7 +55,6 @@ public class AdminController {
     public ModelAndView create(@ModelAttribute("admins") Admin admins) {
         iAdminService.save(admins);
         ModelAndView modelAndView = new ModelAndView("admin/crudAdmin/create");
-
         modelAndView.addObject("admins", new Admin());
         modelAndView.addObject("adminAccounts",new AdminAccount());
 
@@ -126,12 +121,12 @@ public class AdminController {
     public ModelAndView viewForm(@PathVariable Long id) {
         Admin admin = iAdminService.findById(id);
         if (admin != null) {
-            ModelAndView modelAndView = new ModelAndView("admin/crudAdmin/edit");
+            ModelAndView modelAndView = new ModelAndView("admin/crudAdmin/view");
             modelAndView.addObject("admins", admin);
             return modelAndView;
         } else {
             return new ModelAndView("admin/404");
         }
-
     }
+
 }

@@ -1,6 +1,6 @@
-package service;
+package service.admin;
 
-import model.AdminAccount;
+import model.admin.AdminAccount;
 
 public interface IAdminAccountService extends IService<AdminAccount> {
 }

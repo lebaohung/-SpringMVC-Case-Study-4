@@ -1,4 +1,4 @@
-package model;
+package model.admin;
 
 import javax.persistence.*;
 
@@ -15,6 +15,29 @@ public class Admin {
     private String job;
     private String address;
     private int status;
+    @OneToOne
+    @JoinColumn(name = "adminAccount_id")
+    private AdminAccount adminAccount;
+
+    public Admin(Long id, String name, String age, String gender, String avatar, String job, String address, int status, AdminAccount adminAccount) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.avatar = avatar;
+        this.job = job;
+        this.address = address;
+        this.status = status;
+        this.adminAccount = adminAccount;
+    }
+
+    public AdminAccount getAdminAccount() {
+        return adminAccount;
+    }
+
+    public void setAdminAccount(AdminAccount adminAccount) {
+        this.adminAccount = adminAccount;
+    }
 
     public int getStatus() {
         return status;
@@ -24,16 +47,6 @@ public class Admin {
         this.status = status;
     }
 
-    public Admin(Long id, String name, String age, String gender, String avatar, String job, String address, int status) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
-        this.avatar = avatar;
-        this.job = job;
-        this.address = address;
-        this.status = status;
-    }
 
     public Long getId() {
         return id;

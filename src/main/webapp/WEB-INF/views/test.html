@@ -13,5 +13,10 @@
     <div th:text="${p.position}"></div>
 
 </th:block>
+<select >
+    <option disabled="disabled" selected="selected">Choose option</option>
+    <option th:each="p:${provinces}" th:text="${p.name}"
+            th:value="${p.provinceId}"></option>
+</select>
 </body>
 </html>

@@ -23,6 +23,7 @@ public class UserService implements IUserService{
 
     @Override
     public void save(User model) {
+        userRepository.save(model);
     }
 
     @Override

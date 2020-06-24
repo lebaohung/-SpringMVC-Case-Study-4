@@ -11,7 +11,9 @@ import com.codegym.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.awt.print.Pageable;
@@ -28,6 +30,11 @@ public class UserController {
     @Autowired
     private IProvinceService provinceService;
 
+    @ModelAttribute("provinces")
+    public Iterable<Province> provinces() {
+        return provinceService.findAll();
+    }
+
     @GetMapping("/info/{id}")
     public ModelAndView showUserInfo(@PathVariable Long id) {
         User user = userService.findbyId(id);
@@ -42,6 +49,19 @@ public class UserController {
         } else {
             return new ModelAndView("user/error");
         }
+    }
+
+    @PostMapping("/info/{id}")
+    public ModelAndView editCostomerInfo(@PathVariable Long id,@ModelAttribute User user) {
+        User chosenUser = userService.findbyId(id);
+        user.setUserId(chosenUser.getUserId());
+        user.setPassword(chosenUser.getPassword());
+        user.setUserStatus(chosenUser.isUserStatus());
+        userService.save(user);
+        ModelAndView modelAndView = new ModelAndView("/user/detail");
+        modelAndView.addObject("user", user);
+        modelAndView.addObject("message", "Edit info successfully");
+        return modelAndView;
     }
 
     @GetMapping("/orders/{id}")

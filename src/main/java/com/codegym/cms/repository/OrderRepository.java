@@ -1,6 +1,6 @@
-package com.codegym.repository;
+package com.codegym.cms.repository;
 
-import com.codegym.model.Order;
+import com.codegym.cms.model.Order;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;

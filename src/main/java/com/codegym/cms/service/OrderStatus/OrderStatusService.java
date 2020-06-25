@@ -1,7 +1,7 @@
-package com.codegym.service.OrderStatus;
+package com.codegym.cms.service.OrderStatus;
 
-import com.codegym.model.OrderStatus;
-import com.codegym.repository.OrderStatusRepository;
+import com.codegym.cms.model.OrderStatus;
+import com.codegym.cms.repository.OrderStatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class OrderStatusService implements IOrderStatusService {

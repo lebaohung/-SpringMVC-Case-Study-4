@@ -3,6 +3,7 @@ package com.codegym.cms.controller;//package com.codegym.controller;
 import com.codegym.cms.model.AppRole;
 import com.codegym.cms.model.Customer;
 import com.codegym.cms.model.Province;
+import com.codegym.cms.service.AppUserService;
 import com.codegym.cms.service.CustomerService;
 import com.codegym.cms.service.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +23,18 @@ public class HomepageController {
     @Autowired
     private CustomerService customerService;
 
+
+    @Autowired
+    private AppUserService appUserService;
+
     @ModelAttribute("provinces")
     public Iterable<Province> provinces() {
         return provinceService.findAll();
     }
 
-    @GetMapping("/")
-    public String homepage() {
+    @GetMapping(value = {"/", "/home"})
+    public String Homepage(Model model){
+        model.addAttribute("user", appUserService.getCurrentUser());
         return "/index";
     }
 

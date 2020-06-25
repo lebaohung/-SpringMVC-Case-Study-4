@@ -5,6 +5,7 @@ import com.codegym.cms.repository.AppUserRepository;
 import com.codegym.cms.service.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -37,5 +38,20 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
         );
 
         return userDetails;
+    }
+
+    @Override
+    public Customer getCurrentUser() {
+        Customer user;
+        String email;
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        if (principal instanceof UserDetails) {
+            email = ((UserDetails) principal).getUsername();
+        } else {
+            email = principal.toString();
+        }
+        user = this.getUserByEmail(email);
+        return user;
     }
 }

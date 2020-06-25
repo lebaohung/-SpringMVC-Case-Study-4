@@ -19,7 +19,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class AppSecConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    public AppUserService appUserService;
+    private AppUserService appUserService;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

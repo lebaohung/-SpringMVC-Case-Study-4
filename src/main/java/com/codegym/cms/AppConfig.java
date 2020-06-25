@@ -1,13 +1,13 @@
 package com.codegym.cms;
 
-import com.codegym.cms.service.OrderStatus.IOrderStatusService;
-import com.codegym.cms.service.OrderStatus.OrderStatusService;
-import com.codegym.cms.service.customer.CustomerService;
-import com.codegym.cms.service.customer.ICustomerService;
-import com.codegym.cms.service.order.IOrderService;
-import com.codegym.cms.service.order.OrderService;
-import com.codegym.cms.service.province.IProvinceService;
-import com.codegym.cms.service.province.ProvinceService;
+//import com.codegym.cms.service.OrderStatus.IOrderStatusService;
+//import com.codegym.cms.service.OrderStatus.OrderStatusService;
+//import com.codegym.cms.service.customer.CustomerService;
+//import com.codegym.cms.service.customer.ICustomerService;
+//import com.codegym.cms.service.order.IOrderService;
+//import com.codegym.cms.service.order.OrderService;
+//import com.codegym.cms.service.province.IProvinceService;
+//import com.codegym.cms.service.province.ProvinceService;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -43,8 +43,8 @@ import java.util.Properties;
 @EnableWebMvc
 @EnableTransactionManagement
 @EnableSpringDataWebSupport
-@ComponentScan("com.codegym.cms.controller")
-@EnableJpaRepositories("com.codegym.cms.repository")
+//@ComponentScan("com.codegym.cms.controller")
+//@EnableJpaRepositories("com.codegym.cms.repository")
 public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
@@ -112,7 +112,7 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/casestudy4?characterEncoding=utf8");
         dataSource.setUsername("root");
-        dataSource.setPassword("password");
+        dataSource.setPassword("123456789");
         return dataSource;
     }
 
@@ -132,24 +132,24 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     }
 
 
-    @Bean
-    public IOrderService orderService() {
-        return new OrderService();
-    }
-
-    @Bean
-    public ICustomerService customerService() {
-        return new CustomerService();
-    }
-
-    @Bean
-    public IProvinceService provinceService() {
-        return new ProvinceService();
-    }
-
-    @Bean
-    public IOrderStatusService orderStatusService() {
-        return new OrderStatusService();
-    }
+//    @Bean
+//    public IOrderService orderService() {
+//        return new OrderService();
+//    }
+//
+//    @Bean
+//    public ICustomerService customerService() {
+//        return new CustomerService();
+//    }
+//
+//    @Bean
+//    public IProvinceService provinceService() {
+//        return new ProvinceService();
+//    }
+//
+//    @Bean
+//    public IOrderStatusService orderStatusService() {
+//        return new OrderStatusService();
+//    }
 
 }

@@ -13,10 +13,17 @@ public class Bill {
     private String receivedName;
     private String receivedAddress;
     private String receivedPhone;
-    private int status;
     @ManyToOne
     @JoinColumn(name = "province_id")
     private Province province;
+    @ManyToOne
+    @JoinColumn(name="status_id")
+    private Status status;
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
     public Bill(){}
 
     public Long getId() {
@@ -59,13 +66,7 @@ public class Bill {
         this.receivedPhone = receivedPhone;
     }
 
-    public int getStatus() {
-        return status;
-    }
 
-    public void setStatus(int status) {
-        this.status = status;
-    }
 
     public Province getProvince() {
         return province;
@@ -75,13 +76,13 @@ public class Bill {
         this.province = province;
     }
 
-    public Bill(Long id, Date createdDate, String receivedName, String receivedAddress, String receivedPhone, int status, Province province) {
+    public Bill(Long id, Date createdDate, String receivedName, String receivedAddress, String receivedPhone, Province province, Status status) {
         this.id = id;
         this.createdDate = createdDate;
         this.receivedName = receivedName;
         this.receivedAddress = receivedAddress;
         this.receivedPhone = receivedPhone;
-        this.status = status;
         this.province = province;
+        this.status = status;
     }
 }

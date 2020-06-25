@@ -10,6 +10,29 @@ public class Province {
     private Long id;
     private String name;
     private float position;
+
+    public Province(Long id, String name, float position, Status status) {
+        this.id = id;
+        this.name = name;
+        this.position = position;
+        this.status = status;
+    }
+
+    public void setPosition(float position) {
+        this.position = position;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "status_id")
+    private Status status;
     public Province(){}
 
     public Long getId() {
@@ -36,9 +59,5 @@ public class Province {
         this.position = position;
     }
 
-    public Province(Long id, String name, Float position) {
-        this.id = id;
-        this.name = name;
-        this.position = position;
-    }
+
 }

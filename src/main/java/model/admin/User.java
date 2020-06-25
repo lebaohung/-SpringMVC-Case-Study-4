@@ -15,10 +15,26 @@ public class User {
     private String phone;
     private String detailaddress;
     private String district;
-    private int userStatus;
     @ManyToOne
     @JoinColumn(name = "province_id")
     private Province province;
+    @ManyToOne
+    @JoinColumn(name="status_id")
+    private Status status;
+
+    public User(Long id, String email, String password, String account, String name, String phone, String detailaddress, String district, Province province, Status status) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.account = account;
+        this.name = name;
+        this.phone = phone;
+        this.detailaddress = detailaddress;
+        this.district = district;
+        this.province = province;
+        this.status = status;
+    }
+
     public User(){}
 
 
@@ -86,13 +102,6 @@ public class User {
         this.district = district;
     }
 
-    public int getUserStatus() {
-        return userStatus;
-    }
-
-    public void setUserStatus(int userStatus) {
-        this.userStatus = userStatus;
-    }
 
     public Province getProvince() {
         return province;
@@ -102,27 +111,11 @@ public class User {
         this.province = province;
     }
 
-    public User(Long id, String email, String password, String account, String name, String phone, String detailaddress, String district, int userStatus, Province province, int status) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-        this.account = account;
-        this.name = name;
-        this.phone = phone;
-        this.detailaddress = detailaddress;
-        this.district = district;
-        this.userStatus = userStatus;
-        this.province = province;
-        this.status = status;
-    }
-
-    public int getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
-
-    private int status;
 }

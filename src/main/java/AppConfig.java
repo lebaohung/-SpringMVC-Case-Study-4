@@ -1,4 +1,7 @@
 import com.codegym.formatter.admin.ProvinceFormatter;
+import com.codegym.formatter.admin.StatusFormatter;
+import com.codegym.service.admin.*;
+import com.codegym.service.admin.impl.*;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -31,8 +34,6 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
-import com.codegym.service.admin.*;
-import com.codegym.service.admin.impl.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -72,6 +73,10 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     @Bean
     public IProvinceService iProvinceService() {
         return new ProvinceServiceImpl();
+    }
+    @Bean
+    public IStatusService iStatusService() {
+        return new StatusServiceImpl();
     }
 
     private ApplicationContext applicationContext;
@@ -203,7 +208,14 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     //formater
     @Override
     public void addFormatters(FormatterRegistry registry) {
-        registry.addFormatter(new ProvinceFormatter(
-                applicationContext.getBean(IProvinceService.class)));
+        registry.addFormatter(
+                new ProvinceFormatter(
+                applicationContext.getBean(IProvinceService.class))
+        );
+        registry.addFormatter(
+                new StatusFormatter(
+                        applicationContext.getBean(IStatusService.class)
+                )
+        );
     }
 }

@@ -60,6 +60,30 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="/resources/js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <script src="/ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var status = $("button:contains('Status')");
+            $(Status).click(function (event) {
+                $.ajax({
+                    url: $(event.target).attr("href"),
+                    type: "POST",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader("Accept", "application/json");
+                        xhr.setRequestHeader("Content-Type", "application/json");
+
+                    },
+                    success: function () {
+                        var rowToDelete = $(event.target).closest("tr");
+                        rowToDelete.save();
+                    }
+                });
+                event.preventDefault();
+            });
+        });
+    </script>
+
 </head>
 
 <body>
@@ -114,8 +138,8 @@
                         <ul class="submenu-angle" aria-expanded="false">
                             <li><a title="All Courses" th:href="@{/admin/order/home}">
                                 <span class="mini-sub-pro" th:text="#{admin.sidebar.billAll}"></span></a></li>
-<!--                            <li><a title="Add Courses" th:href="@{/admin/order/create}">-->
-<!--                                <span class="mini-sub-pro" th:text="#{admin.sidebar.billAdd}"></span></a></li>-->
+                            <!--                            <li><a title="Add Courses" th:href="@{/admin/order/create}">-->
+                            <!--                                <span class="mini-sub-pro" th:text="#{admin.sidebar.billAdd}"></span></a></li>-->
                             <li><a title="Edit Courses" th:href="@{/admin/order/edit}">
                                 <span class="mini-sub-pro" th:text="#{admin.sidebar.billEdit}"></span></a></li>
                             <li><a title="Courses Profile" th:href="@{/admin/order/view}">
@@ -750,7 +774,9 @@
                                     <th th:text="#{admin.receiveAddress}"></th>
                                     <th th:text="#{admin.receivePhone}"></th>
                                     <th th:text="#{admin.dateStart}"></th>
-                                    <th th:text="#{admin.profile.setting}"></th>
+                                    <th style="text-align: center"
+                                        th:text="#{admin.profile.setting}">
+                                    </th>
                                 </tr>
                                 <tr th:each="admin : ${orders}">
                                     <td th:text="${admin.getOrderId()}"></td>
@@ -770,15 +796,11 @@
                                     <td th:text="${admin.getReceiverPhone()}"></td>
                                     <td th:text="${admin.getCreatedDate()}"></td>
                                     <td>
-                                        <a th:href="@{/admin/order/edit/__${admin.getOrderId()}__}"> <i
-                                                class="fa fa-pencil-square-o" aria-hidden="true"
-                                                style="font-size:30px"></i> </a>
-                                        <a th:href="@{/admin/order/delete/__${admin.getOrderId()}__}"> <i
-                                                class="fa fa-trash-o"
-                                                aria-hidden="true"
-                                                style="font-size:30px"></i>
-                                        </a>
-
+                                        <button th:onclick="'window.location.href=\'/admin/order/edit/'+ ${admin.getOrderId()}+'\''">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                        <button th:onclick="'window.location.href=\'/admin/order/edit/'+ ${admin.getOrderId()}+'\''">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </button>
                                     </td>
                                 </tr>
 
@@ -788,17 +810,21 @@
                         <div class="custom-pagination">
                             <ul class="pagination">
                                 <li class="page-item">
-                                    <a class="page-link" th:href="@{'/admin/order/home'(page=${orders.number - 1},search=${searchs})}"
+                                    <a class="page-link"
+                                       th:href="@{'/admin/order/home'(page=${orders.number - 1},search=${searchs})}"
                                        th:if="${orders.hasPrevious()}" th:text="#{admin.page.previous}"></a>
                                 </li>
                                 <li class="page-item">
-                                    <a class="page-link" th:href="@{'/admin/order/home'(page=1,search=${searchs})}"> 1 </a>
+                                    <a class="page-link" th:href="@{'/admin/order/home'(page=1,search=${searchs})}">
+                                        1 </a>
                                 </li>
                                 <li class="page-item">
-                                    <a class="page-link" th:href="@{'/admin/order/home'(page=2,search=${searchs})}"> 2 </a>
+                                    <a class="page-link" th:href="@{'/admin/order/home'(page=2,search=${searchs})}">
+                                        2 </a>
                                 </li>
                                 <li class="page-item">
-                                    <a class="page-link" th:href="@{'/admin/order/home'(page=3,search=${searchs})}"> 3 </a>
+                                    <a class="page-link" th:href="@{'/admin/order/home'(page=3,search=${searchs})}">
+                                        3 </a>
                                 </li>
 
                                 <li class="page-item"><a class="page-link"

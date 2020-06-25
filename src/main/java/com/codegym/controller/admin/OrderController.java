@@ -2,8 +2,10 @@ package com.codegym.controller.admin;
 
 import com.codegym.model.admin.Order;
 import com.codegym.model.admin.Province;
+import com.codegym.model.admin.Status;
 import com.codegym.service.admin.IOrderService;
 import com.codegym.service.admin.IProvinceService;
+import com.codegym.service.admin.IStatusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,10 +26,17 @@ public class OrderController {
     private IOrderService iOrderService;
     @Autowired
     private IProvinceService iProvinceService;
+    @Autowired
+    private IStatusService iStatusService;
 
     @ModelAttribute("provinces")
     public Page<Province> provinces(Pageable pageable) {
         return iProvinceService.findAll(pageable);
+    }
+
+    @ModelAttribute("statuses")
+    public Page<Status> statuses(Pageable pageable) {
+        return iStatusService.findAll(pageable);
     }
 
     @GetMapping("/home")
@@ -42,8 +51,8 @@ public class OrderController {
             modelAndView.addObject("searchs", searchs);
         } else {
             orders = iOrderService.findAll(pageable);
-            modelAndView.addObject("searchs", "");
         }
+
         modelAndView.addObject("orders", orders);
         return modelAndView;
     }
@@ -78,10 +87,10 @@ public class OrderController {
     }
 
     @PostMapping("/edit")
-    public ModelAndView update(@ModelAttribute("orders") Order order) {
-        iOrderService.save(order);
+    public ModelAndView update(@ModelAttribute("orders") Order orders) {
+        iOrderService.save(orders);
         ModelAndView modelAndView = new ModelAndView("admin/crudOrder/edit");
-        modelAndView.addObject("orders", order);
+        modelAndView.addObject("orders", orders);
         return modelAndView;
     }
 
@@ -115,5 +124,6 @@ public class OrderController {
             return new ModelAndView("admin/404");
         }
     }
+
 }
 

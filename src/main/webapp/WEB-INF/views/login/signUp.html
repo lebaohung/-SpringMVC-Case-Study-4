@@ -94,7 +94,7 @@
                         <div class="col-2">
                             <div class="input-group">
                                 <label class="label">password</label>
-                                <input class="input--style-4" type="password" th:field="*{password}"
+                                <input class="input--style-4" type="password" id="password" th:field="*{password}"
                                        minlength="4"
                                        maxlength="12"
                                        required>
@@ -103,12 +103,14 @@
                         <div class=" col-2">
                                 <div class="input-group">
                                     <label class="label">confirm</label>
-                                    <input class="input--style-4" type="password" name="confirm">
+                                    <input class="input--style-4" type="password" id="confirm_password" name="confirm" required>
                                 </div>
                             </div>
 
                         </div>
-
+                    <div>
+                        <p th:if="${emailExist}" class="error" style="color: red">Email Exist!</p>
+                    </div>
                         <div class="p-t-15">
                             <button class="btn btn--radius-2 btn--green" type="submit">Submit</button>
                         </div>
@@ -116,7 +118,7 @@
             </div>
         </div>
     </div>
-    <div th:if="${emailExist}">Email exist!</div>
+
 </div>
 
 <!-- Jquery JS-->
@@ -128,7 +130,23 @@
 
 <!-- Main JS-->
 <script src="../../../resources/js/global.js"></script>
+<script>
 
+    let password = document.getElementById("password")
+        , confirm_password = document.getElementById("confirm_password");
+
+    function validatePassword(){
+        if(password.value !== confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+
+</script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>

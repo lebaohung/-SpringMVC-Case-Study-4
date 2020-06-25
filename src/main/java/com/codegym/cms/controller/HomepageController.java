@@ -38,7 +38,7 @@ public class HomepageController {
     }
 
     @PostMapping("/sigup")
-    public ModelAndView redirectLogin(@ModelAttribute("customer")Customer customer) {
+    public ModelAndView redirectLogin(@ModelAttribute("customer") Customer customer) {
 
 
         try {
@@ -56,6 +56,7 @@ public class HomepageController {
 
         ModelAndView modelAndView = new ModelAndView("/login/loginForm");
         modelAndView.addObject("message", true);
+        modelAndView.addObject("customer",customer);
         return modelAndView;
     }
 

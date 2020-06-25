@@ -109,7 +109,7 @@
 
                         </div>
                     <div>
-                        <p th:if="${emailExist}" class="error" style="color: red">Email Exist!</p>
+                        <p th:if="${emailExist}" class="error" style="color: red">Email Existed!</p>
                     </div>
                         <div class="p-t-15">
                             <button class="btn btn--radius-2 btn--green" type="submit">Submit</button>
@@ -138,6 +138,7 @@
     function validatePassword(){
         if(password.value !== confirm_password.value) {
             confirm_password.setCustomValidity("Passwords Don't Match");
+            // confirm_password.setCustomValidity("Sai pass rồi");
         } else {
             confirm_password.setCustomValidity('');
         }

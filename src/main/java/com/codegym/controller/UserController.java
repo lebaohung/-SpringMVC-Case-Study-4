@@ -91,6 +91,8 @@ public class UserController {
         long millis = System.currentTimeMillis();
         Date createdDate = new Date(millis);
         order.setCreatedDate(createdDate);
+        String temp = order.getReceiverAddress().trim();
+        order.setReceiverAddress(temp);
         orderService.save(order);
         modelAndView.addObject("message", "Create new order successfully");
         return modelAndView;

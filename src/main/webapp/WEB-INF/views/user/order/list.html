@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"  >
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" >
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -35,7 +35,52 @@
 
 
         <div class="container list-group pr-5 pl-5 pb-5">
-            <div href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" th:each="order : ${orders}">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1" th:text="'Ma don hang: ' + ${order.orderId}"></h5>
+                    <small th:text="${order.getCreatedDate()}"></small>
+                </div>
+                <p class="mb-1">
+                <table class="table table-borderless">
+
+                    <tbody>
+                    <tr>
+                        <th scope="row">Ten nguoi nhan</th>
+                        <td th:text="${order.receiverName}"></td>
+
+                    </tr>
+                    <tr th:each="prov : ${provinces}" th:if="( ${prov.getProvinceId()} == ${order.getReceiverProvinceId()})">
+                        <th scope="row">Tinh</th>
+                        <td th:text="${prov.getName()}"></td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">Dia chi</th>
+                        <td>762 Bach Dang</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">So dien thoai</th>
+                        <td th:text="${order.getReceiverPhone()}"></td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">Khoi luong buu pham</th>
+                        <td th:text="${order.weight}"></td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">Ghi chu</th>
+                        <td th:text="${order.note}"></td>
+
+                    </tr>
+                    </tbody>
+                </table>
+                </p>
+                <small th:text="'Trang thai: ' + ${order.status}"></small>
+            </a>
+
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">Ma don hang: 597411669</h5>
                     <small>Today</small>
@@ -65,7 +110,7 @@
 
                     </tr>
                     <tr>
-                        <th scope="row">Thong tin buu pham</th>
+                        <th scope="row">Khoi luong buu pham</th>
                         <td>Do choi tre em</td>
 
                     </tr>
@@ -78,55 +123,9 @@
                 </table>
                 </p>
                 <small>Trang thai: Cho lay hang</small>
-            </div>
-<!--            <div th:each="order : ${orders}">-->
-            <div href="#" th:each="order : ${orders}" class="list-group-item list-group-item-action flex-column align-items-start ">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1" th:text="'Mã đơn hàng: ' + ${order.orderId}"></h5>
-                        <small th:text="${order.createdDate}"></small>
-                    </div>
-                    <p class="mb-1">
-                        <table class="table table-borderless">
+            </a>
 
-                            <tbody>
-                            <tr>
-                                <th scope="row">Ten nguoi nhan</th>
-                                <td th:text="${order.receiverName}"></td>
-
-                            </tr>
-                            <tr>
-                                <th scope="row">Tinh</th>
-                                <td th:text="${order.receiverProvinceId}"></td>
-
-                            </tr>
-                            <tr>
-                                <th scope="row">Dia chi</th>
-                                <td th:text="${order.receiverAddress}">/td>
-
-                            </tr>
-                            <tr>
-                                <th scope="row">So dien thoai</th>
-                                <td th:text="${order.receiverPhone}"></td>
-
-                            </tr>
-                            <tr>
-                                <th scope="row">Khối lượng buu pham</th>
-                                <td th:text="${order.weight} + 'g'"></td>
-
-                            </tr>
-                            <tr>
-                                <th scope="row">Ghi chu</th>
-                                <td th:text="${order.note}"></td>
-
-                            </tr>
-                            </tbody>
-                        </table>
-                    </p>
-                    <small th:text="'Trạng thái: ' + ${order.status}"></small>
-                </div>
-
-            </div>
-<!--        </div>-->
+        </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

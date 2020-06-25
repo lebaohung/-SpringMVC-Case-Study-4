@@ -1,11 +1,9 @@
 package com.codegym.cms.model;
 
+import org.hibernate.annotations.ColumnDefault;
 import org.springframework.security.core.GrantedAuthority;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class AppRole implements GrantedAuthority {
@@ -15,6 +13,9 @@ public class AppRole implements GrantedAuthority {
     private Long id;
 
     private String name;
+
+    public AppRole() {
+    }
 
     public Long getId() {
         return id;

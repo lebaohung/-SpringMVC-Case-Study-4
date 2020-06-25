@@ -8,7 +8,7 @@ public interface CustomerService {
 
     Customer findById(Long id);
 
-    void save(Customer customer);
+    void save(Customer customer) throws Exception;
 
     void remove(Long id);
 

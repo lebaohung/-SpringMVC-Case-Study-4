@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Quản lý đơn hàng</title>
+</head>
+
+<body>
+<header >
+    <ul class="nav nav-pills bg-success pt-3 pb-3 pl-5 mb-5 " id="pills-tab" role="tablist">
+        <div class="container ">
+            <div class="row">
+                <li class=" col-md-3 nav-item pr-5 " role="presentation">
+                    <a class="nav-link bg-light text-dark active" id="pills-home-tab" th:href="@{/create-order/__${customerId}__}" role="tab" aria-controls="pills-home" aria-selected="true">Tao don hang moi</a>
+                </li>
+                <li class="col-md-3 nav-item pr-5" role="presentation">
+                    <a class="nav-link bg-light text-dark" id="pills-profile-tab" th:href="@{/orders/__${customerId}__}" role="tab" aria-controls="pills-profile" aria-selected="false">Quan ly don hang</a>
+                </li>
+                <li class="col-md-3 nav-item pr-5" role="presentation">
+                    <a class="nav-link bg-light text-dark" id="pills-contact-tab" th:href="@{/info/__${customerId}__}" role="tab" aria-controls="pills-contact" aria-selected="false">Thong tin shop</a>
+                </li>
+                <li class="col-md-3 nav-item pr-5 " role="presentation">
+                    <a class="nav-link bg-danger text-light" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Thoat</a>
+                </li>
+            </div>
+        </div>
+    </ul>
+</header>
+
+
+<div class="container list-group pr-5 pl-5 pb-5">
+    <div th:each="order : ${orders}">
+        <a th:href="@{/order-detail/__${order.getOrderId()}__}" class="list-group-item list-group-item-action flex-column align-items-start " >
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1" th:text="'Ma don hang: ' + ${order.orderId}"></h5>
+                <small th:text="${order.getCreatedDate()}"></small>
+            </div>
+            <p class="mb-1">
+            <table class="table table-borderless">
+
+                <tbody>
+                <tr>
+                    <th scope="row" width="50%">Ten nguoi nhan</th>
+                    <td width="50%" th:text="${order.receiverName}"></td>
+
+                </tr>
+                <tr th:each="prov : ${provinces}" th:if="(${prov.provinceId} == ${order.receiverProvinceId})">
+                    <th scope="row">Tinh</th>
+                    <td th:text="${prov.name}"></td>
+
+                </tr>
+                <tr>
+                    <th scope="row">Dia chi</th>
+                    <td th:text="${order.getReceiverAddress()}"></td>
+
+                </tr>
+                <tr>
+                    <th scope="row">So dien thoai</th>
+                    <td th:text="${order.getReceiverPhone()}"></td>
+
+                </tr>
+                <tr>
+                    <th scope="row">Khoi luong buu pham</th>
+                    <td th:text="${order.weight}"></td>
+
+                </tr>
+                <tr>
+                    <th scope="row">Ghi chu</th>
+                    <td th:text="${order.note}"></td>
+
+                </tr>
+                </tbody>
+            </table>
+            </p>
+            <!--                    <div th:each="orderstatus : ${orderStatuses}" th:if="(${order.status} == ${orderstatus.id})">-->
+            <small th:each="orderstatus : ${orderStatuses}" th:if="(${order.status} == ${orderstatus.id})" th:text="'Trang thai ' + ${orderstatus.statusName}"></small>
+            <!--                    </div>-->
+        </a>
+
+    </div>
+    <div>
+        <a th:href="@{'/orders/' + ${customerId} (page=${orders.number - 1})}" th:if="${orders.hasPrevious()}">Previous</a>
+        <span th:text="${orders.number + 1}"></span>/<span th:text="${orders.totalPages}"></span>
+        <a th:href="@{'/orders/' + ${customerId} (page=${orders.number + 1})}" th:if="${orders.hasNext()}">Next</a>
+    </div>
+
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

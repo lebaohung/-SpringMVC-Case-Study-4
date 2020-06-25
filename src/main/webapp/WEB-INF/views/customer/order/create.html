@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Tạo đơn hàng mới</title>
+</head>
+
+<body>
+<header >
+    <ul class="nav nav-pills bg-success pt-3 pb-3 pl-5 mb-5 " id="pills-tab" role="tablist">
+        <div class="container ">
+            <div class="row">
+                <li class=" col-md-3 nav-item pr-5 " role="presentation">
+                    <a class="nav-link bg-light text-dark active" id="pills-home-tab" th:href="@{/create-order/__${order.customerId}__}" role="tab" aria-controls="pills-home" aria-selected="true">Tao don hang moi</a>
+                </li>
+                <li class="col-md-3 nav-item pr-5" role="presentation">
+                    <a class="nav-link bg-light text-dark" id="pills-profile-tab" th:href="@{/orders/__${order.customerId}__}" role="tab" aria-controls="pills-profile" aria-selected="false">Quan ly don hang</a>
+                </li>
+                <li class="col-md-3 nav-item pr-5" role="presentation">
+                    <a class="nav-link bg-light text-dark" id="pills-contact-tab"  th:href="@{/info/__${order.customerId}__}" role="tab" aria-controls="pills-contact" aria-selected="false">Thong tin shop</a>
+                </li>
+                <li class="col-md-3 nav-item pr-5 " role="presentation">
+                    <a class="nav-link bg-danger text-light" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Thoat</a>
+                </li>
+            </div>
+        </div>
+    </ul>
+</header>
+
+<div class="container pl-5 pr-5 col-md-9 ">
+    <div class="card">
+        <form th:action="@{/create-order/__${order.customerId}__}" method="post" th:object="${order}" >
+            <table class=" table table-success table-striped table-borderless ">
+
+                <tbody>
+                <tr>
+                    <td  class="pt-3"></td>
+                    <th scope="row" >Nhập thông tin đơn hàng mới</th>
+
+                </tr>
+                <tr>
+                    <th scope="row" class="pt-3">Tên người nhận </th>
+                    <td ><input type="text"  class="form-control" name="receiverName"
+                                minlength="1"
+                                maxlength="40" pattern="[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻ
+                                                  ẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜở
+                                                  ỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ\s]+"
+                                required></td>
+
+                </tr>
+                <tr>
+                    <th scope="row" class="pt-3">Tỉnh thành</th>
+                    <td>
+                        <select class="form-control" th:name="receiverProvinceId" required>
+                            <option value="">Lựa chọn ...</option>
+                            <option th:each="prov : ${provinces}" th:value="${prov.provinceId}" th:text="${prov.name}"
+                            >
+
+                            </option>
+                        </select>
+                    </td>
+
+                </tr>
+                <tr>
+                    <th scope="row" class="pt-3">Địa chỉ chi tiết</th>
+                    <td><input type="text"  class="form-control" th:name="receiverAddress"
+                               minlength="2"
+                               maxlength="40" pattern="[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻ
+                                                  ẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜở
+                                                  ỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ\d\s]+"
+                               required></td>
+
+                </tr>
+                <tr>
+                    <th scope="row" class="pt-3">Số điện thoại</th>
+                    <td><input type="text"  class="form-control" th:name="receiverPhone"
+                               pattern="[0-9]{9,12}"
+                               required></td>
+
+                </tr>
+                <tr>
+                    <th scope="row" class="pt-3">Khối lượng bưu phẩm</th>
+                    <td><input type="number"  placeholder="Tính theo gram (1kg = 1000gram, tối thiểu 100gram)" class="form-control"
+                               pattern="^\d+(\.\d+)?$" min="100" th:name="weight"
+                               required></td>
+
+                </tr>
+                <tr>
+                    <th scope="row" class="pt-3">Ghi chú bưu phẩm</th>
+                    <td><input type="text"  placeholder="Tùy chọn" class="form-control" th:name="note"
+                               minlength="2"
+                               maxlength="40" pattern="[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻ
+                                                  ẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜở
+                                                  ỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ\d\s]+"
+                    ></td>
+
+                </tr>
+                <tr>
+                    <th><button type="submit" class="btn btn-outline-success">Create </button></th>
+                    <td>
+                        <th:block th:if="${message}">
+                            <p class="text-info" th:text="${message}"></p>
+                        </th:block>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

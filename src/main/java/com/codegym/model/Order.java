@@ -17,7 +17,7 @@ public class Order {
     private int status;
     private float weight;
     private Date createdDate;
-    private Long userId;
+    private Long customerId;
     private String note;
 
     public String getNote() {
@@ -31,12 +31,12 @@ public class Order {
     public Order() {
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getCustomerId() {
+        return customerId;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 
     public float getWeight() {

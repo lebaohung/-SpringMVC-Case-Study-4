@@ -5,12 +5,12 @@ import java.util.List;
 
 @Entity
 @Table
-public class User {
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long customerId;
     private String Phone;
-    private boolean userStatus;
+    private boolean customerStatus;
     private String name;
     private String email;
     private String password;
@@ -20,15 +20,15 @@ public class User {
     @OneToMany(targetEntity = Order.class)
     private List<Order> orderList;
 
-    public User() {
+    public Customer() {
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getCustomerId() {
+        return customerId;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 
     public String getPhone() {
@@ -39,12 +39,12 @@ public class User {
         Phone = phone;
     }
 
-    public boolean isUserStatus() {
-        return userStatus;
+    public boolean isCustomerStatus() {
+        return customerStatus;
     }
 
-    public void setUserStatus(boolean userStatus) {
-        this.userStatus = userStatus;
+    public void setCustomerStatus(boolean customerStatus) {
+        this.customerStatus = customerStatus;
     }
 
     public String getName() {

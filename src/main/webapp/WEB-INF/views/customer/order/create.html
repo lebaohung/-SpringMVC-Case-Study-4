@@ -17,13 +17,13 @@
                 <div class="container ">
                     <div class="row">
                         <li class=" col-md-3 nav-item pr-5 " role="presentation">
-                            <a class="nav-link bg-light text-dark active" id="pills-home-tab" th:href="@{/create-order/__${order.userId}__}" role="tab" aria-controls="pills-home" aria-selected="true">Tao don hang moi</a>
+                            <a class="nav-link bg-light text-dark active" id="pills-home-tab" th:href="@{/create-order/__${order.customerId}__}" role="tab" aria-controls="pills-home" aria-selected="true">Tao don hang moi</a>
                         </li>
                         <li class="col-md-3 nav-item pr-5" role="presentation">
-                            <a class="nav-link bg-light text-dark" id="pills-profile-tab" th:href="@{/orders/__${order.userId}__}" role="tab" aria-controls="pills-profile" aria-selected="false">Quan ly don hang</a>
+                            <a class="nav-link bg-light text-dark" id="pills-profile-tab" th:href="@{/orders/__${order.customerId}__}" role="tab" aria-controls="pills-profile" aria-selected="false">Quan ly don hang</a>
                         </li>
                         <li class="col-md-3 nav-item pr-5" role="presentation">
-                            <a class="nav-link bg-light text-dark" id="pills-contact-tab"  th:href="@{/info/__${order.userId}__}" role="tab" aria-controls="pills-contact" aria-selected="false">Thong tin shop</a>
+                            <a class="nav-link bg-light text-dark" id="pills-contact-tab"  th:href="@{/info/__${order.customerId}__}" role="tab" aria-controls="pills-contact" aria-selected="false">Thong tin shop</a>
                         </li>
                         <li class="col-md-3 nav-item pr-5 " role="presentation">
                             <a class="nav-link bg-danger text-light" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Thoat</a>
@@ -35,7 +35,7 @@
 
         <div class="container pl-5 pr-5 col-md-9 ">
             <div class="card">
-                <form th:action="@{/create-order/__${order.userId}__}" method="post" th:object="${order}" >
+                <form th:action="@{/create-order/__${order.customerId}__}" method="post" th:object="${order}" >
                     <table class=" table table-success table-striped table-borderless ">
 
                         <tbody>

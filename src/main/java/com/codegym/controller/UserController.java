@@ -1,8 +1,10 @@
 package com.codegym.controller;
 
 import com.codegym.model.Order;
+import com.codegym.model.OrderStatus;
 import com.codegym.model.Province;
 import com.codegym.model.User;
+import com.codegym.service.OrderStatus.IOrderStatusService;
 import com.codegym.service.order.IOrderService;
 import com.codegym.service.order.OrderService;
 import com.codegym.service.province.IProvinceService;
@@ -33,9 +35,17 @@ public class UserController {
     @Autowired
     private IProvinceService provinceService;
 
+    @Autowired
+    private IOrderStatusService orderStatusService;
+
     @ModelAttribute("provinces")
     public Iterable<Province> provinces() {
         return provinceService.findAll();
+    }
+
+    @ModelAttribute("orderStatuses")
+    public Iterable<OrderStatus> orderStatuses() {
+        return orderStatusService.findAll();
     }
 
     @GetMapping("/info/{id}")
@@ -49,7 +59,7 @@ public class UserController {
             modelAndView.addObject(province);
             return modelAndView;
         } else {
-            return new ModelAndView("user/error");
+            return new ModelAndView("/user/error");
         }
     }
 
@@ -70,6 +80,8 @@ public class UserController {
     public  ModelAndView listOrders(@PathVariable Long id,@PageableDefault(value = 5) Pageable pageable) {
         ModelAndView modelAndView = new ModelAndView("/user/order/list");
         Page<Order> orders = orderService.findAllByUserId(id, pageable);
+        Long userId = id;
+        modelAndView.addObject("userId", userId);
         modelAndView.addObject("orders", orders);
         return modelAndView;
     }
@@ -77,8 +89,26 @@ public class UserController {
     @GetMapping("/order-detail/{id}")
     public ModelAndView showOrder(@PathVariable Long id) {
         Order order = orderService.findbyId(id);
+
+        if (order != null) {
+            ModelAndView modelAndView = new ModelAndView("/user/order/detail");
+            modelAndView.addObject("order", order);
+            return modelAndView;
+        }
+        return new ModelAndView("/user/error");
+    }
+
+    @PostMapping("/order-detail/{id}")
+    public ModelAndView editOrder(@PathVariable Long id, @ModelAttribute Order order) {
+        Order chosenOrder = orderService.findbyId(id);
+        order.setUserId(chosenOrder.getUserId());
+        order.setCreatedDate(chosenOrder.getCreatedDate());
+        order.setStatus(chosenOrder.getStatus());
+        order.setOrderId(id);
+        orderService.save(order);
         ModelAndView modelAndView = new ModelAndView("/user/order/detail");
         modelAndView.addObject("order", order);
+        modelAndView.addObject("message", "Edit info successfully");
         return modelAndView;
     }
 

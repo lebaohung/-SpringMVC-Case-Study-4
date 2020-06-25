@@ -17,13 +17,13 @@
                 <div class="container ">
                     <div class="row">
                         <li class=" col-md-3 nav-item pr-5 " role="presentation">
-                            <a class="nav-link bg-light text-dark active" id="pills-home-tab" href="/create-order" role="tab" aria-controls="pills-home" aria-selected="true">Tao don hang moi</a>
+                            <a class="nav-link bg-light text-dark active" id="pills-home-tab" th:href="@{/create-order/__${order.userId}__}" role="tab" aria-controls="pills-home" aria-selected="true">Tao don hang moi</a>
                         </li>
                         <li class="col-md-3 nav-item pr-5" role="presentation">
-                            <a class="nav-link bg-light text-dark" id="pills-profile-tab" href="/orders" role="tab" aria-controls="pills-profile" aria-selected="false">Quan ly don hang</a>
+                            <a class="nav-link bg-light text-dark" id="pills-profile-tab" th:href="@{/orders/__${order.userId}__}" role="tab" aria-controls="pills-profile" aria-selected="false">Quan ly don hang</a>
                         </li>
                         <li class="col-md-3 nav-item pr-5" role="presentation">
-                            <a class="nav-link bg-light text-dark" id="pills-contact-tab"  href="/" role="tab" aria-controls="pills-contact" aria-selected="false">Thong tin shop</a>
+                            <a class="nav-link bg-light text-dark" id="pills-contact-tab"  th:href="@{/info/__${order.userId}__}" role="tab" aria-controls="pills-contact" aria-selected="false">Thong tin shop</a>
                         </li>
                         <li class="col-md-3 nav-item pr-5 " role="presentation">
                             <a class="nav-link bg-danger text-light" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Thoat</a>
@@ -58,7 +58,7 @@
                             <th scope="row" class="pt-3">Tỉnh thành</th>
                             <td>
                                 <select class="form-control" th:name="receiverProvinceId" required>
-                                    <option selected>Lựa chọn ...</option>
+                                    <option value="">Lựa chọn ...</option>
                                     <option th:each="prov : ${provinces}" th:value="${prov.provinceId}" th:text="${prov.name}"
                                             >
 

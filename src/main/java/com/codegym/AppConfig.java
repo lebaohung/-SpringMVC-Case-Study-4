@@ -1,5 +1,7 @@
 package com.codegym;
 
+import com.codegym.service.OrderStatus.IOrderStatusService;
+import com.codegym.service.OrderStatus.OrderStatusService;
 import com.codegym.service.order.IOrderService;
 import com.codegym.service.order.OrderService;
 import com.codegym.service.province.IProvinceService;
@@ -144,6 +146,11 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     @Bean
     public IProvinceService provinceService() {
         return new ProvinceService();
+    }
+
+    @Bean
+    public IOrderStatusService orderStatusService() {
+        return new OrderStatusService();
     }
 
 }

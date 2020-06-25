@@ -1,4 +1,4 @@
-import formatter.admin.ProvinceFormatter;
+import com.codegym.formatter.admin.ProvinceFormatter;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -31,25 +31,18 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
-import service.admin.*;
-import service.admin.impl.*;
+import com.codegym.service.admin.*;
+import com.codegym.service.admin.impl.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Locale;
 import java.util.Properties;
-
-//import org.springframework.format.FormatterRegistry;
-//import org.springframework.jmx.export.annotation.ManagedResource;
-//import org.springframework.security.core.userdetails.UserDetailsService;
-//import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
-
-
 @Configuration
 @EnableWebMvc
-@ComponentScan("controller")
-@EnableJpaRepositories("repository") //formatter + repo
+@ComponentScan("com.codegym.controller")
+@EnableJpaRepositories("com.codegym.repository") //com.codegym.formatter + repo
 @EnableSpringDataWebSupport //Phantrang
 @EnableAspectJAutoProxy  //AOP
 @EnableTransactionManagement
@@ -72,8 +65,8 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     }
 
     @Bean
-    public IBillService iBillService() {
-        return new BillServiceImpl();
+    public IOrderService iBillService() {
+        return new OrderServiceImpl();
     }
 
     @Bean
@@ -137,7 +130,7 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[]{"model.admin"});
+        em.setPackagesToScan(new String[]{"com.codegym.model.admin"});
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
         em.setJpaProperties(additionalProperties());

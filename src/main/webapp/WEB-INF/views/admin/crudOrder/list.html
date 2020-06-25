@@ -81,22 +81,22 @@
                             <span class="mini-click-non" th:text="#{admin.home}"></span>
                         </a>
                         <ul class="submenu-angle" aria-expanded="true">
-                            <li><a title="Customer" th:href="@{/admin/user/list}">
+                            <li><a title="Customer" th:href="@{/admin/user/home}">
                                 <span class="mini-sub-pro" th:text="#{admin.sidebar.userList}"></span></a>
                             </li>
-                            <li><a title="Bill" th:href="@{/admin/order/list}">
+                            <li><a title="Order" th:href="@{/admin/order/home}">
                                 <span class="mini-sub-pro" th:text="#{admin.sidebar.billList}"></span></a>
                             </li>
                         </ul>
                     </li>
 
                     <li>
-                        <a class="has-arrow" th:href="@{/admin/user/}" aria-expanded="false">
+                        <a class="has-arrow" th:href="@{/admin/user/home}" aria-expanded="false">
                             <span class="educate-icon educate-professor icon-wrap">
                             </span>
                             <span class="mini-click-non" th:text="#{admin.sidebar.user}"></span></a>
                         <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="All Professors" th:href="@{/admin/user/list}">
+                            <li><a title="All Professors" th:href="@{/admin/user/home}">
                                 <span class="mini-sub-pro" th:text="#{admin.sidebar.userAll}"></span></a></li>
                             <li><a title="Add Professor" th:href="@{/admin/user/create}">
                                 <span class="mini-sub-pro" th:text="#{admin.sidebar.userAdd}"></span></a></li>
@@ -112,7 +112,7 @@
                             <span class="educate-icon educate-course icon-wrap">
                             </span> <span class="mini-click-non" th:text="#{admin.sidebar.order}"></span></a>
                         <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="All Courses" th:href="@{/admin/order/list}">
+                            <li><a title="All Courses" th:href="@{/admin/order/home}">
                                 <span class="mini-sub-pro" th:text="#{admin.sidebar.billAll}"></span></a></li>
                             <li><a title="Add Courses" th:href="@{/admin/order/create}">
                                 <span class="mini-sub-pro" th:text="#{admin.sidebar.billAdd}"></span></a></li>
@@ -655,7 +655,7 @@
                                            th:text="#{admin.sidebar.user}"> <span
                                             class="admin-project-icon edu-icon edu-down-arrow"></span></a>
                                         <ul id="customer" class="collapse dropdown-header-top">
-                                            <li><a th:href="@{/admin/customer/list}"
+                                            <li><a th:href="@{/admin/customer/home}"
                                                    th:text="#{admin.sidebar.userAll}"></a>
                                             </li>
                                             <li><a th:href="@{/admin/customer/create}"
@@ -673,7 +673,7 @@
                                            th:text="#{admin.sidebar.order}"> <span
                                             class="admin-project-icon edu-icon edu-down-arrow"></span></a>
                                         <ul id="order" class="collapse dropdown-header-top">
-                                            <li><a th:href="@{/admin/order/list}" th:text="#{admin.sidebar.billAll}"></a>
+                                            <li><a th:href="@{/admin/order/home}" th:text="#{admin.sidebar.billAll}"></a>
                                             </li>
                                             <li><a th:href="@{/admin/order/create}"
                                                    th:text="#{admin.sidebar.billAdd}"></a>
@@ -727,63 +727,90 @@
     </div>
 
     <!--    List-->
-    <div class="single-pro-review-area mt-t-30 mg-b-15">
+    <div class="product-status mg-b-15">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="product-payment-inner-st">
-                        <ul id="myTabedu1" class="tab-review-design">
-                            <li class="active">
-                                <a href="#Account Information" th:text="#{admin.accountInformation}"></a>
-                            </li>
-                        </ul>
-                        <div id="myTabContent" class="tab-content custom-product-edit">
-                            <div class="product-tab-list tab-pane fade active in" id="Account Information">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="review-content-section">
-                                            <div id="dropzone1" class="pro-ad addcoursepro">
-                                                <form action="/admin/createAccount"
-                                                      class="dropzone dropzone-custom needsclick addlibrary"
-                                                      th:object="${adminAccounts}" method="post">
-                                                    <div class="row">
-                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                            <div class="form-group">
-                                                                <input type="text" th:field="*{email}"
-                                                                       class="form-control" placeholder="Email">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <input type="number" th:field="*{phone}"
-                                                                       class="form-control" placeholder="Phone">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <input type="password" th:field="*{password}"
-                                                                       class="form-control" placeholder="Password">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-12">
-                                                            <div class="payment-adress">
-                                                                <button type="submit"
-                                                                        class="btn btn-primary waves-effect waves-light">
-                                                                    Submit
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="product-status-wrap">
+                        <h4 th:text="#{admin.list}"></h4>
+<!--                        <div class="add-product">-->
+<!--                            <a th:href="@{/admin/order/create}" th:text="#{admin.order.create}"></a>-->
+<!--                        </div>-->
+
+
+                        <div class="asset-inner">
+                            <table>
+                                <tr>
+                                    <th th:text="#{admin.id}"></th>
+                                    <th th:text="#{admin.status}"></th>
+                                    <th th:text="#{admin.receiveName}"></th>
+                                    <th th:text="#{admin.receiveAddress}"></th>
+                                    <th th:text="#{admin.receivePhone}"></th>
+                                    <th th:text="#{admin.dateStart}"></th>
+                                    <th th:text="#{admin.profile.setting}"></th>
+                                </tr>
+                                <tr th:each="admin : ${orders}">
+                                    <td th:text="${admin.getOrderId()}"></td>
+                                    <td>
+                                        <label th:if="${admin.getStatuses().getName()}== ${admin.getActive()}">
+                                            <label class="pd-setting" th:text="#{admin.active}"></label>
+                                        </label>
+                                        <label th:if="${admin.getStatuses().getName()}== ${admin.getNotActive()}">
+                                            <label class="ds-setting" th:text="#{admin.disable}"></label>
+                                        </label>
+                                        <label th:if="${admin.getStatuses().getName()}== ${admin.getPending()}">
+                                            <label class="ps-setting" th:text="#{admin.temperary}"></label>
+                                        </label>
+                                    </td>
+                                    <td th:text="${admin.getReceiverName()}"></td>
+                                    <td th:text="${admin.getReceiverAddress()}"></td>
+                                    <td th:text="${admin.getReceiverPhone()}"></td>
+                                    <td th:text="${admin.getCreatedDate()}"></td>
+                                    <td>
+                                        <a th:href="@{/admin/order/edit/__${admin.getOrderId()}__}"> <i
+                                                class="fa fa-pencil-square-o" aria-hidden="true"
+                                                style="font-size:30px"></i> </a>
+                                        <a th:href="@{/admin/order/delete/__${admin.getOrderId()}__}"> <i class="fa fa-trash-o"
+                                                                                               aria-hidden="true"
+                                                                                               style="font-size:30px"></i>
+                                        </a>
+
+                                    </td>
+                                </tr>
+
+                            </table>
                         </div>
+
+                        <div class="custom-pagination">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" th:href="@{'/admin/order/home'(page=${orders.number - 1})}"
+                                       th:if="${orders.hasPrevious()}" th:text="#{admin.page.previous}"></a></li>
+                                <li class="page-item"><a class="page-link"
+                                                         th:href="@{'/admin/order/home'(page=${orders.number})}">1</a>
+                                </li>
+                                <li class="page-item"><a class="page-link"
+                                                         th:href="@{'/admin/order/home'(page=${orders.number}+1)}">2</a>
+                                </li>
+                                <li class="page-item"><a class="page-link"
+                                                         th:href="@{'/admin/order/home'(page=${orders.number}+2)}">3</a>
+                                </li>
+                                <li class="page-item"><a class="page-link"
+                                                         th:href="@{'/admin/order/home'(page=${orders.number + 1})}"
+                                                         th:if="${orders.hasNext()}" th:text="#{admin.page.next}"></a>
+                                </li>
+                            </ul>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+<!--    footer-->
     <div class="footer-copyright-area">
         <div class="container-fluid">
             <div class="row">

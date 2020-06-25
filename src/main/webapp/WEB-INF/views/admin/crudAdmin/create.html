@@ -84,7 +84,7 @@
                             <li><a title="Customer" th:href="@{/admin/user/list}">
                                 <span class="mini-sub-pro" th:text="#{admin.sidebar.userList}"></span></a>
                             </li>
-                            <li><a title="Bill" th:href="@{/admin/bill/list}">
+                            <li><a title="Bill" th:href="@{/admin/order/list}">
                                 <span class="mini-sub-pro" th:text="#{admin.sidebar.billList}"></span></a>
                             </li>
                         </ul>
@@ -108,17 +108,17 @@
                     </li>
 
                     <li>
-                        <a class="has-arrow" th:href="@{/admin/bill/}" aria-expanded="false">
+                        <a class="has-arrow" th:href="@{/admin/order/}" aria-expanded="false">
                             <span class="educate-icon educate-course icon-wrap">
-                            </span> <span class="mini-click-non" th:text="#{admin.sidebar.bill}"></span></a>
+                            </span> <span class="mini-click-non" th:text="#{admin.sidebar.order}"></span></a>
                         <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="All Courses" th:href="@{/admin/bill/list}">
+                            <li><a title="All Courses" th:href="@{/admin/order/list}">
                                 <span class="mini-sub-pro" th:text="#{admin.sidebar.billAll}"></span></a></li>
-                            <li><a title="Add Courses" th:href="@{/admin/bill/create}">
+                            <li><a title="Add Courses" th:href="@{/admin/order/create}">
                                 <span class="mini-sub-pro" th:text="#{admin.sidebar.billAdd}"></span></a></li>
-                            <li><a title="Edit Courses" th:href="@{/admin/bill/edit}">
+                            <li><a title="Edit Courses" th:href="@{/admin/order/edit}">
                                 <span class="mini-sub-pro" th:text="#{admin.sidebar.billEdit}"></span></a></li>
-                            <li><a title="Courses Profile" th:href="@{/admin/bill/view}">
+                            <li><a title="Courses Profile" th:href="@{/admin/order/view}">
                                 <span class="mini-sub-pro" th:text="#{admin.sidebar.billView}"></span></a></li>
                         </ul>
                     </li>
@@ -162,8 +162,8 @@
                                             <li class="nav-item"><a th:href="@{/home/about}" class="nav-link"
                                                                     th:text="#{admin.top.header.about}"></a>
                                             </li>
-                                            <li class="nav-item"><a th:href="@{/home/service}" class="nav-link"
-                                                                    th:text="#{admin.top.header.service}"></a>
+                                            <li class="nav-item"><a th:href="@{/home/com.codegym.service}" class="nav-link"
+                                                                    th:text="#{admin.top.header.com.codegym.service}"></a>
                                             </li>
                                             <li class="nav-item"><a th:href="@{/home/support}" class="nav-link"
                                                                     th:text="#{admin.top.header.support}"></a>
@@ -669,19 +669,19 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a data-toggle="collapse" data-target="#bill" href="#"
-                                           th:text="#{admin.sidebar.bill}"> <span
+                                    <li><a data-toggle="collapse" data-target="#order" href="#"
+                                           th:text="#{admin.sidebar.order}"> <span
                                             class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="bill" class="collapse dropdown-header-top">
-                                            <li><a th:href="@{/admin/bill/list}" th:text="#{admin.sidebar.billAll}"></a>
+                                        <ul id="order" class="collapse dropdown-header-top">
+                                            <li><a th:href="@{/admin/order/list}" th:text="#{admin.sidebar.billAll}"></a>
                                             </li>
-                                            <li><a th:href="@{/admin/bill/create}"
+                                            <li><a th:href="@{/admin/order/create}"
                                                    th:text="#{admin.sidebar.billAdd}"></a>
                                             </li>
-                                            <li><a th:href="@{/admin/bill/edit}"
+                                            <li><a th:href="@{/admin/order/edit}"
                                                    th:text="#{admin.sidebar.billEdit}"></a>
                                             </li>
-                                            <li><a th:href="@{/admin/bill/view}"
+                                            <li><a th:href="@{/admin/order/view}"
                                                    th:text="#{admin.sidebar.billView}"></a>
                                             </li>
                                         </ul>

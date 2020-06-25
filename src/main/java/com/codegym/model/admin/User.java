@@ -8,35 +8,37 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String email;
-    private String password;
-    private String account;
     private String name;
-    private String phone;
-    private String detailaddress;
-    private String district;
+    private String detailAddress;
+    private String avatar;
     @ManyToOne
     @JoinColumn(name = "province_id")
     private Province province;
     @ManyToOne
-    @JoinColumn(name="status_id")
+    @JoinColumn(name = "status_id")
     private Status status;
+    @ManyToOne
+    @JoinColumn(name = "account_id")
+    private Account account;
 
-    public User(Long id, String email, String password, String account, String name, String phone, String detailaddress, String district, Province province, Status status) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-        this.account = account;
-        this.name = name;
-        this.phone = phone;
-        this.detailaddress = detailaddress;
-        this.district = district;
-        this.province = province;
-        this.status = status;
+    public User() {
     }
 
-    public User(){}
+    public User(String name, String detailAddress, String avatar) {
+        this.name = name;
+        this.detailAddress = detailAddress;
+        this.avatar = avatar;
+    }
 
+    public User(Long id, String name, String detailAddress, String avatar, Province province, Status status, Account account) {
+        this.id = id;
+        this.name = name;
+        this.detailAddress = detailAddress;
+        this.avatar = avatar;
+        this.province = province;
+        this.status = status;
+        this.account = account;
+    }
 
     public Long getId() {
         return id;
@@ -44,30 +46,6 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getAccount() {
-        return account;
-    }
-
-    public void setAccount(String account) {
-        this.account = account;
     }
 
     public String getName() {
@@ -78,30 +56,21 @@ public class User {
         this.name = name;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getDetailAddress() {
+        return detailAddress;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setDetailAddress(String detailAddress) {
+        this.detailAddress = detailAddress;
     }
 
-    public String getDetailaddress() {
-        return detailaddress;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setDetailaddress(String detailaddress) {
-        this.detailaddress = detailaddress;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
-
-    public String getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(String district) {
-        this.district = district;
-    }
-
 
     public Province getProvince() {
         return province;
@@ -117,5 +86,13 @@ public class User {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }

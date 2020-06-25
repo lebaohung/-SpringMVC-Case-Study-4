@@ -1,28 +1,16 @@
 package com.codegym.service.admin.impl;
 
 import com.codegym.model.admin.Order;
+import com.codegym.repository.admin.IOrderRepository;
+import com.codegym.service.admin.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import com.codegym.repository.admin.IOrderRepository;
-import com.codegym.service.admin.IOrderService;
-
-import java.util.Date;
 
 public class OrderServiceImpl implements IOrderService {
     @Override
-    public Page<Order> findAllByOrderIdContaining(String search, Pageable pageable) {
-        return iOrderRepository.findAllByOrderIdContaining(search,pageable);
-    }
-
-    @Override
-    public Page<Order> findAlLOrOrderByCreatedDate(String search, Pageable pageable) {
-        return iOrderRepository.findAlLOrOrderByCreatedDate(search,pageable);
-    }
-
-    @Override
-    public Page<Order> findAllByCreatedDateOrderByCreatedDateAsc(String search, Pageable pageble) {
-        return iOrderRepository.findAllByCreatedDateOrderByCreatedDateAsc(search,pageble);
+    public Page<Order> findAllByReceiverNameContaining(String search, Pageable pageable) {
+        return iOrderRepository.findAllByReceiverNameContaining(search,pageable);
     }
 
     @Autowired

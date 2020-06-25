@@ -114,8 +114,8 @@
                         <ul class="submenu-angle" aria-expanded="false">
                             <li><a title="All Courses" th:href="@{/admin/order/home}">
                                 <span class="mini-sub-pro" th:text="#{admin.sidebar.billAll}"></span></a></li>
-                            <li><a title="Add Courses" th:href="@{/admin/order/create}">
-                                <span class="mini-sub-pro" th:text="#{admin.sidebar.billAdd}"></span></a></li>
+<!--                            <li><a title="Add Courses" th:href="@{/admin/order/create}">-->
+<!--                                <span class="mini-sub-pro" th:text="#{admin.sidebar.billAdd}"></span></a></li>-->
                             <li><a title="Edit Courses" th:href="@{/admin/order/edit}">
                                 <span class="mini-sub-pro" th:text="#{admin.sidebar.billEdit}"></span></a></li>
                             <li><a title="Courses Profile" th:href="@{/admin/order/view}">
@@ -162,7 +162,8 @@
                                             <li class="nav-item"><a th:href="@{/home/about}" class="nav-link"
                                                                     th:text="#{admin.top.header.about}"></a>
                                             </li>
-                                            <li class="nav-item"><a th:href="@{/home/com.codegym.service}" class="nav-link"
+                                            <li class="nav-item"><a th:href="@{/home/com.codegym.service}"
+                                                                    class="nav-link"
                                                                     th:text="#{admin.top.header.com.codegym.service}"></a>
                                             </li>
                                             <li class="nav-item"><a th:href="@{/home/support}" class="nav-link"
@@ -673,7 +674,8 @@
                                            th:text="#{admin.sidebar.order}"> <span
                                             class="admin-project-icon edu-icon edu-down-arrow"></span></a>
                                         <ul id="order" class="collapse dropdown-header-top">
-                                            <li><a th:href="@{/admin/order/home}" th:text="#{admin.sidebar.billAll}"></a>
+                                            <li><a th:href="@{/admin/order/home}"
+                                                   th:text="#{admin.sidebar.billAll}"></a>
                                             </li>
                                             <li><a th:href="@{/admin/order/create}"
                                                    th:text="#{admin.sidebar.billAdd}"></a>
@@ -704,8 +706,9 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="breadcome-heading">
                                         <form role="search" class="sr-input-func">
-                                            <input type="text" placeholder="Search..." class="search-int form-control">
-                                            <a href="#"><i class="fa fa-search"></i></a>
+                                            <input name="searchs" type="text" placeholder="Search..."
+                                                   class="search-int form-control">
+                                            <a type="submit"><i class="fa fa-search"></i></a>
                                         </form>
                                     </div>
                                 </div>
@@ -733,9 +736,9 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="product-status-wrap">
                         <h4 th:text="#{admin.list}"></h4>
-<!--                        <div class="add-product">-->
-<!--                            <a th:href="@{/admin/order/create}" th:text="#{admin.order.create}"></a>-->
-<!--                        </div>-->
+                        <!--                        <div class="add-product">-->
+                        <!--                            <a th:href="@{/admin/order/create}" th:text="#{admin.order.create}"></a>-->
+                        <!--                        </div>-->
 
 
                         <div class="asset-inner">
@@ -752,13 +755,13 @@
                                 <tr th:each="admin : ${orders}">
                                     <td th:text="${admin.getOrderId()}"></td>
                                     <td>
-                                        <label th:if="${admin.getStatuses().getName()}== ${admin.getActive()}">
+                                        <label th:if="${admin.getStatus().getName()}== available">
                                             <label class="pd-setting" th:text="#{admin.active}"></label>
                                         </label>
-                                        <label th:if="${admin.getStatuses().getName()}== ${admin.getNotActive()}">
+                                        <label th:if="${admin.getStatus().getName()}== notAvailable">
                                             <label class="ds-setting" th:text="#{admin.disable}"></label>
                                         </label>
-                                        <label th:if="${admin.getStatuses().getName()}== ${admin.getPending()}">
+                                        <label th:if="${admin.getStatus().getName()}== pending">
                                             <label class="ps-setting" th:text="#{admin.temperary}"></label>
                                         </label>
                                     </td>
@@ -770,9 +773,10 @@
                                         <a th:href="@{/admin/order/edit/__${admin.getOrderId()}__}"> <i
                                                 class="fa fa-pencil-square-o" aria-hidden="true"
                                                 style="font-size:30px"></i> </a>
-                                        <a th:href="@{/admin/order/delete/__${admin.getOrderId()}__}"> <i class="fa fa-trash-o"
-                                                                                               aria-hidden="true"
-                                                                                               style="font-size:30px"></i>
+                                        <a th:href="@{/admin/order/delete/__${admin.getOrderId()}__}"> <i
+                                                class="fa fa-trash-o"
+                                                aria-hidden="true"
+                                                style="font-size:30px"></i>
                                         </a>
 
                                     </td>
@@ -784,19 +788,21 @@
                         <div class="custom-pagination">
                             <ul class="pagination">
                                 <li class="page-item">
-                                    <a class="page-link" th:href="@{'/admin/order/home'(page=${orders.number - 1})}"
-                                       th:if="${orders.hasPrevious()}" th:text="#{admin.page.previous}"></a></li>
-                                <li class="page-item"><a class="page-link"
-                                                         th:href="@{'/admin/order/home'(page=${orders.number})}">1</a>
+                                    <a class="page-link" th:href="@{'/admin/order/home'(page=${orders.number - 1},search=${searchs})}"
+                                       th:if="${orders.hasPrevious()}" th:text="#{admin.page.previous}"></a>
                                 </li>
-                                <li class="page-item"><a class="page-link"
-                                                         th:href="@{'/admin/order/home'(page=${orders.number}+1)}">2</a>
+                                <li class="page-item">
+                                    <a class="page-link" th:href="@{'/admin/order/home'(page=1,search=${searchs})}"> 1 </a>
                                 </li>
-                                <li class="page-item"><a class="page-link"
-                                                         th:href="@{'/admin/order/home'(page=${orders.number}+2)}">3</a>
+                                <li class="page-item">
+                                    <a class="page-link" th:href="@{'/admin/order/home'(page=2,search=${searchs})}"> 2 </a>
                                 </li>
+                                <li class="page-item">
+                                    <a class="page-link" th:href="@{'/admin/order/home'(page=3,search=${searchs})}"> 3 </a>
+                                </li>
+
                                 <li class="page-item"><a class="page-link"
-                                                         th:href="@{'/admin/order/home'(page=${orders.number + 1})}"
+                                                         th:href="@{'/admin/order/home'(page=${orders.number + 1},search=${searchs})}"
                                                          th:if="${orders.hasNext()}" th:text="#{admin.page.next}"></a>
                                 </li>
                             </ul>
@@ -810,7 +816,7 @@
     </div>
 
 
-<!--    footer-->
+    <!--    footer-->
     <div class="footer-copyright-area">
         <div class="container-fluid">
             <div class="row">

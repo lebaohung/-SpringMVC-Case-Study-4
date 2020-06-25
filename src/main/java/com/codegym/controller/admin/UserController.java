@@ -1,20 +1,26 @@
 package com.codegym.controller.admin;
 
 
+import com.codegym.model.admin.AvatarUpload;
 import com.codegym.model.admin.Province;
 import com.codegym.model.admin.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import com.codegym.service.admin.IProvinceService;
 import com.codegym.service.admin.IUserService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
 import java.util.Optional;
 
 @Controller
@@ -26,7 +32,9 @@ public class UserController {
     private IProvinceService iProvinceService;
 
     @ModelAttribute("provinces")
-    public Page<Province>provinces(Pageable pageable){return iProvinceService.findAll(pageable);}
+    public Page<Province> provinces(Pageable pageable) {
+        return iProvinceService.findAll(pageable);
+    }
 
     @GetMapping("/home")
     public ModelAndView home(@PageableDefault(size = 2, direction = Sort.Direction.ASC)
@@ -54,9 +62,23 @@ public class UserController {
         return modelAndView;
     }
 
+    @Autowired
+    Environment env;
 
     @PostMapping("/create")
-    public ModelAndView create(@ModelAttribute("users") User users) {
+    public ModelAndView create(@ModelAttribute("users") AvatarUpload avatarUpload, User users) {
+        User user = new User(users.getName(), users.getDetailAddress(), null);
+
+        MultipartFile multipartFile = avatarUpload.getAvatar();
+        String fileName = multipartFile.getOriginalFilename();
+        String fileUpload = env.getProperty("file_upload").toString();
+        try {
+            FileCopyUtils.copy(avatarUpload.getAvatar().getBytes(),
+                    new File(fileUpload + fileName));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        user.setAvatar(fileName);
         iUserService.save(users);
         ModelAndView modelAndView = new ModelAndView("admin/crudUser/create");
         modelAndView.addObject("users", new User());

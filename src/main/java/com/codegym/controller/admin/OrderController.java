@@ -2,6 +2,8 @@ package com.codegym.controller.admin;
 
 import com.codegym.model.admin.Order;
 import com.codegym.model.admin.Province;
+import com.codegym.service.admin.IOrderService;
+import com.codegym.service.admin.IProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,10 +12,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import com.codegym.service.admin.IOrderService;
-import com.codegym.service.admin.IProvinceService;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 
@@ -34,19 +33,18 @@ public class OrderController {
     @GetMapping("/home")
     public ModelAndView home(@PageableDefault(size = 2, direction = Sort.Direction.ASC)
                                      Pageable pageable,
-                             @RequestParam("search") Optional<String> search,
-                             HttpServletRequest request) {
-        String searchValue = request.getParameter("search");
+                             @RequestParam("searchs") Optional<String> searchs) {
         Page<Order> orders;
         ModelAndView modelAndView = new ModelAndView("admin/crudOrder/list");
-        if (search.isPresent()) {
-            orders = iOrderService.findAllByOrderIdContaining(search.get(), pageable);
+        if (searchs.isPresent()) {
+            orders = iOrderService.findAllByReceiverNameContaining(
+                    searchs.get(), pageable);
+            modelAndView.addObject("searchs", searchs);
         } else {
-//            orders = iOrderService.findAlLOrOrderByCreatedDate("2020",pageable);
-            orders=iOrderService.findAll(pageable);
+            orders = iOrderService.findAll(pageable);
+            modelAndView.addObject("searchs", "");
         }
         modelAndView.addObject("orders", orders);
-        modelAndView.addObject("searchValue", searchValue);
         return modelAndView;
     }
 

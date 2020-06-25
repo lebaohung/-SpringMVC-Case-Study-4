@@ -2,7 +2,7 @@ plugins {
     id 'java'
     id 'war'
 }
-group 'com.codegym.cms'
+group 'com.codegym'
 version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()

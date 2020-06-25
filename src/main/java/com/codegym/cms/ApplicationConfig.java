@@ -2,10 +2,10 @@ package com.codegym.cms;
 
 //import com.codegym.cms.aspect.MyLogger;
 //import com.codegym.cms.formatter.CustomerTypeFormatter;
-import com.codegym.cms.service.AppUserService;
+//import com.codegym.cms.service.AppUserService;
 import com.codegym.cms.service.CustomerService;
 import com.codegym.cms.service.ProvinceService;
-import com.codegym.cms.service.impl.AppUserServiceImpl;
+//import com.codegym.cms.service.impl.AppUserServiceImpl;
 //import com.codegym.cms.service.CustomerService;
 //import com.codegym.cms.service.CustomerServiceImpl;
 import com.codegym.cms.service.impl.CustomerServiceImpl;
@@ -174,10 +174,10 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
                         ("/resources/");
     }
 
-    @Bean
-    public AppUserService appUserService() {
-        return new AppUserServiceImpl();
-    }
+//    @Bean
+//    public AppUserService appUserService() {
+//        return new AppUserServiceImpl();
+//    }
 
     //    @Bean
 //    public ObjectMapper getObjectMapper() {

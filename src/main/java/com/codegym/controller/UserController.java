@@ -11,6 +11,7 @@ import com.codegym.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -66,10 +67,18 @@ public class UserController {
     }
 
     @GetMapping("/orders/{id}")
-    public  ModelAndView listOrders(@PathVariable Long id, Pageable pageable) {
+    public  ModelAndView listOrders(@PathVariable Long id,@PageableDefault(value = 5) Pageable pageable) {
         ModelAndView modelAndView = new ModelAndView("/user/order/list");
         Page<Order> orders = orderService.findAllByUserId(id, pageable);
         modelAndView.addObject("orders", orders);
+        return modelAndView;
+    }
+
+    @GetMapping("/order-detail/{id}")
+    public ModelAndView showOrder(@PathVariable Long id) {
+        Order order = orderService.findbyId(id);
+        ModelAndView modelAndView = new ModelAndView("/user/order/detail");
+        modelAndView.addObject("order", order);
         return modelAndView;
     }
 

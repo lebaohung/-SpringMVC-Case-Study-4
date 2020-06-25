@@ -35,95 +35,58 @@
 
 
         <div class="container list-group pr-5 pl-5 pb-5">
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" th:each="order : ${orders}">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1" th:text="'Ma don hang: ' + ${order.orderId}"></h5>
-                    <small th:text="${order.getCreatedDate()}"></small>
-                </div>
-                <p class="mb-1">
-                <table class="table table-borderless">
+            <div th:each="order : ${orders}">
+                <a th:href="@{/order-detail/__${order.getOrderId()}__}" class="list-group-item list-group-item-action flex-column align-items-start " >
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1" th:text="'Ma don hang: ' + ${order.orderId}"></h5>
+                        <small th:text="${order.getCreatedDate()}"></small>
+                    </div>
+                    <p class="mb-1">
+                    <table class="table table-borderless">
 
-                    <tbody>
-                    <tr>
-                        <th scope="row">Ten nguoi nhan</th>
-                        <td th:text="${order.receiverName}"></td>
+                        <tbody>
+                        <tr>
+                            <th scope="row" width="50%">Ten nguoi nhan</th>
+                            <td width="50%" th:text="${order.receiverName}"></td>
 
-                    </tr>
-                    <tr th:each="prov : ${provinces}" th:if="( ${prov.getProvinceId()} == ${order.getReceiverProvinceId()})">
-                        <th scope="row">Tinh</th>
-                        <td th:text="${prov.getName()}"></td>
+                        </tr>
+                        <tr th:each="prov : ${provinces}" th:if="(${prov.provinceId} == ${order.receiverProvinceId})">
+                            <th scope="row">Tinh</th>
+                            <td th:text="${prov.name}"></td>
 
-                    </tr>
-                    <tr>
-                        <th scope="row">Dia chi</th>
-                        <td>762 Bach Dang</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Dia chi</th>
+                            <td th:text="${order.getReceiverAddress()}"></td>
 
-                    </tr>
-                    <tr>
-                        <th scope="row">So dien thoai</th>
-                        <td th:text="${order.getReceiverPhone()}"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">So dien thoai</th>
+                            <td th:text="${order.getReceiverPhone()}"></td>
 
-                    </tr>
-                    <tr>
-                        <th scope="row">Khoi luong buu pham</th>
-                        <td th:text="${order.weight}"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Khoi luong buu pham</th>
+                            <td th:text="${order.weight}"></td>
 
-                    </tr>
-                    <tr>
-                        <th scope="row">Ghi chu</th>
-                        <td th:text="${order.note}"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Ghi chu</th>
+                            <td th:text="${order.note}"></td>
 
-                    </tr>
-                    </tbody>
-                </table>
-                </p>
-                <small th:text="'Trang thai: ' + ${order.status}"></small>
-            </a>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </p>
+                    <small th:text="'Trang thai ' + ${order.status}"></small>
+                </a>
 
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Ma don hang: 597411669</h5>
-                    <small>Today</small>
-                </div>
-                <p class="mb-1">
-                <table class="table table-borderless">
-
-                    <tbody>
-                    <tr>
-                        <th scope="row">Ten nguoi nhan</th>
-                        <td>Son</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Tinh</th>
-                        <td>Ha Noi</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Dia chi</th>
-                        <td>So 722 Pho Hue, Q.Hai Ba Trung</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">So dien thoai</th>
-                        <td>0982210001</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Khoi luong buu pham</th>
-                        <td>Do choi tre em</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Ghi chu</th>
-                        <td>Ship gio hanh chinh</td>
-
-                    </tr>
-                    </tbody>
-                </table>
-                </p>
-                <small>Trang thai: Cho lay hang</small>
-            </a>
+            </div>
+            <div>
+                <a th:href="@{'/orders/' + ${orders.} (page=${orders.number - 1})}" th:if="${orders.hasPrevious()}">Previous</a>
+                <span th:text="${orders.number + 1}"></span>/<span th:text="${orders.totalPages}"></span>
+                <a th:href="@{'/orders/' + ${order.userId} (page=${orders.number + 1})}" th:if="${orders.hasNext()}">Next</a>
+            </div>
 
         </div>
 

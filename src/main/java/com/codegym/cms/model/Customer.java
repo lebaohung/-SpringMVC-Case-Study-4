@@ -20,6 +20,9 @@ public class Customer {
     @OneToMany(targetEntity = Order.class)
     private List<Order> orderList;
 
+    @ManyToOne
+    private AppRole role;
+
     public Customer() {
     }
 
@@ -93,5 +96,13 @@ public class Customer {
 
     public void setOrderList(List<Order> orderList) {
         this.orderList = orderList;
+    }
+
+    public AppRole getRole() {
+        return role;
+    }
+
+    public void setRole(AppRole role) {
+        this.role = role;
     }
 }

@@ -166,6 +166,10 @@ package com.codegym.cms;
 ////import com.codegym.cms.service.CustomerServiceImpl;
 //import com.codegym.cms.service.impl.CustomerServiceImpl;
 //import com.codegym.cms.service.impl.ProvinceServiceImpl;
+import com.codegym.cms.service.appuser.AppUserService;
+import com.codegym.cms.service.appuser.AppUserServiceImpl;
+import com.codegym.cms.service.customer.CustomerService;
+import com.codegym.cms.service.province.ProvinceService;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -330,10 +334,10 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
                         ("/resources/");
     }
 
-//    @Bean
-//    public AppUserService appUserService() {
-//        return new AppUserServiceImpl();
-//    }
+    @Bean
+    public AppUserService appUserService() {
+        return new AppUserServiceImpl();
+    }
 
     //    @Bean
 //    public ObjectMapper getObjectMapper() {
@@ -353,14 +357,14 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 //        addDefaultHttpMessageConverters(converters);
 //    }
 
-//    @Bean
-//    public ProvinceService provinceService() {
-//        return new ProvinceServiceImpl();
-//    }
-//
-//    @Bean
-//    public CustomerService customerService() {
-//        return new CustomerServiceImpl();
-//    }
+    @Bean
+    public ProvinceService provinceService() {
+        return new ProvinceService();
+    }
+
+    @Bean
+    public CustomerService customerService() {
+        return new CustomerService();
+    }
 
 }

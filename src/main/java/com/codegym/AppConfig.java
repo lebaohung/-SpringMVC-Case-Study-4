@@ -1,5 +1,13 @@
 package com.codegym;
 
+import com.codegym.service.OrderStatus.IOrderStatusService;
+import com.codegym.service.OrderStatus.OrderStatusService;
+import com.codegym.service.order.IOrderService;
+import com.codegym.service.order.OrderService;
+import com.codegym.service.province.IProvinceService;
+import com.codegym.service.province.ProvinceService;
+import com.codegym.service.user.IUserService;
+import com.codegym.service.user.UserService;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -103,7 +111,7 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/casestudy4");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/casestudy4?characterEncoding=utf8");
         dataSource.setUsername("root");
         dataSource.setPassword("password");
         return dataSource;
@@ -122,6 +130,27 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
         messageSource.setBasename("messages");
         return messageSource;
+    }
+
+
+    @Bean
+    public IOrderService orderService() {
+        return new OrderService();
+    }
+
+    @Bean
+    public IUserService userService() {
+        return new UserService();
+    }
+
+    @Bean
+    public IProvinceService provinceService() {
+        return new ProvinceService();
+    }
+
+    @Bean
+    public IOrderStatusService orderStatusService() {
+        return new OrderStatusService();
     }
 
 }

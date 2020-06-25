@@ -6,8 +6,8 @@ import com.codegym.service.order.IOrderService;
 import com.codegym.service.order.OrderService;
 import com.codegym.service.province.IProvinceService;
 import com.codegym.service.province.ProvinceService;
-import com.codegym.service.user.IUserService;
-import com.codegym.service.user.UserService;
+import com.codegym.service.customer.ICustomerService;
+import com.codegym.service.customer.CustomerService;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -26,7 +26,6 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.thymeleaf.TemplateEngine;
@@ -139,8 +138,8 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     }
 
     @Bean
-    public IUserService userService() {
-        return new UserService();
+    public ICustomerService customerService() {
+        return new CustomerService();
     }
 
     @Bean

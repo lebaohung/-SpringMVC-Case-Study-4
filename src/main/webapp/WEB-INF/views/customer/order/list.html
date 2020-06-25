@@ -17,13 +17,13 @@
                 <div class="container ">
                     <div class="row">
                         <li class=" col-md-3 nav-item pr-5 " role="presentation">
-                            <a class="nav-link bg-light text-dark active" id="pills-home-tab" th:href="@{/create-order/__${userId}__}" role="tab" aria-controls="pills-home" aria-selected="true">Tao don hang moi</a>
+                            <a class="nav-link bg-light text-dark active" id="pills-home-tab" th:href="@{/create-order/__${customerId}__}" role="tab" aria-controls="pills-home" aria-selected="true">Tao don hang moi</a>
                         </li>
                         <li class="col-md-3 nav-item pr-5" role="presentation">
-                            <a class="nav-link bg-light text-dark" id="pills-profile-tab" th:href="@{/orders/__${userId}__}" role="tab" aria-controls="pills-profile" aria-selected="false">Quan ly don hang</a>
+                            <a class="nav-link bg-light text-dark" id="pills-profile-tab" th:href="@{/orders/__${customerId}__}" role="tab" aria-controls="pills-profile" aria-selected="false">Quan ly don hang</a>
                         </li>
                         <li class="col-md-3 nav-item pr-5" role="presentation">
-                            <a class="nav-link bg-light text-dark" id="pills-contact-tab"  th:href="@{/info/__${userId}__}" role="tab" aria-controls="pills-contact" aria-selected="false">Thong tin shop</a>
+                            <a class="nav-link bg-light text-dark" id="pills-contact-tab" th:href="@{/info/__${customerId}__}" role="tab" aria-controls="pills-contact" aria-selected="false">Thong tin shop</a>
                         </li>
                         <li class="col-md-3 nav-item pr-5 " role="presentation">
                             <a class="nav-link bg-danger text-light" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Thoat</a>
@@ -85,9 +85,9 @@
 
             </div>
             <div>
-                <a th:href="@{'/orders/' + ${userId} (page=${orders.number - 1})}" th:if="${orders.hasPrevious()}">Previous</a>
+                <a th:href="@{'/orders/' + ${customerId} (page=${orders.number - 1})}" th:if="${orders.hasPrevious()}">Previous</a>
                 <span th:text="${orders.number + 1}"></span>/<span th:text="${orders.totalPages}"></span>
-                <a th:href="@{'/orders/' + ${userId} (page=${orders.number + 1})}" th:if="${orders.hasNext()}">Next</a>
+                <a th:href="@{'/orders/' + ${customerId} (page=${orders.number + 1})}" th:if="${orders.hasNext()}">Next</a>
             </div>
 
         </div>

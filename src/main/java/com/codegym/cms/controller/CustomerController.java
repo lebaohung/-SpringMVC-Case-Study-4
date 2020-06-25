@@ -1,13 +1,13 @@
-package com.codegym.controller;
+package com.codegym.cms.controller;
 
-import com.codegym.model.Customer;
-import com.codegym.model.Order;
-import com.codegym.model.OrderStatus;
-import com.codegym.model.Province;
-import com.codegym.service.OrderStatus.IOrderStatusService;
-import com.codegym.service.order.IOrderService;
-import com.codegym.service.province.IProvinceService;
-import com.codegym.service.customer.ICustomerService;
+import com.codegym.cms.model.Customer;
+import com.codegym.cms.model.OrderStatus;
+import com.codegym.cms.model.Order;
+import com.codegym.cms.model.Province;
+import com.codegym.cms.service.OrderStatus.IOrderStatusService;
+import com.codegym.cms.service.order.IOrderService;
+import com.codegym.cms.service.province.IProvinceService;
+import com.codegym.cms.service.customer.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

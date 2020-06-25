@@ -1,7 +1,7 @@
-package com.codegym.service.province;
+package com.codegym.cms.service.province;
 
-import com.codegym.model.Province;
-import com.codegym.repository.ProvinceRepository;
+import com.codegym.cms.model.Province;
+import com.codegym.cms.repository.ProvinceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class ProvinceService implements IProvinceService{

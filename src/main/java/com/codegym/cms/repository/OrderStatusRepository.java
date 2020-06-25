@@ -1,6 +1,6 @@
-package com.codegym.repository;
+package com.codegym.cms.repository;
 
-import com.codegym.model.OrderStatus;
+import com.codegym.cms.model.OrderStatus;
 import org.springframework.data.repository.CrudRepository;
 
 public interface OrderStatusRepository extends CrudRepository<OrderStatus, Integer> {

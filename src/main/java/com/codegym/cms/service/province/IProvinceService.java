@@ -1,6 +1,6 @@
-package com.codegym.service.province;
+package com.codegym.cms.service.province;
 
-import com.codegym.model.Province;
+import com.codegym.cms.model.Province;
 
 public interface IProvinceService {
     public Iterable<Province> findAll();

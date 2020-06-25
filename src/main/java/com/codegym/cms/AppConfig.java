@@ -1,13 +1,13 @@
-package com.codegym;
+package com.codegym.cms;
 
-import com.codegym.service.OrderStatus.IOrderStatusService;
-import com.codegym.service.OrderStatus.OrderStatusService;
-import com.codegym.service.order.IOrderService;
-import com.codegym.service.order.OrderService;
-import com.codegym.service.province.IProvinceService;
-import com.codegym.service.province.ProvinceService;
-import com.codegym.service.customer.ICustomerService;
-import com.codegym.service.customer.CustomerService;
+import com.codegym.cms.service.OrderStatus.IOrderStatusService;
+import com.codegym.cms.service.OrderStatus.OrderStatusService;
+import com.codegym.cms.service.customer.CustomerService;
+import com.codegym.cms.service.customer.ICustomerService;
+import com.codegym.cms.service.order.IOrderService;
+import com.codegym.cms.service.order.OrderService;
+import com.codegym.cms.service.province.IProvinceService;
+import com.codegym.cms.service.province.ProvinceService;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -43,8 +43,8 @@ import java.util.Properties;
 @EnableWebMvc
 @EnableTransactionManagement
 @EnableSpringDataWebSupport
-@ComponentScan("com.codegym.controller")
-@EnableJpaRepositories("com.codegym.repository")
+@ComponentScan("com.codegym.cms.controller")
+@EnableJpaRepositories("com.codegym.cms.repository")
 public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
@@ -91,7 +91,7 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[]{"com.codegym.model"});
+        em.setPackagesToScan(new String[]{"com.codegym.cms.model"});
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);

@@ -1,8 +1,9 @@
-//package manageCustomer.Province.config;
+package com.codegym;//package manageCustomer.Province.config;
 
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
 import javax.servlet.Filter;
 
 

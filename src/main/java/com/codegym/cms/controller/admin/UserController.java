@@ -37,6 +37,7 @@ public class UserController {
     private IStatusService iStatusService;
     @Autowired
     private IUserService iUserService;
+
     @ModelAttribute("provinces")
     public List<Province> provinces() {
         return iProvinceService.findAll();
@@ -46,6 +47,9 @@ public class UserController {
     public List<Status> statusess() {
         return iStatusService.findAll();
     }
+
+    @Autowired
+    Environment env;
 
 
     @ModelAttribute("provinces")
@@ -61,7 +65,7 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView("admin/crudUser/list");
         if (searchs.isPresent()) {
             users = iUserService.findAllByNameContaining(searchs.get(), pageable);
-            modelAndView.addObject("searchs",searchs);
+            modelAndView.addObject("searchs", searchs);
         } else {
             users = iUserService.findAll(pageable);
 
@@ -69,35 +73,20 @@ public class UserController {
         modelAndView.addObject("users", users);
         return modelAndView;
     }
+    @GetMapping("/")
+    public ModelAndView homes(@PageableDefault(size = 2, direction = Sort.Direction.ASC)
+                                     Pageable pageable,
+                             @RequestParam("searchs") Optional<String> searchs) {
+        Page<User> users;
+        ModelAndView modelAndView = new ModelAndView("admin/crudUser/list");
+        if (searchs.isPresent()) {
+            users = iUserService.findAllByNameContaining(searchs.get(), pageable);
+            modelAndView.addObject("searchs", searchs);
+        } else {
+            users = iUserService.findAll(pageable);
 
-    @GetMapping("/create")
-    public ModelAndView createForm() {
-        ModelAndView modelAndView = new ModelAndView("admin/crudUser/create");
-        modelAndView.addObject("users", new User());
-        return modelAndView;
-    }
-
-    @Autowired
-    Environment env;
-
-    @PostMapping("/create")
-    public ModelAndView create(@ModelAttribute("users") AvatarUpload avatarUpload, User users) {
-        User user = new User(users.getName(), users.getDetailAddress(), null);
-
-        MultipartFile multipartFile = avatarUpload.getAvatar();
-        String fileName = multipartFile.getOriginalFilename();
-        String fileUpload = env.getProperty("file_upload").toString();
-        try {
-            FileCopyUtils.copy(avatarUpload.getAvatar().getBytes(),
-                    new File(fileUpload + fileName));
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-        user.setAvatar(fileName);
-        iUserService.save(users);
-        ModelAndView modelAndView = new ModelAndView("admin/crudUser/create");
-        modelAndView.addObject("users", new User());
-
+        modelAndView.addObject("users", users);
         return modelAndView;
     }
 
@@ -115,31 +104,26 @@ public class UserController {
     }
 
     @PostMapping("/edit")
-    public ModelAndView update(@ModelAttribute("users") User users) {
+    public ModelAndView update(@ModelAttribute("users") AvatarUpload avatarUpload, User userss) {
+        User users = new User(userss.getName(), userss.getDetailAddress(), null);
+
+        MultipartFile multipartFile = avatarUpload.getAvatar();
+        String fileName = multipartFile.getOriginalFilename();
+        String fileUpload = env.getProperty("file_upload");
+        try {
+            FileCopyUtils.copy(avatarUpload.getAvatar().getBytes(),
+                    new File(fileUpload + fileName));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        users.setAvatar(fileName);
+
         iUserService.save(users);
         ModelAndView modelAndView = new ModelAndView("admin/crudUser/edit");
         modelAndView.addObject("users", users);
         return modelAndView;
     }
 
-    @GetMapping("/delete/{id}")
-    public ModelAndView deleteForm(@PathVariable Long id) {
-        User users = iUserService.findById(id);
-        if (users != null) {
-            ModelAndView modelAndView = new ModelAndView("admin/crudUser/delete");
-            modelAndView.addObject("users", users);
-            return modelAndView;
-
-        } else {
-            return new ModelAndView("admin/404");
-        }
-    }
-
-    @PostMapping("/delete")
-    public ModelAndView delete(@ModelAttribute("users") User users) {
-        iUserService.remove(users.getId());
-        return new ModelAndView("redirect:admin/crudUser/list");
-    }
 
     @GetMapping("/view/{id}")
     public ModelAndView viewForm(@PathVariable Long id) {

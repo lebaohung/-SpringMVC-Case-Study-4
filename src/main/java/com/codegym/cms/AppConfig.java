@@ -54,15 +54,7 @@ import java.util.Properties;
 @PropertySource("classpath:uploadfile.properties") //uploadfile
 //
 public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
-    @Bean
-    public IAdminService iAdminService() {
-        return new AdminServiceImpl();
-    }
 
-    @Bean
-    public IAdminAccountService iAdminAccountService() {
-        return new AdminAccountServiceImpl();
-    }
 
     @Bean
     public IUserService iUserService() {

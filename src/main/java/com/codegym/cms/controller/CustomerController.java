@@ -89,8 +89,7 @@ public class CustomerController {
     public  ModelAndView listOrders(@PathVariable Long id,@PageableDefault(value = 5) Pageable pageable) {
         ModelAndView modelAndView = new ModelAndView("/customer/order/list");
         Page<Order> orders = orderService.findAllByCustomerId(id, pageable);
-        Long customerId = id;
-        modelAndView.addObject("customerId", customerId);
+        modelAndView.addObject("customerId", id);
         modelAndView.addObject("orders", orders);
         return modelAndView;
     }
@@ -154,11 +153,11 @@ public class CustomerController {
         return modelAndView;
     }
 
-    @GetMapping("/orders")
-    public String listOrders() {
-        System.out.println(userService.getCurrentUser().getCustomerId());
-//        List<Order> list = (List<Order>) orderService.findAllByUser(userService.getCurrentUser().getCustomerId());
-//        System.out.println(list.size());
-        return "user/order/list";
-    }
+//    @GetMapping("/orders")
+//    public String listOrders() {
+//        System.out.println(userService.getCurrentUser().getCustomerId());
+////        List<Order> list = (List<Order>) orderService.findAllByUser(userService.getCurrentUser().getCustomerId());
+////        System.out.println(list.size());
+//        return "user/order/list";
+//    }
 }

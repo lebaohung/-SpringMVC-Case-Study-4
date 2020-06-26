@@ -89,7 +89,6 @@ public class HomepageController {
     public ModelAndView loginSuccess() {
         Long currentCustomerId = userService.getCurrentUser().getCustomerId();
         Customer currentCustomer = customerService.findbyId(currentCustomerId);
-        System.out.println(currentCustomer.getRole().getId());
         ModelAndView modelAndView;
         if (currentCustomer.getRole().getId() == 1) {
 //            modelAndView = new ModelAndView("/admin/crudUser/list");

@@ -2,12 +2,12 @@ package com.codegym.cms.service.admin.impl;
 
 import com.codegym.cms.model.admin.Order;
 import com.codegym.cms.repository.admin.IOrderRepository;
-import com.codegym.cms.service.admin.IOrderService;
+import com.codegym.cms.service.admin.IfOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-public class OrderServiceImpl implements IOrderService {
+public class OrderServiceImpl implements IfOrderService {
     @Override
     public Page<Order> findAllByReceiverNameContaining(String search, Pageable pageable) {
         return iOrderRepository.findAllByReceiverNameContaining(search,pageable);

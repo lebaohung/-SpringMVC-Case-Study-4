@@ -5,11 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import com.codegym.cms.repository.admin.IStatusRepository;
-import com.codegym.cms.service.admin.IStatusService;
+import com.codegym.cms.service.admin.IfStatusService;
 
 import java.util.List;
 
-public class StatusServiceImpl implements IStatusService {
+public class StatusServiceImpl implements IfStatusService {
     @Autowired
     private IStatusRepository iStatusRepository;
 

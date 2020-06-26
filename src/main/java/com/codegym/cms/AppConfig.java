@@ -57,27 +57,27 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 
 
     @Bean
-    public IUserService iUserService() {
+    public IfUserService iUserService() {
         return new UserServiceImpl();
     }
 
     @Bean
-    public IOrderService iBillService() {
+    public IfOrderService iBillService() {
         return new OrderServiceImpl();
     }
 
     @Bean
-    public IProvinceService iProvinceService() {
+    public IfProvinceService iProvinceService() {
         return new ProvinceServiceImpl();
     }
 
     @Bean
-    public IStatusService iStatusService() {
+    public IfStatusService iStatusService() {
         return new StatusServiceImpl();
     }
 
     @Bean
-    public IAccountService iAccountService() {
+    public IfAccountService iAccountService() {
         return new AccountServiceImpl();
     }
 
@@ -213,16 +213,16 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     public void addFormatters(FormatterRegistry registry) {
         registry.addFormatter(
                 new ProvinceFormatter(
-                        applicationContext.getBean(IProvinceService.class))
+                        applicationContext.getBean(IfProvinceService.class))
         );
         registry.addFormatter(
                 new StatusFormatter(
-                        applicationContext.getBean(IStatusService.class)
+                        applicationContext.getBean(IfStatusService.class)
                 )
         );
         registry.addFormatter(
                 new AccountFormatter(
-                        applicationContext.getBean(IAccountService.class)
+                        applicationContext.getBean(IfAccountService.class)
                 )
         );
     }

@@ -4,10 +4,10 @@ import com.codegym.cms.model.admin.Order;
 import com.codegym.cms.model.admin.Province;
 import com.codegym.cms.model.admin.Status;
 import com.codegym.cms.model.admin.User;
-import com.codegym.cms.service.admin.IOrderService;
-import com.codegym.cms.service.admin.IProvinceService;
-import com.codegym.cms.service.admin.IStatusService;
-import com.codegym.cms.service.admin.IUserService;
+import com.codegym.cms.service.admin.IfOrderService;
+import com.codegym.cms.service.admin.IfProvinceService;
+import com.codegym.cms.service.admin.IfStatusService;
+import com.codegym.cms.service.admin.IfUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,27 +26,27 @@ import java.util.Optional;
 public class OrderController {
 
     @Autowired
-    private IOrderService iOrderService;
+    private IfOrderService ifOrderService;
     @Autowired
-    private IProvinceService iProvinceService;
+    private IfProvinceService ifProvinceService;
     @Autowired
-    private IStatusService iStatusService;
+    private IfStatusService ifStatusService;
     @Autowired
-    private IUserService iUserService;
+    private IfUserService ifUserService;
 
     @ModelAttribute("provinces")
     public List<Province> provinces() {
-        return iProvinceService.findAll();
+        return ifProvinceService.findAll();
     }
 
     @ModelAttribute("statusess")
     public List<Status> statusess() {
-        return iStatusService.findAll();
+        return ifStatusService.findAll();
     }
 
     @ModelAttribute
     public List<User> users() {
-        return iUserService.findAll();
+        return ifUserService.findAll();
     }
 
 
@@ -57,11 +57,11 @@ public class OrderController {
         Page<Order> orders;
         ModelAndView modelAndView = new ModelAndView("admin/crudOrder/list");
         if (searchs.isPresent()) {
-            orders = iOrderService.findAllByReceiverNameContaining(
+            orders = ifOrderService.findAllByReceiverNameContaining(
                     searchs.get(), pageable);
             modelAndView.addObject("searchs", searchs);
         } else {
-            orders = iOrderService.findAll(pageable);
+            orders = ifOrderService.findAll(pageable);
         }
 
         modelAndView.addObject("orders", orders);
@@ -74,11 +74,11 @@ public class OrderController {
         Page<Order> orders;
         ModelAndView modelAndView = new ModelAndView("admin/crudOrder/list");
         if (searchs.isPresent()) {
-            orders = iOrderService.findAllByReceiverNameContaining(
+            orders = ifOrderService.findAllByReceiverNameContaining(
                     searchs.get(), pageable);
             modelAndView.addObject("searchs", searchs);
         } else {
-            orders = iOrderService.findAll(pageable);
+            orders = ifOrderService.findAll(pageable);
         }
 
         modelAndView.addObject("orders", orders);
@@ -88,7 +88,7 @@ public class OrderController {
 
     @GetMapping("/edit/{id}")
     public ModelAndView editForm(@PathVariable Long id) {
-        Order orders = iOrderService.findById(id);
+        Order orders = ifOrderService.findById(id);
         if (orders != null) {
             ModelAndView modelAndView = new ModelAndView("admin/crudOrder/edit");
             modelAndView.addObject("orders", orders);
@@ -100,7 +100,7 @@ public class OrderController {
 
     @PostMapping("/edit")
     public ModelAndView update(@ModelAttribute("orders") Order orders) {
-        iOrderService.save(orders);
+        ifOrderService.save(orders);
         ModelAndView modelAndView = new ModelAndView("admin/crudOrder/edit");
         modelAndView.addObject("orders", orders);
         return modelAndView;
@@ -109,7 +109,7 @@ public class OrderController {
 
     @GetMapping("/view/{id}")
     public ModelAndView viewForm(@PathVariable Long id) {
-        Order orders = iOrderService.findById(id);
+        Order orders = ifOrderService.findById(id);
         if (orders != null) {
             ModelAndView modelAndView = new ModelAndView("admin/crudOrder/view");
             modelAndView.addObject("orders", orders);

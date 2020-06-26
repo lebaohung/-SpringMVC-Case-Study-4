@@ -2,14 +2,14 @@ package com.codegym.cms.service.admin.impl;
 
 import com.codegym.cms.model.admin.Account;
 import com.codegym.cms.repository.admin.IAccountRepository;
-import com.codegym.cms.service.admin.IAccountService;
+import com.codegym.cms.service.admin.IfAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
-public class AccountServiceImpl implements IAccountService {
+public class AccountServiceImpl implements IfAccountService {
     @Autowired
     private IAccountRepository iAccountRepository;
 

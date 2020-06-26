@@ -1,7 +1,7 @@
 package com.codegym.cms.formatter.admin;
 
 import com.codegym.cms.model.admin.Account;
-import com.codegym.cms.service.admin.IAccountService;
+import com.codegym.cms.service.admin.IfAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.Formatter;
 
@@ -10,10 +10,10 @@ import java.util.Locale;
 
 public class AccountFormatter implements Formatter<Account> {
     @Autowired
-    private IAccountService iAccountService;
+    private IfAccountService iAccountService;
 
     @Autowired
-    public AccountFormatter(IAccountService iAccountService) {
+    public AccountFormatter(IfAccountService iAccountService) {
         this.iAccountService=iAccountService;
     }
 

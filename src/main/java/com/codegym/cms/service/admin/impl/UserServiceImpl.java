@@ -5,11 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import com.codegym.cms.repository.admin.IUserRepository;
-import com.codegym.cms.service.admin.IUserService;
+import com.codegym.cms.service.admin.IfUserService;
 
 import java.util.List;
 
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl implements IfUserService {
     @Override
     public List<User> findAll() {
         return iUserRepository.findAll();

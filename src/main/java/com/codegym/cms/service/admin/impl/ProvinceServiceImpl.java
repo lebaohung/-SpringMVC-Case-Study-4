@@ -5,11 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import com.codegym.cms.repository.admin.IProvinceRepository;
-import com.codegym.cms.service.admin.IProvinceService;
+import com.codegym.cms.service.admin.IfProvinceService;
 
 import java.util.List;
 
-public class ProvinceServiceImpl implements IProvinceService {
+public class ProvinceServiceImpl implements IfProvinceService {
     @Autowired
     private IProvinceRepository iProvinceRepository;
 

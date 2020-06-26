@@ -5,10 +5,10 @@ import com.codegym.cms.model.admin.AvatarUpload;
 import com.codegym.cms.model.admin.Province;
 import com.codegym.cms.model.admin.Status;
 import com.codegym.cms.model.admin.User;
-import com.codegym.cms.service.admin.IOrderService;
-import com.codegym.cms.service.admin.IProvinceService;
-import com.codegym.cms.service.admin.IStatusService;
-import com.codegym.cms.service.admin.IUserService;
+import com.codegym.cms.service.admin.IfOrderService;
+import com.codegym.cms.service.admin.IfProvinceService;
+import com.codegym.cms.service.admin.IfStatusService;
+import com.codegym.cms.service.admin.IfUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Page;
@@ -30,22 +30,22 @@ import java.util.Optional;
 @RequestMapping("/admin/user")
 public class UserController {
     @Autowired
-    private IOrderService iOrderService;
+    private IfOrderService ifOrderService;
     @Autowired
-    private IProvinceService iProvinceService;
+    private IfProvinceService ifProvinceService;
     @Autowired
-    private IStatusService iStatusService;
+    private IfStatusService ifStatusService;
     @Autowired
-    private IUserService iUserService;
+    private IfUserService ifUserService;
 
     @ModelAttribute("provinces")
     public List<Province> provinces() {
-        return iProvinceService.findAll();
+        return ifProvinceService.findAll();
     }
 
     @ModelAttribute("statusess")
     public List<Status> statusess() {
-        return iStatusService.findAll();
+        return ifStatusService.findAll();
     }
 
     @Autowired
@@ -54,7 +54,7 @@ public class UserController {
 
     @ModelAttribute("provinces")
     public Page<Province> provinces(Pageable pageable) {
-        return iProvinceService.findAll(pageable);
+        return ifProvinceService.findAll(pageable);
     }
 
     @GetMapping("/home")
@@ -64,10 +64,10 @@ public class UserController {
         Page<User> users;
         ModelAndView modelAndView = new ModelAndView("admin/crudUser/list");
         if (searchs.isPresent()) {
-            users = iUserService.findAllByNameContaining(searchs.get(), pageable);
+            users = ifUserService.findAllByNameContaining(searchs.get(), pageable);
             modelAndView.addObject("searchs", searchs);
         } else {
-            users = iUserService.findAll(pageable);
+            users = ifUserService.findAll(pageable);
 
         }
         modelAndView.addObject("users", users);
@@ -80,10 +80,10 @@ public class UserController {
         Page<User> users;
         ModelAndView modelAndView = new ModelAndView("admin/crudUser/list");
         if (searchs.isPresent()) {
-            users = iUserService.findAllByNameContaining(searchs.get(), pageable);
+            users = ifUserService.findAllByNameContaining(searchs.get(), pageable);
             modelAndView.addObject("searchs", searchs);
         } else {
-            users = iUserService.findAll(pageable);
+            users = ifUserService.findAll(pageable);
 
         }
         modelAndView.addObject("users", users);
@@ -93,7 +93,7 @@ public class UserController {
 
     @GetMapping("/edit/{id}")
     public ModelAndView editForm(@PathVariable Long id) {
-        User users = iUserService.findById(id);
+        User users = ifUserService.findById(id);
         if (users != null) {
             ModelAndView modelAndView = new ModelAndView("admin/crudUser/edit");
             modelAndView.addObject("users", users);
@@ -118,7 +118,7 @@ public class UserController {
         }
         users.setAvatar(fileName);
 
-        iUserService.save(users);
+        ifUserService.save(users);
         ModelAndView modelAndView = new ModelAndView("admin/crudUser/edit");
         modelAndView.addObject("users", users);
         return modelAndView;
@@ -127,7 +127,7 @@ public class UserController {
 
     @GetMapping("/view/{id}")
     public ModelAndView viewForm(@PathVariable Long id) {
-        User users = iUserService.findById(id);
+        User users = ifUserService.findById(id);
         if (users != null) {
             ModelAndView modelAndView = new ModelAndView("admin/crudUser/view");
             modelAndView.addObject("users", users);

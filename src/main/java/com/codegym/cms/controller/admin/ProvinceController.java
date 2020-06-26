@@ -10,7 +10,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import com.codegym.cms.service.admin.IProvinceService;
+import com.codegym.cms.service.admin.IfProvinceService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
@@ -20,7 +20,7 @@ import java.util.Optional;
 public class ProvinceController {
 
     @Autowired
-    private IProvinceService iProvinceService;
+    private IfProvinceService ifProvinceService;
 
     @GetMapping("/home")
     public ModelAndView home(@PageableDefault(size = 2, direction = Sort.Direction.ASC)
@@ -31,9 +31,9 @@ public class ProvinceController {
         Page<Province> provinces;
         ModelAndView modelAndView = new ModelAndView("admin/crudProvince/list");
         if (search.isPresent()) {
-            provinces = iProvinceService.findAllByNameContaining(search.get(), pageable);
+            provinces = ifProvinceService.findAllByNameContaining(search.get(), pageable);
         } else {
-            provinces = iProvinceService.findAll(pageable);
+            provinces = ifProvinceService.findAll(pageable);
 
         }
         modelAndView.addObject("provinces", provinces);
@@ -51,7 +51,7 @@ public class ProvinceController {
 
     @PostMapping("/create")
     public ModelAndView create(@ModelAttribute("provinces") Province provinces) {
-        iProvinceService.save(provinces);
+        ifProvinceService.save(provinces);
         ModelAndView modelAndView = new ModelAndView("admin/crudProvince/create");
         modelAndView.addObject("provinces", new Province());
 
@@ -61,7 +61,7 @@ public class ProvinceController {
 
     @GetMapping("/edit/{id}")
     public ModelAndView editForm(@PathVariable Long id) {
-        Province provinces = iProvinceService.findById(id);
+        Province provinces = ifProvinceService.findById(id);
         if (provinces != null) {
             ModelAndView modelAndView = new ModelAndView("admin/crudProvince/edit");
             modelAndView.addObject("provinces", provinces);
@@ -73,7 +73,7 @@ public class ProvinceController {
 
     @PostMapping("/edit")
     public ModelAndView update(@ModelAttribute("provinces") Province provinces) {
-        iProvinceService.save(provinces);
+        ifProvinceService.save(provinces);
         ModelAndView modelAndView = new ModelAndView("admin/crudProvince/edit");
         modelAndView.addObject("provinces", provinces);
         return modelAndView;
@@ -81,7 +81,7 @@ public class ProvinceController {
 
     @GetMapping("/delete/{id}")
     public ModelAndView deleteForm(@PathVariable Long id) {
-        Province provinces = iProvinceService.findById(id);
+        Province provinces = ifProvinceService.findById(id);
         if (provinces != null) {
             ModelAndView modelAndView = new ModelAndView("admin/crudProvince/delete");
             modelAndView.addObject("provinces", provinces);
@@ -94,13 +94,13 @@ public class ProvinceController {
 
     @PostMapping("/delete")
     public ModelAndView delete(@ModelAttribute("provinces") Province provinces) {
-        iProvinceService.remove(provinces.getId());
+        ifProvinceService.remove(provinces.getId());
         return new ModelAndView("redirect:admin/crudProvince/list");
     }
 
     @GetMapping("/view/{id}")
     public ModelAndView viewForm(@PathVariable Long id) {
-        Province provinces = iProvinceService.findById(id);
+        Province provinces = ifProvinceService.findById(id);
         if (provinces != null) {
             ModelAndView modelAndView = new ModelAndView("admin/crudProvince/view");
             modelAndView.addObject("provinces", provinces);

@@ -3,23 +3,23 @@ package com.codegym.cms.formatter.admin;
 import com.codegym.cms.model.admin.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.Formatter;
-import com.codegym.cms.service.admin.IStatusService;
+import com.codegym.cms.service.admin.IfStatusService;
 
 import java.text.ParseException;
 import java.util.Locale;
 
 public class StatusFormatter implements Formatter<Status> {
     @Autowired
-    private IStatusService iStatusService;
+    private IfStatusService ifStatusService;
 
     @Autowired
-    public StatusFormatter(IStatusService iStatusService) {
-        this.iStatusService=iStatusService;
+    public StatusFormatter(IfStatusService ifStatusService) {
+        this.ifStatusService = ifStatusService;
     }
 
     @Override
     public Status parse(String text, Locale locale) throws ParseException {
-        return iStatusService.findById(Long.parseLong(text));
+        return ifStatusService.findById(Long.parseLong(text));
     }
 
     @Override

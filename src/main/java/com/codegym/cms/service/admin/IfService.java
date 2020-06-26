@@ -3,7 +3,7 @@ package com.codegym.cms.service.admin;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-public interface IService<T> {
+public interface IfService<T> {
     Page<T> findAll(Pageable pageable);
     T findById(Long id);
     void save(T model);

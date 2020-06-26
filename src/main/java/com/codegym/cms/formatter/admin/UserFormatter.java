@@ -1,7 +1,7 @@
 package com.codegym.cms.formatter.admin;
 
 import com.codegym.cms.model.admin.User;
-import com.codegym.cms.service.admin.IUserService;
+import com.codegym.cms.service.admin.IfUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.Formatter;
 
@@ -10,16 +10,16 @@ import java.util.Locale;
 
 public class UserFormatter implements Formatter<User> {
     @Autowired
-    private IUserService iUserService;
+    private IfUserService ifUserService;
 
     @Autowired
-    public UserFormatter(IUserService iUserService) {
-        this.iUserService=iUserService;
+    public UserFormatter(IfUserService ifUserService) {
+        this.ifUserService = ifUserService;
     }
 
     @Override
     public User parse(String text, Locale locale) throws ParseException {
-        return iUserService.findById(Long.parseLong(text));
+        return ifUserService.findById(Long.parseLong(text));
     }
 
     @Override

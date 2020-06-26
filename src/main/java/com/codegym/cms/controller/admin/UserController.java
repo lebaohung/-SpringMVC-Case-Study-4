@@ -3,7 +3,12 @@ package com.codegym.cms.controller.admin;
 
 import com.codegym.cms.model.admin.AvatarUpload;
 import com.codegym.cms.model.admin.Province;
+import com.codegym.cms.model.admin.Status;
 import com.codegym.cms.model.admin.User;
+import com.codegym.cms.service.admin.IOrderService;
+import com.codegym.cms.service.admin.IProvinceService;
+import com.codegym.cms.service.admin.IStatusService;
+import com.codegym.cms.service.admin.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Page;
@@ -15,21 +20,33 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import com.codegym.cms.service.admin.IProvinceService;
-import com.codegym.cms.service.admin.IUserService;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
 @RequestMapping("/admin/user")
 public class UserController {
     @Autowired
-    private IUserService iUserService;
+    private IOrderService iOrderService;
     @Autowired
     private IProvinceService iProvinceService;
+    @Autowired
+    private IStatusService iStatusService;
+    @Autowired
+    private IUserService iUserService;
+    @ModelAttribute("provinces")
+    public List<Province> provinces() {
+        return iProvinceService.findAll();
+    }
+
+    @ModelAttribute("statusess")
+    public List<Status> statusess() {
+        return iStatusService.findAll();
+    }
+
 
     @ModelAttribute("provinces")
     public Page<Province> provinces(Pageable pageable) {
@@ -39,19 +56,17 @@ public class UserController {
     @GetMapping("/home")
     public ModelAndView home(@PageableDefault(size = 2, direction = Sort.Direction.ASC)
                                      Pageable pageable,
-                             @RequestParam("search") Optional<String> search,
-                             HttpServletRequest request) {
-        String searchValue = request.getParameter("search");
+                             @RequestParam("searchs") Optional<String> searchs) {
         Page<User> users;
         ModelAndView modelAndView = new ModelAndView("admin/crudUser/list");
-        if (search.isPresent()) {
-            users = iUserService.findAllByNameContaining(search.get(), pageable);
+        if (searchs.isPresent()) {
+            users = iUserService.findAllByNameContaining(searchs.get(), pageable);
+            modelAndView.addObject("searchs",searchs);
         } else {
             users = iUserService.findAll(pageable);
 
         }
         modelAndView.addObject("users", users);
-        modelAndView.addObject("searchValue", searchValue);
         return modelAndView;
     }
 

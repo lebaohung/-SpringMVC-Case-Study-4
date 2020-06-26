@@ -33,7 +33,7 @@ public class AppSecConfig extends WebSecurityConfigurerAdapter {
 
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/user/**","/info/**","/order-detail/**","create-order/**")
+                .antMatchers("/user/**", "/info/**", "/order-detail/**", "create-order/**")
                 .access("hasRole('USER')")
                 .antMatchers("/orders/**").access("hasRole('USER')")
                 .antMatchers("/admin/**").access("hasRole('ADMIN')")
@@ -50,7 +50,8 @@ public class AppSecConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/loginForm").usernameParameter("email").passwordParameter("password")
                 .failureUrl("/login-error")
-                .loginProcessingUrl("/do_login")
+                .loginProcessingUrl("/do_login").
+                defaultSuccessUrl("/loginSuccess", true)
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/")

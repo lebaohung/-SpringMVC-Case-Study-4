@@ -112,7 +112,7 @@
                         <div class="collapse navbar-collapse navbar-collapse">
 
                             <span class="search-button pull-right"><a href="/loginForm"><i
-                                    class="fas fa-user"></i></a></span>
+                                    class="fas fa-user"></i><i th:if="${greeting}" th:text="${greeting}"></i></a></span>
 
                             <ul class="nav navbar-nav navbar-right">
 
@@ -160,16 +160,21 @@
                                 </li> <!-- /MEGA MENU -->
                                 <!-- /Pages -->
                                 <!-- Blog -->
-                                <li class="dropdown"><a href="#">Blog <span class="fa fa-angle-down"></span></a>
+                                <li class="dropdown">
+                                    <a th:if="${greeting}" th:href="@{/info/{id}(id=${curCustomer.getCustomerId()})}">
+                                        Your Account </a>
+                                    <a th:unless="${greeting}" th:href="@{/loginForm}">
+                                        Your Account </a>
+
                                     <!-- submenu-wrapper -->
-                                    <div class="submenu-wrapper">
-                                        <div class="submenu-inner">
-                                            <ul class="dropdown-menu">
-                                                <li><a href="homepage/blog.html">Standard blog</a></li>
-                                                <li><a href="homepage/blog-single.html">Single blog</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+<!--                                    <div class="submenu-wrapper">-->
+<!--                                        <div class="submenu-inner">-->
+<!--                                            <ul class="dropdown-menu">-->
+<!--                                                <li><a href="/info/">Your Informations</a></li>-->
+<!--                                                <li><a href="/order-detail/">Your Orders</a></li>-->
+<!--                                            </ul>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
                                     <!-- /submenu-wrapper -->
                                 </li>
                                 <li><a href="homepage/contact.html">Price List</a></li>

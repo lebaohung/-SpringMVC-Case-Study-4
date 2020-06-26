@@ -1,11 +1,13 @@
 package com.codegym.cms.controller;//package com.codegym.controller;
 
 //import com.codegym.cms.model.AppRole;
+
 import com.codegym.cms.model.AppRole;
 import com.codegym.cms.model.Customer;
 import com.codegym.cms.model.Province;
 //import com.codegym.cms.service.CustomerService;
 //import com.codegym.cms.service.ProvinceService;
+import com.codegym.cms.service.appuser.AppUserService;
 import com.codegym.cms.service.customer.CustomerService;
 import com.codegym.cms.service.province.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +18,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomepageController {
+    @Autowired
+    private AppUserService userService;
 
     @Autowired
     private ProvinceService provinceService;
 
     @Autowired
     private CustomerService customerService;
+
 
     @ModelAttribute("provinces")
     public Iterable<Province> provinces() {
@@ -46,7 +51,6 @@ public class HomepageController {
             customer.setCustomerStatus(true);
             customer.setRole(new AppRole());
             customer.getRole().setId((long) 2);
-
             customerService.save(customer);
         } catch (Exception e) {
             ModelAndView modelAndView = new ModelAndView("/login/signUp");
@@ -56,7 +60,7 @@ public class HomepageController {
 
         ModelAndView modelAndView = new ModelAndView("/login/loginForm");
         modelAndView.addObject("message", true);
-        modelAndView.addObject("customer",customer);
+        modelAndView.addObject("customer", customer);
         return modelAndView;
     }
 
@@ -80,14 +84,23 @@ public class HomepageController {
         return "login/loginForm";
     }
 
-//    @GetMapping("/province")
-//    public ModelAndView showProvinces() {
-//        ModelAndView modelAndView = new ModelAndView("/test");
-//        modelAndView.addObject("provinces", provinces());
-//        return modelAndView;
-//    }
+    @RequestMapping("/loginSuccess")
+    public ModelAndView loginSuccess() {
+        Long currentCustomerId = userService.getCurrentUser().getCustomerId();
+        Customer currentCustomer = customerService.findbyId(currentCustomerId);
+        ModelAndView modelAndView;
+        if (currentCustomer.getRole().getId() == 1) {
+//            modelAndView = new ModelAndView("/admin/crudUser/list");
+            modelAndView = new ModelAndView("/test");
+        } else {
+            modelAndView = new ModelAndView("/index");
+        }
+        modelAndView.addObject("curCustomer", currentCustomer);
+        modelAndView.addObject("greeting",currentCustomer.getName());
+        return modelAndView;
+    }
 
-//    @ExceptionHandler
+
 }
 
 

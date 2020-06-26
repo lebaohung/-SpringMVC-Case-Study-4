@@ -1,5 +1,6 @@
 package com.codegym.cms.service.order;
 
+import com.codegym.cms.model.Customer;
 import com.codegym.cms.model.Order;
 import com.codegym.cms.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,10 @@ public class OrderService implements IOrderService {
     @Override
     public void remove(Long id) {
         orderRepository.delete(id);
+    }
+
+    @Override
+    public Iterable<Order> findAllByUser(Long customerId) {
+        return orderRepository.findAllByCustomerId(customerId);
     }
 }

@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" type="image/x-icon" href="/resources/xosomienbac.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/resources/admin/xosomienbac.png">
     <!-- Google Fonts
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
@@ -53,7 +53,7 @@
     <link rel="stylesheet" href="/resources/css/calendar/fullcalendar.print.min.css">
     <!-- style CSS
 		============================================ -->
-    <link rel="stylesheet" href="/resources/style.css">
+    <link rel="stylesheet" href="/resources/admin/style.css">
     <!-- responsive CSS
 		============================================ -->
     <link rel="stylesheet" href="/resources/css/responsive.css">
@@ -67,7 +67,7 @@
 <div class="left-sidebar-pro">
     <nav id="sidebar" class="">
         <div class="sidebar-header">
-            <a th:href="@{/admin/home}"><img class="main-logo" src="/resources/xosomienbac.png" alt=""/>
+            <a th:href="@{/admin/home}"><img class="main-logo" src="/resources/admin/xosomienbac.png" alt=""/>
             </a>
             <!--            <strong><a th:href="@{/admin/home}"><img src="/resources/img/ferrari.jpg"  />-->
             <!--            </a></strong>-->
@@ -132,7 +132,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="logo-pro">
-                    <a th:href="@{/admin/home}"><img class="main-logo" src="/resources/night.gif" alt="" width="100%"
+                    <a th:href="@{/admin/home}"><img class="main-logo" src="/resources/admin/night.gif" alt="" width="100%"
                                                      height="30%"/></a>
                 </div>
             </div>
@@ -190,7 +190,7 @@
                                                         <li>
                                                             <a th:href="@{admin/message/codegym/1}">
                                                                 <div class="message-img">
-                                                                    <img src="/resources/codegymLogo.png" alt="">
+                                                                    <img src="/resources/admin/codegymLogo.png" alt="">
                                                                 </div>
                                                                 <div class="message-content">
                                                                     <span class="message-date"
@@ -204,7 +204,7 @@
                                                         <li>
                                                             <a th:href="@{admin/message/whitehouse/1}">
                                                                 <div class="message-img">
-                                                                    <img src="/resources/wasington.png" alt="">
+                                                                    <img src="/resources/admin/wasington.png" alt="">
                                                                 </div>
                                                                 <div class="message-content">
                                                                     <span class="message-date"
@@ -218,7 +218,7 @@
                                                         <li>
                                                             <a th:href="@{admin/message/xsmb/1}">
                                                                 <div class="message-img">
-                                                                    <img src="/resources/xosomienbac.png" alt="">
+                                                                    <img src="/resources/admin/xosomienbac.png" alt="">
                                                                 </div>
                                                                 <div class="message-content">
                                                                     <span class="message-date"
@@ -232,7 +232,7 @@
                                                         <li>
                                                             <a th:href="@{admin/message/xsmb/2}">
                                                                 <div class="message-img">
-                                                                    <img src="/resources/xosomienbac.png" alt="">
+                                                                    <img src="/resources/admin/xosomienbac.png" alt="">
                                                                 </div>
                                                                 <div class="message-content">
                                                                     <span class="message-date"
@@ -327,7 +327,7 @@
                                             <li class="nav-item">
                                                 <a href="#" data-toggle="dropdown" role="button" aria-expanded="false"
                                                    class="nav-link dropdown-toggle">
-                                                    <img src="/resources/goku.ico" alt=""/>
+                                                    <img src="/resources/admin/goku.ico" alt=""/>
                                                     <span class="admin-name" th:text="#{admin.adminName}"></span>
                                                     <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                                 </a>
@@ -356,7 +356,7 @@
                                             <li class="nav-item">
                                                 <a href="#" data-toggle="dropdown" role="button" aria-expanded="false"
                                                    class="nav-link dropdown-toggle">
-                                                    <img src="/resources/language.png" alt=""/>
+                                                    <img src="/resources/admin/language.png" alt=""/>
                                                     <span class="admin-name" th:text="#{lang.heads}"></span>
                                                     <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                                 </a>
@@ -411,7 +411,7 @@
                                                                             <a th:href="@{/admin/note/}">
                                                                                 <div class="notes-list-flow">
                                                                                     <div class="notes-img">
-                                                                                        <img src="/resources/100vnd.jpeg"
+                                                                                        <img src="/resources/admin/100vnd.jpeg"
                                                                                              alt=""/>
                                                                                     </div>
                                                                                     <div class="notes-content">
@@ -425,7 +425,7 @@
                                                                             <a th:href="@{/admin/note/}">
                                                                                 <div class="notes-list-flow">
                                                                                     <div class="notes-img">
-                                                                                        <img src="/resources/200vnd.jpeg"
+                                                                                        <img src="/resources/admin/200vnd.jpeg"
                                                                                              alt=""/>
                                                                                     </div>
                                                                                     <div class="notes-content">
@@ -439,7 +439,7 @@
                                                                             <a th:href="@{/admin/note/}">
                                                                                 <div class="notes-list-flow">
                                                                                     <div class="notes-img">
-                                                                                        <img src="/resources/500vnd.jpeg"
+                                                                                        <img src="/resources/admin/500vnd.jpeg"
                                                                                              alt=""/>
                                                                                     </div>
                                                                                     <div class="notes-content">
@@ -769,8 +769,7 @@
                                         <div class="review-content-section">
                                             <div id="dropzone1" class="pro-ad addcoursepro">
                                                 <form th:action="@{/admin/order/edit}" th:object="${orders}" method="post"
-                                                      class="dropzone dropzone-custom needsclick addlibrary"
-                                                      id="demo1-upload">
+                                                      class="dropzone dropzone-custom needsclick addlibrary">
                                                     <div class="row">
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                             <div class="form-group">
@@ -789,7 +788,6 @@
                                                                        th:text="*{receiverPhone}"></label>
                                                             </div>
                                                         </div>
-
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                             <div class="form-group">
                                                                 <p th:text="#{admin.weight}"></p>
@@ -808,18 +806,20 @@
                                                             </div>
 
                                                         </div>
-                                                        <div class="form-group">
-                                                            <select class="form-control" th:field="*{status}">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <label th:text="#{admin.sidebar.userEdit}"></label>
+                                                            <select style="border: solid green" class="form-control" th:field="*{status}">
                                                                 <option th:each="p : ${statusess}" th:value="${p.id}" th:text="${p.name}"></option>
                                                             </select>
                                                         </div>
+
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-lg-12">
                                                             <div class="payment-adress mg-t-15 responsive-mg-t-0">
                                                                 <button type="submit"
-                                                                        class="btn btn-primary waves-effect waves-light"
-                                                                        th:text="#{admin.submit}">
+                                                                       class="btn btn-primary waves-effect waves-light"
+                                                                       th:text="#{admin.submit}">
                                                                 </button>
                                                             </div>
                                                         </div>

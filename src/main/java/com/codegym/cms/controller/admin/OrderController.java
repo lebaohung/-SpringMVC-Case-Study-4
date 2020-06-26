@@ -67,7 +67,7 @@ public class OrderController {
         modelAndView.addObject("orders", orders);
         return modelAndView;
     }
-    @GetMapping("/")
+    @GetMapping("")
     public ModelAndView homes(@PageableDefault(size = 2, direction = Sort.Direction.ASC)
                                      Pageable pageable,
                              @RequestParam("searchs") Optional<String> searchs) {
@@ -86,25 +86,25 @@ public class OrderController {
     }
 
 
-    @GetMapping("/edit/{id}")
-    public ModelAndView editForm(@PathVariable Long id) {
-        Order orders = ifOrderService.findById(id);
-        if (orders != null) {
-            ModelAndView modelAndView = new ModelAndView("admin/crudOrder/edit");
-            modelAndView.addObject("orders", orders);
-            return modelAndView;
-        } else {
-            return new ModelAndView("admin/404");
-        }
-    }
-
-    @PostMapping("/edit")
-    public ModelAndView update(@ModelAttribute("orders") Order orders) {
-        ifOrderService.save(orders);
-        ModelAndView modelAndView = new ModelAndView("admin/crudOrder/edit");
-        modelAndView.addObject("orders", orders);
-        return modelAndView;
-    }
+//    @GetMapping("/edit/{id}")
+//    public ModelAndView editForm(@PathVariable Long id) {
+//        Order orders = ifOrderService.findById(id);
+//        if (orders != null) {
+//            ModelAndView modelAndView = new ModelAndView("admin/crudOrder/edit");
+//            modelAndView.addObject("orders", orders);
+//            return modelAndView;
+//        } else {
+//            return new ModelAndView("admin/404");
+//        }
+//    }
+//
+//    @PostMapping("/edit")
+//    public ModelAndView update(@ModelAttribute("orders") Order orders) {
+//        ifOrderService.save(orders);
+//        ModelAndView modelAndView = new ModelAndView("admin/crudOrder/edit");
+//        modelAndView.addObject("orders", orders);
+//        return modelAndView;
+//    }
 
 
     @GetMapping("/view/{id}")
@@ -118,6 +118,32 @@ public class OrderController {
             return new ModelAndView("admin/404");
         }
     }
+
+
+    @GetMapping("/edit/{id}")
+    public ModelAndView editForms(@PathVariable Long id) {
+        Order orders = ifOrderService.findById(id);
+        if (orders != null) {
+            ModelAndView modelAndView = new ModelAndView("admin/crudOrder/test");
+            modelAndView.addObject("orders", orders);
+            return modelAndView;
+        } else {
+            return new ModelAndView("admin/404");
+        }
+    }
+
+    @PostMapping("/edit")
+    public ModelAndView updates(@ModelAttribute("orders") Order orders) {
+        ifOrderService.save(orders);
+        ModelAndView modelAndView = new ModelAndView("admin/crudOrder/test");
+        modelAndView.addObject("orders", orders);
+        return modelAndView;
+    }
+
+
+
+
+
 
 }
 

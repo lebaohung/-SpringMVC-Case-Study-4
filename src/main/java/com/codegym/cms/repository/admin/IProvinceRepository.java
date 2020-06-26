@@ -14,3 +14,4 @@ public interface IProvinceRepository extends PagingAndSortingRepository<Province
 
     List<Province> findAll();
 }
+

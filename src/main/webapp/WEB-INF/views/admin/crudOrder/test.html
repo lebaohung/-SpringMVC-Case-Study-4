@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create province</title>
+</head>
+<body>
+<h1>Create province</h1>
+<p>
+    <a href="/admin/provinces">Province list</a>
+</p>
+
+<form th:action="@{/admin/order/edit}" th:object="${orders}" method="post">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <select th:field="*{status}">
+                <option th:each="p : ${statusess}" th:value="${p.id}" th:text="${p.name}"></option>
+            </select>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Edit"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -13,4 +13,6 @@ public interface IUserRepository extends PagingAndSortingRepository<User, Long> 
     Page<User> findAllByNameContaining(String search, Pageable pageable);
 
     List<User> findAll();
+
+
 }

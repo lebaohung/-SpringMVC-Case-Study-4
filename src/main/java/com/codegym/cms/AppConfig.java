@@ -186,9 +186,9 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
         String fileUpload = env.getProperty("file_upload").toString();
         // Image resource.
         registry.addResourceHandler
-                ("/", "/#/", "/img/**", "/resources/**", "resources/img/**", "/i/", "/img/", "/static/**")
+                ("/", "/#/","/resources/admin/**","/resources/admin/", "/img/**", "/resources/**", "resources/img/**", "/i/", "/img/", "/static/**")
                 .addResourceLocations
-                        ("file:" + fileUpload, "/static/", "/resources", "resources/", "/resources/");
+                        ("file:" + fileUpload, "/static/", "/resources", "resources/", "/resources/","/resources/admin/**","/resources/admin/");
 
     }
 

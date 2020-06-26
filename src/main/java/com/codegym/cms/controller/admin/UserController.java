@@ -73,7 +73,7 @@ public class UserController {
         modelAndView.addObject("users", users);
         return modelAndView;
     }
-    @GetMapping("/")
+    @GetMapping("")
     public ModelAndView homes(@PageableDefault(size = 2, direction = Sort.Direction.ASC)
                                      Pageable pageable,
                              @RequestParam("searchs") Optional<String> searchs) {

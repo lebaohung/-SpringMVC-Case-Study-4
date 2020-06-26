@@ -1,11 +1,11 @@
 package com.codegym.cms.service.admin.impl;
 
 import com.codegym.cms.model.admin.User;
+import com.codegym.cms.repository.admin.IUserRepository;
+import com.codegym.cms.service.admin.IfUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import com.codegym.cms.repository.admin.IUserRepository;
-import com.codegym.cms.service.admin.IfUserService;
 
 import java.util.List;
 
@@ -19,6 +19,7 @@ public class UserServiceImpl implements IfUserService {
     public Page<User> findAllByNameContaining(String search,Pageable pageable) {
         return iUserRepository.findAllByNameContaining(search,pageable);
     }
+
 
     @Autowired
     private IUserRepository iUserRepository;

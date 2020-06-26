@@ -1,6 +1,7 @@
 package com.codegym.cms.controller;//package com.codegym.controller;
 
 //import com.codegym.cms.model.AppRole;
+
 import com.codegym.cms.model.AppRole;
 import com.codegym.cms.model.Customer;
 import com.codegym.cms.model.Province;
@@ -60,7 +61,7 @@ public class HomepageController {
 
         ModelAndView modelAndView = new ModelAndView("/login/loginForm");
         modelAndView.addObject("message", true);
-        modelAndView.addObject("customer",customer);
+        modelAndView.addObject("customer", customer);
         return modelAndView;
     }
 
@@ -84,14 +85,24 @@ public class HomepageController {
         return "login/loginForm";
     }
 
-//    @GetMapping("/province")
-//    public ModelAndView showProvinces() {
-//        ModelAndView modelAndView = new ModelAndView("/test");
-//        modelAndView.addObject("provinces", provinces());
-//        return modelAndView;
-//    }
+    @RequestMapping("/loginSuccess")
+    public ModelAndView loginSuccess() {
+        Long currentCustomerId = userService.getCurrentUser().getCustomerId();
+        Customer currentCustomer = customerService.findbyId(currentCustomerId);
+        System.out.println(currentCustomer.getRole().getId());
+        ModelAndView modelAndView;
+        if (currentCustomer.getRole().getId() == 1) {
+//            modelAndView = new ModelAndView("/admin/crudUser/list");
+            modelAndView = new ModelAndView("/test");
+        } else {
+            modelAndView = new ModelAndView("/index");
+        }
+        modelAndView.addObject("curCustomer", currentCustomer);
+        modelAndView.addObject("greeting",currentCustomer.getName());
+        return modelAndView;
+    }
 
-//    @ExceptionHandler
+
 }
 
 

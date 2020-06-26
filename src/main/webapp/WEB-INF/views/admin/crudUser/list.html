@@ -108,7 +108,7 @@
                             <li><a title="Customer" th:href="@{/admin/user/home}">
                                 <span class="mini-sub-pro" th:text="#{admin.sidebar.userList}"></span></a>
                             </li>
-                            <li><a title="Order" th:href="@{/admin/order/home}">
+                            <li><a title="Order" th:href="@{/admin/user/home}">
                                 <span class="mini-sub-pro" th:text="#{admin.sidebar.billList}"></span></a>
                             </li>
                         </ul>
@@ -140,10 +140,10 @@
                                 <span class="mini-sub-pro" th:text="#{admin.sidebar.billAll}"></span></a></li>
                             <!--                            <li><a title="Add Courses" th:href="@{/admin/order/create}">-->
                             <!--                                <span class="mini-sub-pro" th:text="#{admin.sidebar.billAdd}"></span></a></li>-->
-                            <li><a title="Edit Courses" th:href="@{/admin/order/edit}">
-                                <span class="mini-sub-pro" th:text="#{admin.sidebar.billEdit}"></span></a></li>
-                            <li><a title="Courses Profile" th:href="@{/admin/order/view}">
-                                <span class="mini-sub-pro" th:text="#{admin.sidebar.billView}"></span></a></li>
+<!--                            <li><a title="Edit Courses" th:href="@{/admin/order/edit}">-->
+<!--                                <span class="mini-sub-pro" th:text="#{admin.sidebar.billEdit}"></span></a></li>-->
+<!--                            <li><a title="Courses Profile" th:href="@{/admin/order/view}">-->
+<!--                                <span class="mini-sub-pro" th:text="#{admin.sidebar.billView}"></span></a></li>-->
                         </ul>
                     </li>
                 </ul>
@@ -719,7 +719,7 @@
                                            th:text="#{admin.sidebar.order}"> <span
                                             class="admin-project-icon edu-icon edu-down-arrow"></span></a>
                                         <ul id="order" class="collapse dropdown-header-top">
-                                            <li><a th:href="@{/admin/order/home}"
+                                            <li><a th:href="@{/admin/user/home}"
                                                    th:text="#{admin.sidebar.billAll}"></a>
                                             </li>
                                             <li><a th:href="@{/admin/order/create}"
@@ -728,9 +728,9 @@
                                             <li><a th:href="@{/admin/order/edit}"
                                                    th:text="#{admin.sidebar.billEdit}"></a>
                                             </li>
-                                            <li><a th:href="@{/admin/order/view}"
-                                                   th:text="#{admin.sidebar.billView}"></a>
-                                            </li>
+<!--                                            <li><a th:href="@{/admin/order/view}"-->
+<!--                                                   th:text="#{admin.sidebar.billView}"></a>-->
+<!--                                            </li>-->
                                         </ul>
                                     </li>
 
@@ -817,13 +817,13 @@
                                              height="70px"
                                         >
                                     </td>
-                                    <td th:text="${admin.getAccount()}"></td>
+                                    <td th:text="${admin.account.getEmail()}"></td>
                                     <td th:text="${admin.getName()}"></td>
 
                                     <td>
-                                        <button th:onclick="'window.location.href=\'/admin/order/edit/'+ ${admin.getId()}+'\''">
+                                        <button th:onclick="'window.location.href=\'/admin/user/edit/'+ ${admin.getId()}+'\''">
                                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button th:onclick="'window.location.href=\'/admin/order/view/'+ ${admin.getId()}+'\''">
+                                        <button th:onclick="'window.location.href=\'/admin/user/view/'+ ${admin.getId()}+'\''">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                         </button>
                                     </td>
@@ -836,24 +836,24 @@
                             <ul class="pagination">
                                 <li class="page-item">
                                     <a class="page-link"
-                                       th:href="@{'/admin/order/home'(page=${users.number - 1},search=${searchs})}"
+                                       th:href="@{'/admin/user/home'(page=${users.number - 1},search=${searchs})}"
                                        th:if="${users.hasPrevious()}" th:text="#{admin.page.previous}"></a>
                                 </li>
                                 <li class="page-item">
-                                    <a class="page-link" th:href="@{'/admin/order/home'(page=1,search=${searchs})}">
+                                    <a class="page-link" th:href="@{'/admin/user/home'(page=1,search=${searchs})}">
                                         1 </a>
                                 </li>
                                 <li class="page-item">
-                                    <a class="page-link" th:href="@{'/admin/order/home'(page=2,search=${searchs})}">
+                                    <a class="page-link" th:href="@{'/admin/user/home'(page=2,search=${searchs})}">
                                         2 </a>
                                 </li>
                                 <li class="page-item">
-                                    <a class="page-link" th:href="@{'/admin/order/home'(page=3,search=${searchs})}">
+                                    <a class="page-link" th:href="@{'/admin/user/home'(page=3,search=${searchs})}">
                                         3 </a>
                                 </li>
 
                                 <li class="page-item"><a class="page-link"
-                                                         th:href="@{'/admin/order/home'(page=${users.number + 1},search=${searchs})}"
+                                                         th:href="@{'/admin/user/home'(page=${users.number + 1},search=${searchs})}"
                                                          th:if="${users.hasNext()}" th:text="#{admin.page.next}"></a>
                                 </li>
                             </ul>

@@ -1,5 +1,6 @@
 package com.codegym.cms;
 
+import com.codegym.cms.formatter.admin.AccountFormatter;
 import com.codegym.cms.formatter.admin.ProvinceFormatter;
 import com.codegym.cms.formatter.admin.StatusFormatter;
 import com.codegym.cms.service.admin.*;
@@ -42,6 +43,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Locale;
 import java.util.Properties;
+
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.codegym.cms.controller")
@@ -76,10 +78,17 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     public IProvinceService iProvinceService() {
         return new ProvinceServiceImpl();
     }
+
     @Bean
     public IStatusService iStatusService() {
         return new StatusServiceImpl();
     }
+
+    @Bean
+    public IAccountService iAccountService() {
+        return new AccountServiceImpl();
+    }
+
 
     private ApplicationContext applicationContext;
 
@@ -212,11 +221,16 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     public void addFormatters(FormatterRegistry registry) {
         registry.addFormatter(
                 new ProvinceFormatter(
-                applicationContext.getBean(IProvinceService.class))
+                        applicationContext.getBean(IProvinceService.class))
         );
         registry.addFormatter(
                 new StatusFormatter(
                         applicationContext.getBean(IStatusService.class)
+                )
+        );
+        registry.addFormatter(
+                new AccountFormatter(
+                        applicationContext.getBean(IAccountService.class)
                 )
         );
     }

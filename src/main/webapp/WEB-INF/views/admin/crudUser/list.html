@@ -188,7 +188,7 @@
                                             </li>
                                             <li class="nav-item"><a th:href="@{/home/com.codegym.service}"
                                                                     class="nav-link"
-                                                                    th:text="#{admin.top.header.com.codegym.service}"></a>
+                                                                    th:text="#{admin.top.header.com.codegym.cms.service}"></a>
                                             </li>
                                             <li class="nav-item"><a th:href="@{/home/support}" class="nav-link"
                                                                     th:text="#{admin.top.header.support}"></a>
@@ -817,6 +817,8 @@
                                              height="70px"
                                         >
                                     </td>
+                                    <td th:text="${admin.getAccount()}"></td>
+                                    <td th:text="${admin.getName()}"></td>
 
                                     <td>
                                         <button th:onclick="'window.location.href=\'/admin/order/edit/'+ ${admin.getId()}+'\''">

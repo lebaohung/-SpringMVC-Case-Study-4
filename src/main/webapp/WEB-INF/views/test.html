@@ -7,16 +7,6 @@
     <title>Title</title>
 </head>
 <body>
-<th:block th:each="p:${provinces}">
-    <div th:text="${p.name}"></div>
-    <div th:text="${p.provinceId}"></div>
-    <div th:text="${p.position}"></div>
-
-</th:block>
-<select >
-    <option disabled="disabled" selected="selected">Choose option</option>
-    <option th:each="p:${provinces}" th:text="${p.name}"
-            th:value="${p.provinceId}"></option>
-</select>
+<h1>ADMIN PAGE</h1>
 </body>
 </html>

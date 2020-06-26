@@ -7,9 +7,16 @@ import org.springframework.data.domain.Pageable;
 import com.codegym.repository.admin.IProvinceRepository;
 import com.codegym.service.admin.IProvinceService;
 
+import java.util.List;
+
 public class ProvinceServiceImpl implements IProvinceService {
     @Autowired
     private IProvinceRepository iProvinceRepository;
+
+    @Override
+    public List<Province> findAll() {
+        return iProvinceRepository.findAll();
+    }
 
     @Override
     public Page<Province> findAll(Pageable pageable) {

@@ -7,6 +7,8 @@ import org.springframework.data.domain.Pageable;
 import com.codegym.repository.admin.IStatusRepository;
 import com.codegym.service.admin.IStatusService;
 
+import java.util.List;
+
 public class StatusServiceImpl implements IStatusService {
     @Autowired
     private IStatusRepository iStatusRepository;
@@ -14,6 +16,11 @@ public class StatusServiceImpl implements IStatusService {
     @Override
     public Page<Status> findAllByNameContaining(String search, Pageable pageable) {
         return iStatusRepository.findAllByNameContaining(search, pageable);
+    }
+
+    @Override
+    public List<Status> findAll() {
+        return iStatusRepository.findAll();
     }
 
     @Override

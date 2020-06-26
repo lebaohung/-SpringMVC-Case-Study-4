@@ -7,7 +7,14 @@ import org.springframework.data.domain.Pageable;
 import com.codegym.repository.admin.IUserRepository;
 import com.codegym.service.admin.IUserService;
 
+import java.util.List;
+
 public class UserServiceImpl implements IUserService {
+    @Override
+    public List<User> findAll() {
+        return iUserRepository.findAll();
+    }
+
     @Override
     public Page<User> findAllByNameContaining(String search,Pageable pageable) {
         return iUserRepository.findAllByNameContaining(search,pageable);

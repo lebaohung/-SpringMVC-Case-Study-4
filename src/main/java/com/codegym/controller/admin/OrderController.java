@@ -3,9 +3,11 @@ package com.codegym.controller.admin;
 import com.codegym.model.admin.Order;
 import com.codegym.model.admin.Province;
 import com.codegym.model.admin.Status;
+import com.codegym.model.admin.User;
 import com.codegym.service.admin.IOrderService;
 import com.codegym.service.admin.IProvinceService;
 import com.codegym.service.admin.IStatusService;
+import com.codegym.service.admin.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -28,16 +31,24 @@ public class OrderController {
     private IProvinceService iProvinceService;
     @Autowired
     private IStatusService iStatusService;
+    @Autowired
+    private IUserService iUserService;
 
     @ModelAttribute("provinces")
-    public Page<Province> provinces(Pageable pageable) {
-        return iProvinceService.findAll(pageable);
+    public List<Province> provinces() {
+        return iProvinceService.findAll();
     }
 
-    @ModelAttribute("statuses")
-    public Page<Status> statuses(Pageable pageable) {
-        return iStatusService.findAll(pageable);
+    @ModelAttribute("statusess")
+    public List<Status> statusess() {
+        return iStatusService.findAll();
     }
+
+    @ModelAttribute
+    public List<User> users() {
+        return iUserService.findAll();
+    }
+
 
     @GetMapping("/home")
     public ModelAndView home(@PageableDefault(size = 2, direction = Sort.Direction.ASC)

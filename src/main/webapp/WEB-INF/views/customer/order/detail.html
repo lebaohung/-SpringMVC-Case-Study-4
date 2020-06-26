@@ -17,16 +17,16 @@
         <div class="container ">
             <div class="row">
                 <li class=" col-md-3 nav-item pr-5 " role="presentation">
-                    <a class="nav-link bg-light text-dark active" id="pills-home-tab" th:href="@{/create-order/__${order.customerId}__}" role="tab" aria-controls="pills-home" aria-selected="true">Tao don hang moi</a>
+                    <a class="nav-link bg-light text-dark active" id="pills-home-tab" th:href="@{/create-order/__${order.customerId}__}" role="tab" aria-controls="pills-home" aria-selected="true">Tạo đơn hàng mới</a>
                 </li>
                 <li class="col-md-3 nav-item pr-5" role="presentation">
-                    <a class="nav-link bg-light text-dark" id="pills-profile-tab" th:href="@{/orders/__${order.customerId}__}" role="tab" aria-controls="pills-profile" aria-selected="false">Quan ly don hang</a>
+                    <a class="nav-link bg-light text-dark" id="pills-profile-tab" th:href="@{/orders/__${order.customerId}__}" role="tab" aria-controls="pills-profile" aria-selected="false">Quản lý đơn hàng</a>
                 </li>
                 <li class="col-md-3 nav-item pr-5" role="presentation">
-                    <a class="nav-link bg-light text-dark" id="pills-contact-tab"  th:href="@{/info/__${order.customerId}__}" role="tab" aria-controls="pills-contact" aria-selected="false">Thong tin shop</a>
+                    <a class="nav-link bg-light text-dark" id="pills-contact-tab"  th:href="@{/info/__${order.customerId}__}" role="tab" aria-controls="pills-contact" aria-selected="false">Thông tin shop</a>
                 </li>
                 <li class="col-md-3 nav-item pr-5 " role="presentation">
-                    <a class="nav-link bg-danger text-light" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Thoat</a>
+                    <a class="nav-link bg-danger text-light" data-toggle="pill" href="/logout" role="tab" aria-controls="pills-contact" aria-selected="false">Thoát</a>
                 </li>
             </div>
         </div>

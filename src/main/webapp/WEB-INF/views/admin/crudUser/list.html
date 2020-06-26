@@ -140,10 +140,10 @@
                                 <span class="mini-sub-pro" th:text="#{admin.sidebar.billAll}"></span></a></li>
                             <!--                            <li><a title="Add Courses" th:href="@{/admin/order/create}">-->
                             <!--                                <span class="mini-sub-pro" th:text="#{admin.sidebar.billAdd}"></span></a></li>-->
-<!--                            <li><a title="Edit Courses" th:href="@{/admin/order/edit}">-->
-<!--                                <span class="mini-sub-pro" th:text="#{admin.sidebar.billEdit}"></span></a></li>-->
-<!--                            <li><a title="Courses Profile" th:href="@{/admin/order/view}">-->
-<!--                                <span class="mini-sub-pro" th:text="#{admin.sidebar.billView}"></span></a></li>-->
+                            <!--                            <li><a title="Edit Courses" th:href="@{/admin/order/edit}">-->
+                            <!--                                <span class="mini-sub-pro" th:text="#{admin.sidebar.billEdit}"></span></a></li>-->
+                            <!--                            <li><a title="Courses Profile" th:href="@{/admin/order/view}">-->
+                            <!--                                <span class="mini-sub-pro" th:text="#{admin.sidebar.billView}"></span></a></li>-->
                         </ul>
                     </li>
                 </ul>
@@ -728,9 +728,9 @@
                                             <li><a th:href="@{/admin/order/edit}"
                                                    th:text="#{admin.sidebar.billEdit}"></a>
                                             </li>
-<!--                                            <li><a th:href="@{/admin/order/view}"-->
-<!--                                                   th:text="#{admin.sidebar.billView}"></a>-->
-<!--                                            </li>-->
+                                            <!--                                            <li><a th:href="@{/admin/order/view}"-->
+                                            <!--                                                   th:text="#{admin.sidebar.billView}"></a>-->
+                                            <!--                                            </li>-->
                                         </ul>
                                     </li>
 
@@ -794,6 +794,8 @@
                                     <th th:text="#{admin.avatar}"></th>
                                     <th th:text="#{admin.account}"></th>
                                     <th th:text="#{admin.names}"></th>
+                                    <th> </th>
+                                    <th> </th>
                                     <th style="text-align: center"
                                         th:text="#{admin.profile.setting}">
                                     </th>
@@ -811,7 +813,7 @@
                                             <label class="ps-setting" th:text="#{admin.temperary}"></label>
                                         </label>
                                     </td>
-                                    <td >
+                                    <td>
                                         <img th:src="@{/img/{image}(image=${admin.getAvatar()})}"
                                              width="70px"
                                              height="70px"
@@ -819,6 +821,8 @@
                                     </td>
                                     <td th:text="${admin.account.getEmail()}"></td>
                                     <td th:text="${admin.getName()}"></td>
+                                    <td> </td>
+                                    <td> </td>
 
                                     <td>
                                         <button th:onclick="'window.location.href=\'/admin/user/edit/'+ ${admin.getId()}+'\''">

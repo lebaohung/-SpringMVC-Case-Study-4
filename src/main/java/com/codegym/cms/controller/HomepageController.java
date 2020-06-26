@@ -51,7 +51,6 @@ public class HomepageController {
             customer.setCustomerStatus(true);
             customer.setRole(new AppRole());
             customer.getRole().setId((long) 2);
-
             customerService.save(customer);
         } catch (Exception e) {
             ModelAndView modelAndView = new ModelAndView("/login/signUp");

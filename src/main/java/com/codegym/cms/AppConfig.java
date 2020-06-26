@@ -156,16 +156,6 @@
 
 package com.codegym.cms;
 
-//import com.codegym.cms.aspect.MyLogger;
-//import com.codegym.cms.formatter.CustomerTypeFormatter;
-//import com.codegym.cms.service.AppUserService;
-//import com.codegym.cms.service.CustomerService;
-//import com.codegym.cms.service.ProvinceService;
-//import com.codegym.cms.service.impl.AppUserServiceImpl;
-////import com.codegym.cms.service.CustomerService;
-////import com.codegym.cms.service.CustomerServiceImpl;
-//import com.codegym.cms.service.impl.CustomerServiceImpl;
-//import com.codegym.cms.service.impl.ProvinceServiceImpl;
 import com.codegym.cms.service.OrderStatus.IOrderStatusService;
 import com.codegym.cms.service.OrderStatus.OrderStatusService;
 import com.codegym.cms.service.appuser.AppUserService;
@@ -186,6 +176,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -214,7 +205,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 @ComponentScan("com.codegym.cms")
 @EnableJpaRepositories("com.codegym.cms.repository")
-//@EnableSpringDataWebSupport
+@EnableSpringDataWebSupport
 @EnableAspectJAutoProxy
 public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 

@@ -162,19 +162,19 @@
                                 <!-- Blog -->
                                 <li class="dropdown">
                                     <a th:if="${greeting}" th:href="@{/info/{id}(id=${curCustomer.getCustomerId()})}">
-                                        Your Account <span class="fa fa-angle-down"></span></a>
+                                        Your Account </a>
                                     <a th:unless="${greeting}" th:href="@{/loginForm}">
-                                        Your Account <span class="fa fa-angle-down"></span></a>
+                                        Your Account </a>
 
                                     <!-- submenu-wrapper -->
-                                    <div class="submenu-wrapper">
-                                        <div class="submenu-inner">
-                                            <ul class="dropdown-menu">
-                                                <li><a href="/info/">Your Informations</a></li>
-                                                <li><a href="/order-detail/">Your Orders</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+<!--                                    <div class="submenu-wrapper">-->
+<!--                                        <div class="submenu-inner">-->
+<!--                                            <ul class="dropdown-menu">-->
+<!--                                                <li><a href="/info/">Your Informations</a></li>-->
+<!--                                                <li><a href="/order-detail/">Your Orders</a></li>-->
+<!--                                            </ul>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
                                     <!-- /submenu-wrapper -->
                                 </li>
                                 <li><a href="homepage/contact.html">Price List</a></li>

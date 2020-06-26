@@ -5,7 +5,9 @@ import com.codegym.cms.model.OrderStatus;
 import com.codegym.cms.model.Order;
 import com.codegym.cms.model.Province;
 import com.codegym.cms.service.OrderStatus.IOrderStatusService;
+import com.codegym.cms.service.appuser.AppUserService;
 import com.codegym.cms.service.order.IOrderService;
+import com.codegym.cms.service.order.OrderService;
 import com.codegym.cms.service.province.IProvinceService;
 import com.codegym.cms.service.customer.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +22,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class CustomerController {
+
+    @Autowired
+    private AppUserService userService;
 
     @Autowired
     private ICustomerService customerService;
@@ -146,5 +152,13 @@ public class CustomerController {
         }
         modelAndView.addObject("message", "Create new order successfully");
         return modelAndView;
+    }
+
+    @GetMapping("/orders")
+    public String listOrders() {
+        System.out.println(userService.getCurrentUser().getCustomerId());
+//        List<Order> list = (List<Order>) orderService.findAllByUser(userService.getCurrentUser().getCustomerId());
+//        System.out.println(list.size());
+        return "user/order/list";
     }
 }

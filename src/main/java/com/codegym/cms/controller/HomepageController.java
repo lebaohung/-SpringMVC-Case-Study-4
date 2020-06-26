@@ -6,6 +6,7 @@ import com.codegym.cms.model.Customer;
 import com.codegym.cms.model.Province;
 //import com.codegym.cms.service.CustomerService;
 //import com.codegym.cms.service.ProvinceService;
+import com.codegym.cms.service.appuser.AppUserService;
 import com.codegym.cms.service.customer.CustomerService;
 import com.codegym.cms.service.province.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomepageController {
+    @Autowired
+    private AppUserService userService;
 
     @Autowired
     private ProvinceService provinceService;
 
     @Autowired
     private CustomerService customerService;
+
 
     @ModelAttribute("provinces")
     public Iterable<Province> provinces() {

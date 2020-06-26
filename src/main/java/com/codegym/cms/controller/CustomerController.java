@@ -46,6 +46,9 @@ public class CustomerController {
         return orderStatusService.findAll();
     }
 
+
+
+
     @GetMapping("/info/{id}")
     public ModelAndView showCustomerInfo(@PathVariable Long id) {
         Customer customer = customerService.findbyId(id);

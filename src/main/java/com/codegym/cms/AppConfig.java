@@ -166,11 +166,17 @@ package com.codegym.cms;
 ////import com.codegym.cms.service.CustomerServiceImpl;
 //import com.codegym.cms.service.impl.CustomerServiceImpl;
 //import com.codegym.cms.service.impl.ProvinceServiceImpl;
+import com.codegym.cms.service.OrderStatus.IOrderStatusService;
+import com.codegym.cms.service.OrderStatus.OrderStatusService;
 import com.codegym.cms.service.appuser.AppUserService;
 import com.codegym.cms.service.appuser.AppUserServiceImpl;
 import com.codegym.cms.service.customer.CustomerService;
+import com.codegym.cms.service.customer.ICustomerService;
+import com.codegym.cms.service.order.IOrderService;
+import com.codegym.cms.service.order.OrderService;
 import com.codegym.cms.service.province.ProvinceService;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.MessageSource;
@@ -285,25 +291,6 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
         return properties;
     }
 
-//    @Bean
-//    public CustomerService customerService() {
-//        return new CustomerServiceImpl();
-//    }
-//
-//    @Bean
-//    public CustomerTypeFormatter customerTypeFormatter() {
-//        return new CustomerTypeFormatter(customerService());
-//    }
-//
-//    @Override
-//    public void addFormatters(FormatterRegistry registry) {
-//        registry.addFormatter(customerTypeFormatter());
-//    }
-//
-//    @Bean
-//    public MyLogger myLogger() {
-//        return new MyLogger();
-//    }
 
     @Bean
     public MessageSource messageSource() {
@@ -366,5 +353,16 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     public CustomerService customerService() {
         return new CustomerService();
     }
+
+    @Bean
+    public IOrderService orderService() {
+        return new OrderService();
+    }
+
+    @Bean
+    public IOrderStatusService orderStatusService() {
+        return new OrderStatusService();
+    }
+
 
 }

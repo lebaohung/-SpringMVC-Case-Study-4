@@ -12,7 +12,10 @@ public class Customer {
     private String Phone;
     private boolean customerStatus;
     private String name;
+
+    @Column(unique = true)
     private String email;
+
     private String password;
     private int provinceId;
     private String detailAddress;

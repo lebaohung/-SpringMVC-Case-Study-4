@@ -1,12 +1,17 @@
 package com.codegym.cms.service.customer;
 
 import com.codegym.cms.model.Customer;
+import com.codegym.cms.repository.AppUserRepository;
 import com.codegym.cms.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.nio.file.FileAlreadyExistsException;
+
 public class CustomerService implements ICustomerService {
+    @Autowired
+    AppUserRepository appUserRepository;
 
     @Autowired
     private CustomerRepository customerRepository;
@@ -21,9 +26,17 @@ public class CustomerService implements ICustomerService {
         return customerRepository.findOne(id);
     }
 
+
     @Override
-    public void save(Customer model) {
-        customerRepository.save(model);
+    public void save(Customer customer) throws Exception {
+        Customer newCustomer =
+                appUserRepository.findByEmail(customer.getEmail());
+
+        if (newCustomer == null)
+            customerRepository.save(customer);
+        else {
+            throw new FileAlreadyExistsException("email existed!");
+        }
     }
 
     @Override

@@ -47,8 +47,6 @@ public class CustomerController {
     }
 
 
-
-
     @GetMapping("/info/{id}")
     public ModelAndView showCustomerInfo(@PathVariable Long id) {
         Customer customer = customerService.findbyId(id);
@@ -70,7 +68,11 @@ public class CustomerController {
         customer.setCustomerId(chosenCustomer.getCustomerId());
         customer.setPassword(chosenCustomer.getPassword());
         customer.setCustomerStatus(chosenCustomer.isCustomerStatus());
-        customerService.save(customer);
+        try {
+            customerService.save(customer);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         ModelAndView modelAndView = new ModelAndView("/customer/detail");
         modelAndView.addObject("customer", customer);
         modelAndView.addObject("message", "Edit info successfully");
@@ -106,7 +108,11 @@ public class CustomerController {
         order.setCreatedDate(chosenOrder.getCreatedDate());
         order.setStatus(chosenOrder.getStatus());
         order.setOrderId(id);
-        orderService.save(order);
+        try {
+            orderService.save(order);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         ModelAndView modelAndView = new ModelAndView("/customer/order/detail");
         modelAndView.addObject("order", order);
         modelAndView.addObject("message", "Edit info successfully");
@@ -133,7 +139,11 @@ public class CustomerController {
         order.setCreatedDate(createdDate);
         String temp = order.getReceiverAddress().trim();
         order.setReceiverAddress(temp);
-        orderService.save(order);
+        try {
+            orderService.save(order);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         modelAndView.addObject("message", "Create new order successfully");
         return modelAndView;
     }

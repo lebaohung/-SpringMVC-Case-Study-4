@@ -33,7 +33,8 @@ public class AppSecConfig extends WebSecurityConfigurerAdapter {
 
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/user/**").access("hasRole('USER')")
+                .antMatchers("/user/**","/info/**","/order-detail/**","create-order/**")
+                .access("hasRole('USER')")
                 .antMatchers("/orders/**").access("hasRole('USER')")
                 .antMatchers("/admin/**").access("hasRole('ADMIN')")
 //                .antMatchers("/dba/**").access("hasRole('ADMIN') and hasRole('DBA')")
